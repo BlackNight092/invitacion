@@ -1,239 +1,1179 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="es-MX">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boda de Roberto & Ana</title>
-    
-    <meta property="og:title" content="¡Nos Casamos! Roberto & Ana">
-    <meta property="og:description" content="Te invitamos a celebrar nuestra boda el 25 de abril de 2026.">
-    <meta property="og:image" content="imagen.png">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cinzel+Decorative:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <title>Roberto & Ana | Invitación de Boda</title>
+  <meta name="description" content="Acompáñanos a celebrar nuestra boda. Sábado 25 de abril de 2026 · 8:00 pm · Salón El Tercer Piso, Los Mochis, Sin." />
 
-    <style>
-        :root {
-            --blanco: #ffffff;
-            --negro: #1a1a1a;
-            --dorado: #c5a059;
-            --texto: #333333;
-        }
+  <!-- Open Graph (WhatsApp/Facebook) -->
+  <!-- IMPORTANTE: sustituye con URLs ABSOLUTAS (https) cuando lo publiques -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Roberto & Ana | Invitación de Boda" />
+  <meta property="og:description" content="Sábado 25 de abril de 2026 · 8:00 pm · Salón El Tercer Piso, Los Mochis, Sin." />
+  <meta property="og:image" content="https://TU-DOMINIO.com/ruta/imagen.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://TU-DOMINIO.com/ruta/" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-        body, html {
-            margin: 0; padding: 0;
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--blanco);
-            color: var(--texto);
-            scroll-behavior: smooth;
-        }
+  <!-- Fonts: Allura (cursiva con A mayúscula clara) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-        /* --- SECCIÓN 1: INICIO --- */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('imagen.png');
-            background-size: cover; background-position: center;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; color: white; cursor: pointer;
-        }
+  <style>
+    :root{
+      --bg: #ffffff;
+      --ink: #1a1a1a;
+      --muted: rgba(26,26,26,.68);
 
-        .hero h1 {
-            font-family: 'Playfair Display', serif; font-size: 2.2rem; letter-spacing: 5px;
-            margin: 20px 0; border-top: 1px solid white; border-bottom: 1px solid white; padding: 15px 30px;
-        }
+      --gold: #b08a3a;
+      --gold-2: #d8b56b;
 
-        /* --- SECCIÓN 2: INVITACIÓN (MARCO CON FLORES) --- */
-        .content-wrapper { padding: 80px 20px; display: flex; flex-direction: column; align-items: center; }
+      /* Colores extra (acuarela suave) */
+      --sky: #7ea6c8;       /* azul suave */
+      --sage: #7e9a86;      /* verde salvia */
+      --blush: #d7a0a7;     /* rosa tenue */
+      --lav: #9c8cc3;       /* lavanda */
 
-        .card-frame {
-            max-width: 550px; width: 100%; padding: 60px 30px;
-            border: 2px solid var(--negro); position: relative;
-            text-align: center; box-sizing: border-box;
-            background: white;
-        }
+      --panel: rgba(255,255,255,.90);
+      --shadow: 0 18px 60px rgba(0,0,0,.22);
+      --radius: 18px;
+      --max: 1080px;
+    }
 
-        /* Decoración Floral en esquinas */
-        .flower-corner {
-            position: absolute; width: 100px; height: 100px;
-            pointer-events: none;
-        }
-        .top-left { top: -15px; left: -15px; transform: rotate(0deg); }
-        .bottom-right { bottom: -15px; right: -15px; transform: rotate(180deg); }
+    *{ box-sizing: border-box; }
+    html, body{ height:100%; }
+    body{
+      margin:0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a{ color: inherit; }
+    .wrap{ width:min(var(--max), 92vw); margin:0 auto; }
 
-        .cursive-name {
-            font-family: 'Pinyon Script', cursive; font-size: 4rem;
-            color: var(--dorado); margin: 10px 0;
-            font-weight: 400;
-        }
+    /* ---------- HERO ---------- */
+    .hero{
+      position: relative;
+      min-height: 100svh;
+      display:flex;
+      align-items: stretch;
+      justify-content: center;
+      overflow:hidden;
+      background:#000;
+    }
 
-        .titulo-formal {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 1.4rem;
-            color: var(--negro);
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-        }
+    .hero-bg{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(0deg, rgba(0,0,0,.42), rgba(0,0,0,.10)),
+        url("imagen.png");
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.02);
+    }
 
-        .dedicatoria {
-            font-style: italic; font-size: 0.95rem; line-height: 1.8;
-            margin: 25px 0; color: #555; max-width: 80%; margin-left: auto; margin-right: auto;
-        }
+    /* franja diagonal */
+    .hero-diagonal{
+      position:absolute;
+      inset:-10% -10%;
+      background: linear-gradient(90deg,
+        rgba(255,255,255,.25),
+        rgba(255,255,255,.08),
+        rgba(255,255,255,.02)
+      );
+      transform: rotate(-14deg);
+      pointer-events:none;
+    }
 
-        /* --- VESTIMENTA (FIGURAS) --- */
-        .dress-code-container {
-            margin-top: 35px; display: flex; justify-content: center; gap: 40px; align-items: flex-end;
-        }
-        .dress-item { text-align: center; font-size: 0.7rem; font-weight: bold; letter-spacing: 1px; }
-        .dress-item svg { margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto; }
+    .hero-content{
+      position: relative;
+      width: min(860px, 92vw);
+      margin: auto;
+      padding: 34px 18px 28px;
+      text-align:center;
+      z-index:2;
+    }
 
-        /* --- MAPA Y BOTONES --- */
-        .map-section { width: 100%; max-width: 550px; margin-top: 50px; text-align: center; }
-        .btn-action {
-            display: inline-block; padding: 14px 28px; border: 1px solid var(--negro);
-            color: var(--negro); text-decoration: none; font-size: 0.75rem;
-            font-weight: 600; transition: 0.3s; margin: 10px 5px;
-            letter-spacing: 1px;
-        }
-        .btn-action:hover { background: var(--negro); color: white; }
+    .hero-ornament{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:14px;
+      margin-bottom: 14px;
+      opacity:.98;
+    }
+    .hero-ornament .line{
+      width: 68px;
+      height: 1px;
+      background: rgba(255,255,255,.65);
+    }
 
-        /* --- REGALO --- */
-        .gift-box { background-color: #fafafa; width: 100%; padding: 50px 20px; text-align: center; margin-top: 50px; }
+    .names{
+      margin: 6px 0 12px;
+      font-family: "Allura", cursive;
+      font-weight: 400;
+      color: #fff;
+      text-shadow: 0 8px 28px rgba(0,0,0,.55);
+      letter-spacing: .6px;
+      line-height: .95;
+      font-size: clamp(52px, 8vw, 96px);
+    }
 
-        /* --- RSVP --- */
-        .rsvp-container { width: 100%; max-width: 500px; padding: 60px 20px; }
-        .input-group { margin-bottom: 20px; text-align: left; }
-        .input-group label { font-size: 0.7rem; font-weight: 600; color: #888; letter-spacing: 1px; }
-        input, select {
-            width: 100%; padding: 15px; border: 1px solid #ddd; font-family: 'Montserrat', sans-serif; box-sizing: border-box;
-            border-radius: 0; margin-top: 5px;
-        }
-        .btn-confirmar {
-            background-color: #25d366; color: white; border: none; padding: 20px;
-            width: 100%; font-weight: bold; cursor: pointer; font-size: 0.9rem; letter-spacing: 1px;
-        }
+    .names small{
+      display:block;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(14px, 2.4vw, 18px);
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      opacity: .95;
+      margin-top: 10px;
+    }
 
-        audio { display: none; }
-    </style>
+    .hero-card{
+      margin: 18px auto 12px;
+      width: min(640px, 92vw);
+      border: 1px solid rgba(255,255,255,.55);
+      background: rgba(255,255,255,.10);
+      backdrop-filter: blur(4px);
+      border-radius: 14px;
+      padding: 16px 14px 14px;
+      box-shadow: 0 16px 45px rgba(0,0,0,.30);
+    }
+
+    .hero-date{
+      color:#fff;
+      font-family: "Playfair Display", serif;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-size: clamp(12px, 2.5vw, 14px);
+      opacity: .98;
+    }
+
+    .countdown{
+      margin: 16px auto 6px;
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .cd{
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.55);
+      background: rgba(0,0,0,.12);
+      padding: 12px 8px;
+    }
+    .cd .num{
+      font-family: "Playfair Display", serif;
+      color:#fff;
+      font-weight: 500;
+      font-size: clamp(20px, 4.4vw, 34px);
+      letter-spacing: 1px;
+    }
+    .cd .lab{
+      margin-top: 6px;
+      color: rgba(255,255,255,.92);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .hero-footer{
+      margin-top: 14px;
+      color: rgba(255,255,255,.92);
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* ---------- SECTION BASE ---------- */
+    .section{ padding: 70px 0; }
+
+    /* ---------- FLORAL FRAME (más visible) ---------- */
+    .frame{
+      position: relative;
+      border-radius: 26px;
+      overflow:hidden;
+      box-shadow: var(--shadow);
+
+      /* Borde dorado + halo suave */
+      border: 2px solid rgba(176,138,58,.55);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(126,166,200,.18), transparent 42%),
+        radial-gradient(circle at 90% 10%, rgba(215,160,167,.14), transparent 45%),
+        radial-gradient(circle at 50% 100%, rgba(126,154,134,.14), transparent 45%),
+        rgba(255,255,255,.96);
+    }
+
+    /* “marco interior” */
+    .frame::before{
+      content:"";
+      position:absolute;
+      inset: 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(176,138,58,.45);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.92));
+      pointer-events:none;
+    }
+
+    .frame-inner{
+      position: relative;
+      padding: 58px 22px 40px; /* más padding para que se note el marco */
+    }
+
+    /* Esquinas florales (SVG grandes y color) */
+    .corner{
+      position:absolute;
+      width: 230px;
+      height: 230px;
+      opacity: 1;
+      pointer-events:none;
+      z-index: 3;
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,.10));
+    }
+    .corner.tl{ top:-26px; left:-26px; }
+    .corner.tr{ top:-26px; right:-26px; transform: scaleX(-1); }
+    .corner.bl{ bottom:-26px; left:-26px; transform: scaleY(-1); }
+    .corner.br{ bottom:-26px; right:-26px; transform: scale(-1); }
+
+    /* Guirnaldas laterales para que “sí se vea” el marco floral */
+    .garland{
+      position:absolute;
+      top: 40px;
+      bottom: 40px;
+      width: 86px;
+      opacity: .95;
+      pointer-events:none;
+      z-index: 2;
+    }
+    .garland.left{ left: 6px; }
+    .garland.right{ right: 6px; transform: scaleX(-1); }
+
+    .title{
+      text-align:center;
+      margin: 0 0 10px;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(22px, 3.6vw, 34px);
+      letter-spacing: 1.2px;
+      color: var(--ink);
+    }
+
+    .subtitle{
+      text-align:center;
+      margin: 0 auto 24px;
+      max-width: 68ch;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .divider{
+      width: min(560px, 86vw);
+      height: 1px;
+      margin: 18px auto 26px;
+      background: linear-gradient(90deg, transparent, rgba(176,138,58,.60), transparent);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      align-items: start;
+    }
+    @media (max-width: 920px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      border-radius: 18px;
+      border: 1px solid rgba(176,138,58,.28);
+      background: rgba(255,255,255,.94);
+      padding: 18px 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    }
+
+    .label{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(176,138,58,.35);
+      background: rgba(176,138,58,.10);
+      color: rgba(26,26,26,.86);
+      font-size: 12px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+    }
+
+    .info{ margin-top: 12px; display:grid; gap: 12px; }
+
+    .info-row{ display:flex; gap: 12px; align-items:flex-start; }
+
+    .icon{
+      width: 38px;
+      height: 38px;
+      flex: 0 0 38px;
+      border-radius: 12px;
+      border: 1px solid rgba(176,138,58,.30);
+      background: linear-gradient(180deg, rgba(176,138,58,.14), rgba(126,166,200,.10));
+      display:grid;
+      place-items:center;
+    }
+    .icon svg{ width: 20px; height: 20px; fill: none; stroke: var(--gold); stroke-width: 1.8; }
+
+    .info-row h4{
+      margin: 0 0 3px;
+      font-family: "Playfair Display", serif;
+      font-weight: 600;
+      letter-spacing: .4px;
+      font-size: 16px;
+    }
+    .info-row p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .cash-envelope{
+      margin-top: 12px;
+      border-radius: 16px;
+      border: 1px dashed rgba(176,138,58,.60);
+      background:
+        radial-gradient(circle at 20% 10%, rgba(215,160,167,.14), transparent 45%),
+        radial-gradient(circle at 90% 20%, rgba(126,166,200,.14), transparent 45%),
+        rgba(176,138,58,.06);
+      padding: 14px 14px;
+    }
+    .cash-envelope .top{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .cash-envelope .top strong{
+      font-family: "Playfair Display", serif;
+      letter-spacing: .6px;
+    }
+    .cash-envelope .note{
+      color: rgba(26,26,26,.78);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .dresscode{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+      justify-content: flex-start;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+    .badge{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(176,138,58,.35);
+      background: rgba(255,255,255,.95);
+      font-size: 13px;
+    }
+    .badge svg{ width:18px; height:18px; stroke: var(--gold); fill:none; stroke-width: 1.8; }
+
+    .btns{ display:flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+
+    .btn{
+      appearance:none;
+      border: 1px solid rgba(176,138,58,.55);
+      background: linear-gradient(180deg, rgba(176,138,58,.18), rgba(126,166,200,.10));
+      color: rgba(26,26,26,.92);
+      border-radius: 14px;
+      padding: 12px 14px;
+      cursor: pointer;
+      font-weight: 600;
+      letter-spacing: .4px;
+      font-size: 13px;
+      transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+    }
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 12px 26px rgba(0,0,0,.10); }
+    .btn:active{ transform: translateY(0px); }
+
+    .btn svg{ width:18px; height:18px; stroke: var(--gold); fill:none; stroke-width: 1.8; }
+
+    /* Map card */
+    .map-wrap{
+      position:relative;
+      overflow:hidden;
+      border-radius: 16px;
+      border: 1px solid rgba(176,138,58,.35);
+      background: #fff;
+      min-height: 340px;
+    }
+    .map-wrap iframe{
+      width:100%;
+      height: 340px;
+      border:0;
+      display:block;
+    }
+    .map-pin{
+      position:absolute;
+      left:50%;
+      top:50%;
+      transform: translate(-50%, -100%);
+      width: 44px;
+      height: 44px;
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,.22));
+      pointer-events:none;
+    }
+    .map-pin svg{ width:100%; height:100%; fill: var(--gold); }
+
+    /* ---------- RSVP (outside frame) ---------- */
+    .rsvp{ padding: 30px 0 80px; }
+
+    .rsvp-panel{
+      width: min(860px, 92vw);
+      margin: 0 auto;
+      border-radius: 22px;
+      border: 1px solid rgba(176,138,58,.30);
+      background:
+        radial-gradient(circle at 12% 0%, rgba(126,166,200,.18), transparent 42%),
+        radial-gradient(circle at 88% 10%, rgba(215,160,167,.14), transparent 45%),
+        rgba(255,255,255,.96);
+      box-shadow: 0 20px 70px rgba(0,0,0,.10);
+      padding: 22px 18px;
+    }
+
+    form{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 14px;
+    }
+    @media (max-width: 820px){
+      form{ grid-template-columns: 1fr; }
+      .countdown{ grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .field{ display:flex; flex-direction: column; gap: 6px; }
+    label{
+      font-size: 12px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: rgba(26,26,26,.72);
+    }
+    input, select, textarea{
+      border-radius: 14px;
+      border: 1px solid rgba(176,138,58,.28);
+      padding: 12px 12px;
+      font-family: inherit;
+      outline: none;
+      background: #fff;
+      font-size: 14px;
+    }
+    textarea{ min-height: 110px; resize: vertical; grid-column: 1 / -1; }
+
+    .radio-row{
+      grid-column: 1 / -1;
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items:center;
+      padding: 10px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(176,138,58,.28);
+      background: rgba(176,138,58,.06);
+    }
+    .radio-row span{
+      font-size: 12px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: rgba(26,26,26,.72);
+      margin-right: 6px;
+    }
+    .radio{
+      display:flex;
+      gap: 8px;
+      align-items:center;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(176,138,58,.25);
+    }
+    .radio input{ width: 16px; height: 16px; }
+
+    .submit{
+      grid-column: 1 / -1;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .btn-primary{
+      background: linear-gradient(180deg, rgba(176,138,58,.34), rgba(215,160,167,.12));
+      border: 1px solid rgba(176,138,58,.65);
+    }
+
+    .footnote{
+      margin-top: 10px;
+      color: rgba(26,26,26,.60);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    /* ---------- AUDIO OVERLAY ---------- */
+    .audio-overlay{
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.60);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      z-index: 50;
+    }
+    .audio-modal{
+      width: min(520px, 92vw);
+      border-radius: 22px;
+      background: rgba(255,255,255,.95);
+      border: 1px solid rgba(176,138,58,.35);
+      box-shadow: 0 28px 90px rgba(0,0,0,.35);
+      padding: 18px 16px;
+      text-align: center;
+    }
+    .audio-modal h3{
+      margin: 0 0 8px;
+      font-family: "Playfair Display", serif;
+      letter-spacing: .6px;
+    }
+    .audio-modal p{
+      margin: 0 0 14px;
+      color: rgba(26,26,26,.72);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+  </style>
 </head>
+
 <body>
+  <!-- HERO -->
+  <header class="hero" id="inicio" aria-label="Portada">
+    <div class="hero-bg" role="img" aria-label="Foto de portada"></div>
+    <div class="hero-diagonal" aria-hidden="true"></div>
 
-    <audio id="audio" loop><source src="videoplayback.mp3" type="audio/mpeg"></audio>
+    <div class="hero-content">
+      <div class="hero-ornament" aria-hidden="true">
+        <div class="line"></div>
+        <svg width="46" height="18" viewBox="0 0 46 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22.9 16.2c3.4-4.7 8.2-7.2 13.6-7.7-2.2 4.2-6 7.2-11 8.6" stroke="rgba(255,255,255,.78)" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M23.1 16.2c-3.4-4.7-8.2-7.2-13.6-7.7 2.2 4.2 6 7.2 11 8.6" stroke="rgba(255,255,255,.78)" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M23 2.2v14" stroke="rgba(255,255,255,.65)" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+        <div class="line"></div>
+      </div>
 
-    <section class="hero" onclick="document.getElementById('audio').play()">
-        <p>NUESTRA BODA</p>
-        <h1>ROBERTO & ANA</h1>
-        <p>25 . 04 . 2026</p>
-        <small style="margin-top: 20px; opacity: 0.8;">(Toca para activar música 🎵)</small>
-    </section>
+      <div class="names">
+        Roberto &amp; Ana
+        <small>NUESTRA BODA</small>
+      </div>
 
-    <div class="content-wrapper">
-        <div class="card-frame">
-            <svg class="flower-corner top-left" viewBox="0 0 100 100">
-                <path d="M0,0 Q30,0 40,30 T70,40 M0,0 Q0,30 30,40 T40,70" stroke="#1a1a1a" fill="none" stroke-width="1.5"/>
-                <circle cx="15" cy="15" r="3" fill="#c5a059"/>
-                <path d="M5,25 Q15,25 20,15 T35,5" stroke="#c5a059" fill="none" stroke-width="1"/>
-                <path d="M25,5 Q25,15 15,20 T5,35" stroke="#c5a059" fill="none" stroke-width="1"/>
-            </svg>
+      <div class="hero-card" role="group" aria-label="Fecha y cuenta regresiva">
+        <div class="hero-date">25 · 04 · 2026 &nbsp;|&nbsp; 8:00 PM</div>
 
-            <p style="letter-spacing: 4px; font-weight: 400; font-size: 0.8rem;">ESTÁS INVITADO A</p>
-            <h2 class="titulo-formal" style="font-size: 1.1rem; margin-top: 10px;">¡NOS CASAMOS!</h2>
-            
-            <div class="cursive-name">Roberto & Ana</div>
-            
-            <p class="dedicatoria">
-                "Hay momentos en la vida que son especiales por sí solos, 
-                pero compartirlos con las personas que más queremos 
-                los hace inolvidables."
-            </p>
+        <div class="countdown" aria-live="polite">
+          <div class="cd"><div class="num" id="d">0</div><div class="lab">Días</div></div>
+          <div class="cd"><div class="num" id="h">0</div><div class="lab">Horas</div></div>
+          <div class="cd"><div class="num" id="m">0</div><div class="lab">Minutos</div></div>
+          <div class="cd"><div class="num" id="s">0</div><div class="lab">Segundos</div></div>
+        </div>
+      </div>
 
-            <p><strong>Sábado 25 de abril del 2026</strong><br>
-            Recepción: 8:00 pm</p>
+      <div class="hero-footer">Salón El Tercer Piso · Los Mochis, Sinaloa</div>
+    </div>
+  </header>
 
-            <p style="margin-top: 35px; font-size: 0.8rem; letter-spacing: 2px; font-weight: 600;">CÓDIGO DE VESTIMENTA</p>
-            <div class="dress-code-container">
-                <div class="dress-item">
-                    <svg width="50" height="70" viewBox="0 0 100 120">
-                        <path d="M20,20 L50,60 L80,20 L100,20 L100,120 L0,120 L0,20 Z" fill="black"/>
-                        <path d="M50,60 L20,20 L80,20 Z" fill="white"/>
-                        <rect x="45" y="30" width="10" height="5" fill="black"/>
+  <!-- INVITATION FRAME -->
+  <main class="section">
+    <div class="wrap">
+      <section class="frame" aria-label="Invitación">
+
+        <!-- Guirnaldas laterales (para que sí se note el “marco floral”) -->
+        <svg class="garland left" viewBox="0 0 120 520" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#b08a3a" stop-opacity=".45"/>
+              <stop offset="1" stop-color="#7ea6c8" stop-opacity=".30"/>
+            </linearGradient>
+          </defs>
+          <path d="M70 10c-18 40-18 80 0 120s18 80 0 120-18 80 0 120-18 80 0 120"
+                fill="none" stroke="url(#g1)" stroke-width="3" stroke-linecap="round" opacity=".9"/>
+          <!-- hojitas -->
+          <g fill="none" stroke="#7e9a86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".85">
+            <path d="M62 70c-18 6-28 16-30 30 18-6 28-16 30-30z"/>
+            <path d="M76 140c18 6 28 16 30 30-18-6-28-16-30-30z"/>
+            <path d="M62 230c-18 6-28 16-30 30 18-6 28-16 30-30z"/>
+            <path d="M76 300c18 6 28 16 30 30-18-6-28-16-30-30z"/>
+            <path d="M62 390c-18 6-28 16-30 30 18-6 28-16 30-30z"/>
+            <path d="M76 460c18 6 28 16 30 30-18-6-28-16-30-30z"/>
+          </g>
+          <!-- flores suaves -->
+          <g opacity=".9">
+            <circle cx="52" cy="110" r="10" fill="#d7a0a7" fill-opacity=".35"/>
+            <circle cx="82" cy="110" r="7" fill="#9c8cc3" fill-opacity=".30"/>
+            <circle cx="50" cy="270" r="9" fill="#7ea6c8" fill-opacity=".35"/>
+            <circle cx="82" cy="270" r="7" fill="#d8b56b" fill-opacity=".35"/>
+            <circle cx="52" cy="430" r="10" fill="#d7a0a7" fill-opacity=".32"/>
+            <circle cx="82" cy="430" r="7" fill="#7ea6c8" fill-opacity=".30"/>
+          </g>
+        </svg>
+
+        <svg class="garland right" viewBox="0 0 120 520" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#b08a3a" stop-opacity=".45"/>
+              <stop offset="1" stop-color="#7ea6c8" stop-opacity=".30"/>
+            </linearGradient>
+          </defs>
+          <path d="M70 10c-18 40-18 80 0 120s18 80 0 120-18 80 0 120-18 80 0 120-18 80 0 120"
+                fill="none" stroke="url(#g2)" stroke-width="3" stroke-linecap="round" opacity=".9"/>
+          <g fill="none" stroke="#7e9a86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".85">
+            <path d="M62 70c-18 6-28 16-30 30 18-6 28-16 30-30z"/>
+            <path d="M76 140c18 6 28 16 30 30-18-6-28-16-30-30z"/>
+            <path d="M62 230c-18 6-28 16-30 30 18-6 28-16 30-30z"/>
+            <path d="M76 300c18 6 28 16 30 30-18-6-28-16-30-30z"/>
+            <path d="M62 390c-18 6-28 16-30 30 18-6 28-16 30-30z"/>
+            <path d="M76 460c18 6 28 16 30 30-18-6-28-16-30-30z"/>
+          </g>
+          <g opacity=".9">
+            <circle cx="52" cy="110" r="10" fill="#d7a0a7" fill-opacity=".35"/>
+            <circle cx="82" cy="110" r="7" fill="#9c8cc3" fill-opacity=".30"/>
+            <circle cx="50" cy="270" r="9" fill="#7ea6c8" fill-opacity=".35"/>
+            <circle cx="82" cy="270" r="7" fill="#d8b56b" fill-opacity=".35"/>
+            <circle cx="52" cy="430" r="10" fill="#d7a0a7" fill-opacity=".32"/>
+            <circle cx="82" cy="430" r="7" fill="#7ea6c8" fill-opacity=".30"/>
+          </g>
+        </svg>
+
+        <!-- Esquinas florales con color -->
+        <svg class="corner tl" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g fill="none" stroke="#b08a3a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
+            <path d="M50 175c12-38 36-64 78-78"/>
+            <path d="M56 170c14-18 30-30 52-38"/>
+            <path d="M92 132c2 20-9 38-28 42 0-20 12-38 28-42z"/>
+            <path d="M124 104c-2 20 9 38 28 42 0-20-12-38-28-42z"/>
+            <path d="M76 196c8-24 22-42 50-54"/>
+            <path d="M96 198c10-12 22-20 38-22"/>
+          </g>
+          <g opacity=".9">
+            <circle cx="70" cy="185" r="12" fill="#d7a0a7" fill-opacity=".30"/>
+            <circle cx="112" cy="140" r="10" fill="#7ea6c8" fill-opacity=".30"/>
+            <circle cx="144" cy="122" r="8" fill="#9c8cc3" fill-opacity=".26"/>
+            <circle cx="92" cy="158" r="7" fill="#7e9a86" fill-opacity=".25"/>
+          </g>
+        </svg>
+
+        <svg class="corner tr" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g fill="none" stroke="#b08a3a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
+            <path d="M50 175c12-38 36-64 78-78"/>
+            <path d="M56 170c14-18 30-30 52-38"/>
+            <path d="M92 132c2 20-9 38-28 42 0-20 12-38 28-42z"/>
+            <path d="M124 104c-2 20 9 38 28 42 0-20-12-38-28-42z"/>
+            <path d="M76 196c8-24 22-42 50-54"/>
+            <path d="M96 198c10-12 22-20 38-22"/>
+          </g>
+          <g opacity=".9">
+            <circle cx="70" cy="185" r="12" fill="#d7a0a7" fill-opacity=".30"/>
+            <circle cx="112" cy="140" r="10" fill="#7ea6c8" fill-opacity=".30"/>
+            <circle cx="144" cy="122" r="8" fill="#9c8cc3" fill-opacity=".26"/>
+            <circle cx="92" cy="158" r="7" fill="#7e9a86" fill-opacity=".25"/>
+          </g>
+        </svg>
+
+        <svg class="corner bl" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g fill="none" stroke="#b08a3a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
+            <path d="M50 175c12-38 36-64 78-78"/>
+            <path d="M56 170c14-18 30-30 52-38"/>
+            <path d="M92 132c2 20-9 38-28 42 0-20 12-38 28-42z"/>
+            <path d="M124 104c-2 20 9 38 28 42 0-20-12-38-28-42z"/>
+            <path d="M76 196c8-24 22-42 50-54"/>
+            <path d="M96 198c10-12 22-20 38-22"/>
+          </g>
+          <g opacity=".9">
+            <circle cx="70" cy="185" r="12" fill="#d7a0a7" fill-opacity=".30"/>
+            <circle cx="112" cy="140" r="10" fill="#7ea6c8" fill-opacity=".30"/>
+            <circle cx="144" cy="122" r="8" fill="#9c8cc3" fill-opacity=".26"/>
+            <circle cx="92" cy="158" r="7" fill="#7e9a86" fill-opacity=".25"/>
+          </g>
+        </svg>
+
+        <svg class="corner br" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g fill="none" stroke="#b08a3a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
+            <path d="M50 175c12-38 36-64 78-78"/>
+            <path d="M56 170c14-18 30-30 52-38"/>
+            <path d="M92 132c2 20-9 38-28 42 0-20 12-38 28-42z"/>
+            <path d="M124 104c-2 20 9 38 28 42 0-20-12-38-28-42z"/>
+            <path d="M76 196c8-24 22-42 50-54"/>
+            <path d="M96 198c10-12 22-20 38-22"/>
+          </g>
+          <g opacity=".9">
+            <circle cx="70" cy="185" r="12" fill="#d7a0a7" fill-opacity=".30"/>
+            <circle cx="112" cy="140" r="10" fill="#7ea6c8" fill-opacity=".30"/>
+            <circle cx="144" cy="122" r="8" fill="#9c8cc3" fill-opacity=".26"/>
+            <circle cx="92" cy="158" r="7" fill="#7e9a86" fill-opacity=".25"/>
+          </g>
+        </svg>
+
+        <div class="frame-inner">
+          <h2 class="title">Nos Casamos</h2>
+          <p class="subtitle">
+            Con alegría en el corazón, queremos invitarte a celebrar con nosotros el inicio de una nueva etapa.
+            Tu presencia será un regalo invaluable.
+          </p>
+
+          <div class="divider"></div>
+
+          <div class="grid">
+            <!-- Left: details -->
+            <div class="card">
+              <div class="label">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="stroke:var(--gold);stroke-width:1.8;">
+                  <path d="M8 7V3m8 4V3M4 9h16M6 21h12a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2Z"/>
+                  <path d="M8 13h4m-4 4h8"/>
+                </svg>
+                Detalles del evento
+              </div>
+
+              <div class="info">
+                <div class="info-row">
+                  <div class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M8 7V3m8 4V3M4 9h16M6 21h12a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2Z"/>
+                      <path d="M8 13h4m-4 4h8"/>
                     </svg>
-                    <p>FORMAL / SMOKING</p>
+                  </div>
+                  <div>
+                    <h4>Fecha y hora</h4>
+                    <p>Sábado 25 de abril de 2026 · 8:00 pm</p>
+                  </div>
                 </div>
-                <div class="dress-item">
-                    <svg width="50" height="70" viewBox="0 0 100 120">
-                        <path d="M30,10 Q50,0 70,10 L85,40 L65,50 L75,120 L25,120 L35,50 L15,40 Z" fill="black"/>
+
+                <div class="info-row">
+                  <div class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M12 21s7-4.4 7-11a7 7 0 1 0-14 0c0 6.6 7 11 7 11Z"/>
+                      <path d="M12 10.5a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4Z"/>
                     </svg>
-                    <p>VESTIDO LARGO</p>
+                  </div>
+                  <div>
+                    <h4>Lugar</h4>
+                    <p>
+                      Salón El Tercer Piso<br/>
+                      Av A. Serdán Pte &amp; Avenida Ignacio Zaragoza, Centro, 81200 Los Mochis, Sin.
+                    </p>
+                  </div>
                 </div>
+
+                <div class="cash-envelope" aria-label="Sobre de regalo">
+                  <div class="top">
+                    <strong>Regalo</strong>
+                    <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="none" style="stroke:var(--gold);stroke-width:1.8;">
+                      <path d="M4 8h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8Z"/>
+                      <path d="m4 8 8 6 8-6"/>
+                    </svg>
+                  </div>
+                  <div class="note">
+                    Agradeceremos que el regalo sea en <strong>efectivo</strong>, presentado en sobre.
+                  </div>
+
+                  <div class="dresscode" aria-label="Etiqueta">
+                    <div class="badge">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M9 3 7 6 9 9l-3 12h12L15 9l2-3-2-3-3 4-3-4Z"/>
+                        <path d="M12 7v14"/>
+                      </svg>
+                      Etiqueta formal
+                    </div>
+                    <div class="badge" title="Smoking" aria-label="Smoking">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M7 4h10l-2 6v10H9V10L7 4Z"/>
+                        <path d="M10 10h4"/>
+                      </svg>
+                      Smoking
+                    </div>
+                    <div class="badge" title="Vestido" aria-label="Vestido">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 3c2 3 3 5 3 7l3 10H6l3-10c0-2 1-4 3-7Z"/>
+                        <path d="M9 10h6"/>
+                      </svg>
+                      Vestido
+                    </div>
+                  </div>
+                </div>
+
+                <div class="btns">
+                  <a class="btn" href="#confirmacion" aria-label="Ir a confirmación">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M20 6 9 17l-5-5"/>
+                    </svg>
+                    Confirmar asistencia
+                  </a>
+                </div>
+              </div>
             </div>
 
-            <svg class="flower-corner bottom-right" viewBox="0 0 100 100">
-                <path d="M0,0 Q30,0 40,30 T70,40 M0,0 Q0,30 30,40 T40,70" stroke="#1a1a1a" fill="none" stroke-width="1.5"/>
-                <circle cx="15" cy="15" r="3" fill="#c5a059"/>
-            </svg>
-        </div>
+            <!-- Right: map -->
+            <div class="card">
+              <div class="label">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="stroke:var(--gold);stroke-width:1.8;">
+                  <path d="M12 21s7-4.4 7-11a7 7 0 1 0-14 0c0 6.6 7 11 7 11Z"/>
+                  <path d="M12 10.5a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4Z"/>
+                </svg>
+                Ubicación
+              </div>
 
-        <div class="map-section">
-            <h3 class="titulo-formal">Lugar y Ubicación</h3>
-            <p><strong>Salón El Tercer Piso</strong><br>
-            <small>Av A. Serdán Pte & Avenida Ignacio Zaragoza, Centro</small></p>
-            
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3550.052824944933!2d-108.9959604!3d25.792576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86ba259505494191%3A0x86134b22300b90f4!2sAv%20A.%20Serd%C3%A1n%20Pte%20%26%20Av.%20Ignacio%20Zaragoza%2C%20Centro%2C%2081200%20Los%20Mochis%2C%20Sin.!5e0!3m2!1ses-419!2smx!4v1710000000000!5m2!1ses-419!2smx" 
-                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
-            </iframe>
-            
-            <a href="https://maps.app.goo.gl/3Q8Y7kXh7E8P9z9w6" target="_blank" class="btn-action">VER EN GOOGLE MAPS</a>
-            <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Boda+de+Roberto+y+Ana&dates=20260426T020000Z/20260426T060000Z&details=¡Acompáñanos!&location=Salón+El+Tercer+Piso,+Los+Mochis&sf=true&output=xml" target="_blank" class="btn-action">AGENDAR FECHA</a>
-        </div>
+              <div class="info" style="margin-top:12px;">
+                <div class="map-wrap" aria-label="Mapa">
+                  <iframe
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps?q=Sal%C3%B3n%20El%20Tercer%20Piso%2C%20Av%20A.%20Serd%C3%A1n%20Pte%20%26%20Avenida%20Ignacio%20Zaragoza%2C%20Centro%2C%2081200%20Los%20Mochis%2C%20Sin.&output=embed">
+                  </iframe>
 
-        <div class="gift-box">
-            <h3 class="titulo-formal">Lluvia de Sobres</h3>
-            <p>Tu presencia es nuestro mejor regalo. Si deseas tener un detalle con nosotros, te agradecemos que sea en <strong>efectivo</strong> el día del evento.</p>
-            <div style="font-size: 2rem; margin-top: 15px;">✉️</div>
-        </div>
-
-        <section class="rsvp-container">
-            <h2 class="titulo-formal" style="text-align: center; font-size: 1.2rem;">Confirmar Asistencia</h2>
-            <form id="rsvpForm">
-                <div id="inputsInvitados"></div>
-                <div class="input-group">
-                    <label>¿ASISTIRÁN?</label>
-                    <select id="asistencia" required>
-                        <option value="Sí, confirmamos">Sí, confirmamos asistencia</option>
-                        <option value="No podemos asistir">Lamentablemente no podemos asistir</option>
-                    </select>
+                  <div class="map-pin" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M12 22s8-5 8-12a8 8 0 1 0-16 0c0 7 8 12 8 12Z"/>
+                      <circle cx="12" cy="10" r="3" fill="#fff" opacity=".9"></circle>
+                    </svg>
+                  </div>
                 </div>
-                <button type="button" class="btn-confirmar" onclick="enviarWhatsApp()">ENVIAR POR WHATSAPP</button>
-            </form>
-        </section>
+
+                <div class="btns">
+                  <a class="btn" target="_blank" rel="noopener noreferrer"
+                     href="https://www.google.com/maps/search/?api=1&query=Sal%C3%B3n%20El%20Tercer%20Piso%2C%20Av%20A.%20Serd%C3%A1n%20Pte%20%26%20Avenida%20Ignacio%20Zaragoza%2C%20Centro%2C%2081200%20Los%20Mochis%2C%20Sin.">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 1 1 18 0Z"/>
+                      <path d="M12 10.5a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4Z"/>
+                    </svg>
+                    Abrir en Maps
+                  </a>
+
+                  <button class="btn" id="btnCalendar" type="button">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M8 7V3m8 4V3M4 9h16M6 21h12a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2Z"/>
+                      <path d="M8 13h4m-4 4h8"/>
+                    </svg>
+                    Agendar en calendario
+                  </button>
+                </div>
+
+                <p style="margin:6px 0 0;color:rgba(26,26,26,.62);font-size:12px;line-height:1.6;">
+                  Nota: el botón de calendario descarga un archivo <strong>.ics</strong>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
+  </main>
 
-    <script>
-        // Lógica de URL ?num=X
-        const urlParams = new URLSearchParams(window.location.search);
-        let pases = parseInt(urlParams.get('num')) || 1; 
+  <!-- RSVP OUTSIDE FRAME -->
+  <section class="rsvp" id="confirmacion" aria-label="Confirmación de asistencia">
+    <div class="rsvp-panel">
+      <h2 class="title" style="margin-bottom:6px;">Confirmación de asistencia</h2>
+      <p class="subtitle" style="margin-bottom:0;">
+        Confirma tu asistencia. Este enlace controla el número de invitados con <strong>?num=1</strong> o <strong>?num=2</strong>.
+      </p>
 
-        const contenedor = document.getElementById('inputsInvitados');
-        for (let i = 1; i <= pases; i++) {
-            const div = document.createElement('div');
-            div.className = 'input-group';
-            div.innerHTML = `<label>NOMBRE INVITADO ${i}</label>
-                             <input type="text" class="nombre-in" placeholder="Nombre completo" required>`;
-            contenedor.appendChild(div);
-        }
+      <form id="rsvpForm" autocomplete="on">
+        <div class="radio-row">
+          <span>¿Asistirás?</span>
+          <label class="radio">
+            <input type="radio" name="asistencia" value="Sí asistiré" checked />
+            Sí
+          </label>
+          <label class="radio">
+            <input type="radio" name="asistencia" value="No podré asistir" />
+            No
+          </label>
+        </div>
 
-        function enviarWhatsApp() {
-            const asistencia = document.getElementById('asistencia').value;
-            const inputs = document.querySelectorAll('.nombre-in');
-            let nombres = [];
-            inputs.forEach(inp => { if(inp.value.trim() !== "") nombres.push(inp.value.trim()); });
+        <!-- NOMBRES DINÁMICOS (se llenan por JS según ?num=) -->
+        <div id="namesContainer" style="grid-column:1 / -1; display:grid; grid-template-columns: 1fr 1fr; gap:12px;"></div>
 
-            if(nombres.length === 0) { alert("Ingresa los nombres."); return; }
+        <div class="field">
+          <label for="invitados">Número de invitados</label>
+          <select id="invitados" name="invitados">
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
 
-            const msg = `¡Hola! %0AConfirmamos asistencia para la boda de *Roberto y Ana*.%0A%0A*Estatus*: ${asistencia}%0A*Invitados*: ${nombres.join(', ')}%0A%0A¡Muchas gracias!`;
-            window.open(`https://api.whatsapp.com/send?phone=526682713838&text=${msg}`, '_blank');
-        }
-    </script>
+        <div class="field" style="grid-column:1 / -1;">
+          <label for="mensaje">Mensaje (opcional)</label>
+          <textarea id="mensaje" name="mensaje" placeholder="Escribe un mensaje para los novios..."></textarea>
+        </div>
+
+        <div class="submit">
+          <button class="btn btn-primary" type="submit">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 8v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8"/>
+              <path d="m3 8 9 6 9-6"/>
+            </svg>
+            Enviar confirmación por WhatsApp
+          </button>
+
+          <a class="btn" href="#inicio">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 19V5"/>
+              <path d="m5 12 7-7 7 7"/>
+            </svg>
+            Volver al inicio
+          </a>
+        </div>
+
+        <div class="footnote">
+          Si WhatsApp no abre, verifica que tu navegador permita abrir enlaces externos.
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- AUDIO -->
+  <audio id="bgAudio" src="videoplayback.mp3" preload="auto" autoplay loop playsinline></audio>
+
+  <div class="audio-overlay" id="audioOverlay" role="dialog" aria-modal="true" aria-label="Activar música">
+    <div class="audio-modal">
+      <h3>Música de fondo</h3>
+      <p>
+        Para reproducir la música, tu navegador requiere una interacción.
+        Presiona el botón para iniciar.
+      </p>
+      <button class="btn btn-primary" id="btnPlayAudio" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+        Reproducir
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // ---------------------------
+    // CONFIG
+    // ---------------------------
+    const EVENT_TITLE = "Boda de Roberto & Ana";
+    const EVENT_DATE_LOCAL = "2026-04-25T20:00:00"; // hora local del dispositivo
+    const EVENT_DURATION_MIN = 240; // 4 horas
+    const EVENT_LOCATION = "Salón El Tercer Piso, Av A. Serdán Pte & Avenida Ignacio Zaragoza, Centro, 81200 Los Mochis, Sin.";
+    const EVENT_DESC =
+      "Boda de Roberto & Ana.\n" +
+      "Etiqueta formal.\n" +
+      "Regalo en efectivo (sobre).";
+
+    const WHATSAPP_NUMBER = "526682713838"; // +52 6682713838 sin +
+
+    // ---------------------------
+    // UTIL: querystring num
+    // ---------------------------
+    function getNumFromQuery(){
+      const p = new URLSearchParams(window.location.search);
+      let n = parseInt(p.get("num") || "2", 10);
+      if (Number.isNaN(n)) n = 2;
+
+      // Normaliza: mínimo 1, máximo 4 (ajusta si quieres máximo 2)
+      n = Math.max(1, Math.min(4, n));
+      return n;
+    }
+
+    function renderNameFields(n){
+      const container = document.getElementById("namesContainer");
+      container.innerHTML = "";
+
+      // Responsivo: si es 1, solo una columna
+      container.style.gridTemplateColumns = (n === 1) ? "1fr" : "1fr 1fr";
+
+      for (let i = 1; i <= n; i++){
+        const field = document.createElement("div");
+        field.className = "field";
+        field.innerHTML = `
+          <label for="nombre_${i}">Nombre ${n === 1 ? "" : ("del invitado " + i)}</label>
+          <input id="nombre_${i}" name="nombre_${i}" type="text" placeholder="Nombre completo" required />
+        `;
+        container.appendChild(field);
+      }
+
+      // Sincroniza el selector "Número de invitados" con ?num
+      const sel = document.getElementById("invitados");
+      sel.value = String(n);
+      sel.disabled = true; // controlado por link, como pediste
+      sel.title = "Este valor está controlado por el enlace (?num=1 o ?num=2).";
+    }
+
+    // ---------------------------
+    // COUNTDOWN
+    // ---------------------------
+    const target = new Date(EVENT_DATE_LOCAL).getTime();
+    const pad2 = (n) => String(n).padStart(2, "0");
+
+    function tick(){
+      const now = Date.now();
+      let diff = Math.max(0, target - now);
+
+      const days = Math.floor(diff / (1000*60*60*24));
+      diff -= days * (1000*60*60*24);
+
+      const hours = Math.floor(diff / (1000*60*60));
+      diff -= hours * (1000*60*60);
+
+      const mins = Math.floor(diff / (1000*60));
+      diff -= mins * (1000*60);
+
+      const secs = Math.floor(diff / 1000);
+
+      document.getElementById("d").textContent = pad2(days);
+      document.getElementById("h").textContent = pad2(hours);
+      document.getElementById("m").textContent = pad2(mins);
+      document.getElementById("s").textContent = pad2(secs);
+    }
+    tick();
+    setInterval(tick, 1000);
+
+    // ---------------------------
+    // CALENDAR (.ics)
+    // ---------------------------
+    function toICSDate(dt){
+      const y = dt.getUTCFullYear();
+      const mo = pad2(dt.getUTCMonth() + 1);
+      const d = pad2(dt.getUTCDate());
+      const h = pad2(dt.getUTCHours());
+      const mi = pad2(dt.getUTCMinutes());
+      const s = pad2(dt.getUTCSeconds());
+      return `${y}${mo}${d}T${h}${mi}${s}Z`;
+    }
+
+    document.getElementById("btnCalendar").addEventListener("click", () => {
+      const startLocal = new Date(EVENT_DATE_LOCAL);
+      const endLocal = new Date(startLocal.getTime() + EVENT_DURATION_MIN * 60 * 1000);
+
+      const uid = `roberto-ana-${startLocal.getTime()}@invitacion`;
+      const dtstamp = toICSDate(new Date());
+
+      const ics =
+`BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Invitacion Roberto y Ana//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:${uid}
+DTSTAMP:${dtstamp}
+DTSTART:${toICSDate(startLocal)}
+DTEND:${toICSDate(endLocal)}
+SUMMARY:${EVENT_TITLE}
+LOCATION:${EVENT_LOCATION.replace(/\n/g, " ")}
+DESCRIPTION:${EVENT_DESC.replace(/\n/g, "\\n")}
+END:VEVENT
+END:VCALENDAR`;
+
+      const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "Boda_Roberto_y_Ana.ics";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    });
+
+    // ---------------------------
+    // RSVP -> WhatsApp (usa nombres dinámicos)
+    // ---------------------------
+    document.getElementById("rsvpForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const form = e.currentTarget;
+      const asistencia = form.elements["asistencia"].value;
+      const mensaje = form.elements["mensaje"].value.trim();
+
+      // Detecta cuántos nombres hay renderizados
+      const nameInputs = Array.from(form.querySelectorAll('input[name^="nombre_"]'));
+      const names = nameInputs.map(i => i.value.trim()).filter(Boolean);
+
+      const num = getNumFromQuery(); // el link manda el control
+      const fechaTexto = "Sábado 25 de abril de 2026, 8:00 pm";
+      const lugarTexto = EVENT_LOCATION;
+
+      const namesBlock = names.length
+        ? names.map((n, idx) => `- ${n}`).join("\n")
+        : "- (sin nombre)";
+
+      const text =
+        `Confirmación de asistencia\n` +
+        `Boda de Roberto & Ana\n\n` +
+        `Asistencia: ${asistencia}\n` +
+        `Número de invitados: ${num}\n` +
+        `Nombres:\n${namesBlock}\n` +
+        `Fecha: ${fechaTexto}\n` +
+        `Lugar: ${lugarTexto}\n` +
+        (mensaje ? `\nMensaje: ${mensaje}\n` : "");
+
+      const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+      window.open(waUrl, "_blank", "noopener,noreferrer");
+    });
+
+    // ---------------------------
+    // AUDIO AUTOPLAY (fallback)
+    // ---------------------------
+    const audio = document.getElementById("bgAudio");
+    const overlay = document.getElementById("audioOverlay");
+    const btnPlay = document.getElementById("btnPlayAudio");
+
+    async function tryAutoplay(){
+      try{
+        audio.volume = 0.85;
+        await audio.play();
+        overlay.style.display = "none";
+      } catch(err){
+        overlay.style.display = "flex";
+      }
+    }
+
+    btnPlay.addEventListener("click", async () => {
+      try{
+        await audio.play();
+        overlay.style.display = "none";
+      } catch(e){
+        // si aún falla, se queda el modal
+      }
+    });
+
+    // ---------------------------
+    // INIT
+    // ---------------------------
+    window.addEventListener("load", () => {
+      const n = getNumFromQuery();
+      renderNameFields(n);
+      tryAutoplay();
+    });
+  </script>
 </body>
 </html>
