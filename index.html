@@ -8,7 +8,7 @@
     <meta property="og:title" content="¡Nos Casamos! Roberto & Ana">
     <meta property="og:description" content="Te invitamos a celebrar nuestra boda el 25 de abril de 2026. ¡Haz clic para ver los detalles!">
     <meta property="og:image" content="imagen.png">
-    <meta property="og:url" content="https://tu-sitio-web.com">
+    <meta property="og:url" content="https://tu-boda.com">
 
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
@@ -28,10 +28,10 @@
             scroll-behavior: smooth;
         }
 
-        /* --- SECCIÓN 1: INICIO (ESTILO FOTO 1) --- */
+        /* --- SECCIÓN 1: INICIO --- */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('imagen.png');
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('imagen.png');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -40,32 +40,23 @@
             align-items: center;
             text-align: center;
             color: white;
-            position: relative;
+            cursor: pointer;
         }
 
         .hero h1 {
             font-family: 'Cinzel', serif;
             font-size: 2.5rem;
             letter-spacing: 5px;
-            margin-bottom: 10px;
+            margin: 20px 0;
             border-top: 1px solid white;
             border-bottom: 1px solid white;
-            padding: 10px 20px;
+            padding: 15px 30px;
         }
 
-        .hero p {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.2rem;
-            letter-spacing: 3px;
-        }
+        .hero p { font-size: 1.2rem; letter-spacing: 3px; margin: 5px; }
 
-        /* --- SECCIÓN 2: DETALLES (ESTILO FOTO 2 CON MARCO) --- */
-        .details-container {
-            padding: 50px 20px;
-            background-color: white;
-            display: flex;
-            justify-content: center;
-        }
+        /* --- SECCIÓN 2: CUERPO E INVITACIÓN --- */
+        .content-wrapper { padding: 60px 20px; display: flex; flex-direction: column; align-items: center; }
 
         .card-frame {
             max-width: 500px;
@@ -74,9 +65,9 @@
             border: 2px solid var(--dorado);
             position: relative;
             text-align: center;
+            box-sizing: border-box;
         }
 
-        /* Simulación de esquinas decorativas */
         .card-frame::before {
             content: "";
             position: absolute;
@@ -88,64 +79,80 @@
 
         .cursive {
             font-family: 'Great Vibes', cursive;
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: var(--dorado);
             margin: 20px 0;
         }
 
-        .info-text {
-            line-height: 1.8;
-            margin-bottom: 30px;
+        /* --- CÓDIGO VESTIMENTA --- */
+        .dress-code {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
         }
 
-        .btn-mapa {
+        .dress-icon { text-align: center; font-size: 0.8rem; }
+        .dress-icon span { font-size: 2.5rem; display: block; margin-bottom: 5px; }
+
+        /* --- MAPA Y CALENDARIO --- */
+        .map-box { width: 100%; max-width: 500px; margin-top: 40px; text-align: center; }
+        iframe { border-radius: 12px; border: 1px solid #ddd; margin-bottom: 15px; }
+
+        .btn-action {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 12px 25px;
             border: 1px solid var(--dorado);
             color: var(--dorado);
             text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: bold;
             transition: 0.3s;
-            margin-top: 10px;
+            margin: 5px;
         }
 
-        .btn-mapa:hover {
-            background: var(--dorado);
-            color: white;
-        }
+        .btn-action:hover { background: var(--dorado); color: white; }
 
-        /* --- SECCIÓN SOBRE (REGALO) Y ETIQUETA --- */
+        /* --- REGALO --- */
         .gift-section {
-            background-color: #f9f9f9;
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .icon-envelope { font-size: 2rem; margin-bottom: 10px; }
-
-        /* --- FORMULARIO --- */
-        .rsvp-section {
-            padding: 60px 20px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        input, select, textarea {
+            background-color: #fcfcfc;
             width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
+            padding: 50px 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* --- FORMULARIO RSVP --- */
+        .rsvp-section {
+            width: 100%;
+            max-width: 500px;
+            padding: 60px 20px;
+        }
+
+        .input-group { margin-bottom: 20px; text-align: left; }
+        .input-group label { font-size: 0.7rem; font-weight: bold; letter-spacing: 1px; color: var(--dorado); text-transform: uppercase; }
+        
+        input, select {
+            width: 100%;
+            padding: 15px;
+            margin-top: 8px;
+            border: 1px solid #eee;
+            border-radius: 0;
+            background: #f9f9f9;
+            font-family: inherit;
             box-sizing: border-box;
         }
 
-        .btn-confirmar {
+        .btn-whatsapp {
             background-color: #25d366;
             color: white;
             border: none;
-            padding: 15px 30px;
-            font-size: 1rem;
-            cursor: pointer;
+            padding: 20px;
             width: 100%;
             font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
         }
 
         audio { display: none; }
@@ -153,75 +160,100 @@
 </head>
 <body>
 
-    <audio id="audio" loop>
-        <source src="videoplayback.mp3" type="audio/mpeg">
-    </audio>
+    <audio id="audio" loop><source src="videoplayback.mp3" type="audio/mpeg"></audio>
 
     <section class="hero" onclick="document.getElementById('audio').play()">
         <p>NUESTRA BODA</p>
         <h1>ROBERTO & ANA</h1>
         <p>25 . 04 . 26</p>
-        <small style="margin-top: 20px; opacity: 0.8;">(Toca para activar música)</small>
+        <small style="margin-top: 20px; opacity: 0.7;">(Toca para activar música 🎵)</small>
     </section>
 
-    <section class="details-container">
+    <div class="content-wrapper">
         <div class="card-frame">
-            <p style="letter-spacing: 2px;">¡NOS CASAMOS!</p>
+            <p style="letter-spacing: 3px; font-size: 0.9rem;">NOS CASAMOS</p>
             <div class="cursive">Roberto & Ana</div>
-            <div class="info-text">
-                Hay momentos en la vida que son especiales por sí solos, pero compartirlos con las personas que más queremos los hace inolvidables. <br><br>
-                <strong>Sábado 25 de Abril de 2026</strong><br>
-                8:00 PM <br><br>
-                <strong>Lugar:</strong> Salón El Tercer Piso <br>
-                Av A. Serdán Pte & Av. Ignacio Zaragoza, Centro <br>
-                Los Mochis, Sinaloa.
-            </div>
-            <a href="https://www.google.com/maps/search/?api=1&query=Salón+El+Tercer+Piso+Los+Mochis" target="_blank" class="btn-mapa">VER UBICACIÓN</a>
+            <p><strong>Sábado 25 de Abril, 2026</strong><br>8:00 PM</p>
+            <p>Salón El Tercer Piso <br>
+            <small>Av A. Serdán Pte & Avenida Ignacio Zaragoza, Centro, Los Mochis, Sin.</small></p>
             
-            <hr style="margin: 40px 0; border: 0.5px solid #eee;">
+            <hr style="margin: 30px 0; border: 0.5px solid #f0f0f0;">
             
-            <div class="info-text">
-                <strong>Código de Vestimenta:</strong> <br>
-                Etiqueta Formal
+            <p><strong>ETIQUETA FORMAL</strong></p>
+            <div class="dress-code">
+                <div class="dress-icon"><span>🤵‍♂️</span>MONO / SMOKING</div>
+                <div class="dress-icon"><span>👗</span>VESTIDO LARGO</div>
             </div>
         </div>
-    </section>
 
-    <section class="gift-section">
-        <div class="icon-envelope">✉️</div>
-        <h3>Lluvia de Sobres</h3>
-        <p>Tu presencia es nuestro mejor regalo, pero si deseas tener un detalle con nosotros, te agradecemos que sea en <b>efectivo</b> el día del evento.</p>
-    </section>
+        <div class="map-box">
+            <h3 style="font-family: 'Cinzel'; margin-bottom: 20px;">Ubicación</h3>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3550.840616183616!2d-108.9958742!3d25.7952673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86ba28cc91e0a969%3A0xc68225e4c5b369c0!2sAv%20Aquiles%20Serd%C3%A1n%20Pte%20%26%20Av%20Ignacio%20Zaragoza%2C%20Centro%2C%2081200%20Los%20Mochis%2C%20Sin.!5e0!3m2!1ses-419!2smx!4v1700000000000" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <br>
+            <a href="https://maps.app.goo.gl/uXvG9FkPr9N5Yx9W9" target="_blank" class="btn-action">VER EN GOOGLE MAPS</a>
+            <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Boda+de+Roberto+y+Ana&dates=20260426T020000Z/20260426T060000Z&details=¡Acompáñanos!&location=Salón+El+Tercer+Piso,+Los+Mochis&sf=true&output=xml" target="_blank" class="btn-action">AGENDAR FECHA</a>
+        </div>
 
-    <section class="rsvp-section" id="confirmar">
-        <h2 style="text-align: center; font-family: 'Cinzel';">Confirmar Asistencia</h2>
-        <form id="rsvpForm">
-            <input type="text" id="nombre" placeholder="Nombre completo" required>
-            <select id="asistencia" required>
-                <option value="">¿Asistirás?</option>
-                <option value="Sí, asistiré">Sí, asistiré</option>
-                <option value="No podré asistir">No podré asistir</option>
-            </select>
-            <input type="number" id="personas" placeholder="Número de acompañantes" min="0" max="5">
-            <button type="button" class="btn-confirmar" onclick="enviarWhatsApp()">CONFIRMAR POR WHATSAPP</button>
-        </form>
-    </section>
+        <div class="gift-section">
+            <div style="font-size: 2.5rem; margin-bottom: 10px;">✉️</div>
+            <h3 style="font-family: 'Cinzel';">Lluvia de Sobres</h3>
+            <p>Tu presencia es nuestro mejor regalo. Si deseas tener un detalle con nosotros, te agradecemos que sea en <strong>efectivo</strong> a través de un sobre el día del evento.</p>
+        </div>
+
+        <section class="rsvp-section">
+            <h2 style="text-align: center; font-family: 'Cinzel'; margin-bottom: 30px;">Confirmar Asistencia</h2>
+            <form id="rsvpForm">
+                <div id="inputsInvitados">
+                    </div>
+                
+                <div class="input-group">
+                    <label>¿Asistirán?</label>
+                    <select id="asistencia" required>
+                        <option value="Sí, asistiremos">Sí, asistiremos</option>
+                        <option value="No podremos asistir">No podremos asistir</option>
+                    </select>
+                </div>
+
+                <button type="button" class="btn-whatsapp" onclick="enviarWhatsApp()">CONFIRMAR POR WHATSAPP</button>
+            </form>
+        </section>
+    </div>
 
     <script>
-        function enviarWhatsApp() {
-            const nombre = document.getElementById('nombre').value;
-            const asistencia = document.getElementById('asistencia').value;
-            const personas = document.getElementById('personas').value;
-            const telefono = "526682713838";
+        // Lógica de Invitados Dinámicos (?num=X)
+        const urlParams = new URLSearchParams(window.location.search);
+        let cantidadPermitida = parseInt(urlParams.get('num')) || 1; 
 
-            if(nombre === "" || asistencia === "") {
-                alert("Por favor completa los campos principales.");
+        const contenedor = document.getElementById('inputsInvitados');
+
+        for (let i = 1; i <= cantidadPermitida; i++) {
+            const div = document.createElement('div');
+            div.className = 'input-group';
+            div.innerHTML = `
+                <label>Nombre Invitado ${i}</label>
+                <input type="text" class="nombre-input" placeholder="Nombre completo" required>
+            `;
+            contenedor.appendChild(div);
+        }
+
+        function enviarWhatsApp() {
+            const asistencia = document.getElementById('asistencia').value;
+            const inputs = document.querySelectorAll('.nombre-input');
+            let nombresArr = [];
+
+            inputs.forEach(input => {
+                if(input.value.trim() !== "") nombresArr.push(input.value.trim());
+            });
+
+            if(nombresArr.length === 0) {
+                alert("Por favor escribe el nombre de los invitados.");
                 return;
             }
 
-            const mensaje = `¡Hola! Soy ${nombre}. %0AConfirmo mi asistencia: *${asistencia}*. %0ANúmero de personas: ${personas}. %0A¡Nos vemos en la boda de Roberto y Ana!`;
+            const textoNombres = nombresArr.join(', ');
+            const mensaje = `¡Hola! %0AQueremos confirmar nuestra asistencia para la boda de *Roberto y Ana*.%0A%0A*¿Asistirán?*: ${asistencia}%0A*Invitados*: ${textoNombres}%0A%0A¡Muchas gracias!`;
             
-            window.open(`https://api.whatsapp.com/send?phone=${telefono}&text=${mensaje}`, '_blank');
+            window.open(`https://api.whatsapp.com/send?phone=526682713838&text=${mensaje}`, '_blank');
         }
     </script>
 
