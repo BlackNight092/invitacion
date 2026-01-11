@@ -18,7 +18,7 @@
   <meta property="og:url" content="https://TU-DOMINIO.com/ruta/" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Fonts: Allura (cursiva con A mayúscula clara) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -32,16 +32,17 @@
       --gold: #b08a3a;
       --gold-2: #d8b56b;
 
-      /* Colores extra (acuarela suave) */
-      --sky: #7ea6c8;       /* azul suave */
-      --sage: #7e9a86;      /* verde salvia */
-      --blush: #d7a0a7;     /* rosa tenue */
-      --lav: #9c8cc3;       /* lavanda */
+      --sky: #7ea6c8;
+      --sage: #7e9a86;
+      --blush: #d7a0a7;
+      --lav: #9c8cc3;
 
-      --panel: rgba(255,255,255,.90);
       --shadow: 0 18px 60px rgba(0,0,0,.22);
-      --radius: 18px;
       --max: 1080px;
+
+      /* Safe padding para que decoraciones NO tapen contenido */
+      --frame-safe: 70px;     /* desktop/tablet */
+      --frame-safe-m: 54px;   /* móvil */
     }
 
     *{ box-sizing: border-box; }
@@ -53,6 +54,7 @@
       font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden; /* evita scroll horizontal por decoraciones */
     }
     a{ color: inherit; }
     .wrap{ width:min(var(--max), 92vw); margin:0 auto; }
@@ -67,7 +69,6 @@
       overflow:hidden;
       background:#000;
     }
-
     .hero-bg{
       position:absolute;
       inset:0;
@@ -78,8 +79,6 @@
       background-position: center;
       transform: scale(1.02);
     }
-
-    /* franja diagonal */
     .hero-diagonal{
       position:absolute;
       inset:-10% -10%;
@@ -91,7 +90,6 @@
       transform: rotate(-14deg);
       pointer-events:none;
     }
-
     .hero-content{
       position: relative;
       width: min(860px, 92vw);
@@ -100,7 +98,6 @@
       text-align:center;
       z-index:2;
     }
-
     .hero-ornament{
       display:flex;
       align-items:center;
@@ -114,7 +111,6 @@
       height: 1px;
       background: rgba(255,255,255,.65);
     }
-
     .names{
       margin: 6px 0 12px;
       font-family: "Allura", cursive;
@@ -125,7 +121,6 @@
       line-height: .95;
       font-size: clamp(52px, 8vw, 96px);
     }
-
     .names small{
       display:block;
       font-family: "Playfair Display", serif;
@@ -135,7 +130,6 @@
       opacity: .95;
       margin-top: 10px;
     }
-
     .hero-card{
       margin: 18px auto 12px;
       width: min(640px, 92vw);
@@ -146,7 +140,6 @@
       padding: 16px 14px 14px;
       box-shadow: 0 16px 45px rgba(0,0,0,.30);
     }
-
     .hero-date{
       color:#fff;
       font-family: "Playfair Display", serif;
@@ -155,14 +148,12 @@
       font-size: clamp(12px, 2.5vw, 14px);
       opacity: .98;
     }
-
     .countdown{
       margin: 16px auto 6px;
       display:grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 10px;
     }
-
     .cd{
       border-radius: 14px;
       border: 1px solid rgba(255,255,255,.55);
@@ -183,7 +174,6 @@
       letter-spacing: 2px;
       text-transform: uppercase;
     }
-
     .hero-footer{
       margin-top: 14px;
       color: rgba(255,255,255,.92);
@@ -195,14 +185,12 @@
     /* ---------- SECTION BASE ---------- */
     .section{ padding: 70px 0; }
 
-    /* ---------- FLORAL FRAME (más visible) ---------- */
+    /* ---------- FLORAL FRAME ---------- */
     .frame{
       position: relative;
       border-radius: 26px;
       overflow:hidden;
       box-shadow: var(--shadow);
-
-      /* Borde dorado + halo suave */
       border: 2px solid rgba(176,138,58,.55);
       background:
         radial-gradient(circle at 10% 0%, rgba(126,166,200,.18), transparent 42%),
@@ -210,48 +198,48 @@
         radial-gradient(circle at 50% 100%, rgba(126,154,134,.14), transparent 45%),
         rgba(255,255,255,.96);
     }
-
-    /* “marco interior” */
     .frame::before{
       content:"";
       position:absolute;
       inset: 16px;
       border-radius: 18px;
       border: 1px solid rgba(176,138,58,.45);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.92));
+      background: linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.92));
       pointer-events:none;
+      z-index: 0;
     }
 
+    /* Importante: el contenido va arriba */
     .frame-inner{
       position: relative;
-      padding: 58px 22px 40px; /* más padding para que se note el marco */
+      z-index: 3;
+      /* Safe padding para evitar que flores/guirnaldas tapen */
+      padding: var(--frame-safe) 22px calc(var(--frame-safe) - 16px);
     }
 
-    /* Esquinas florales (SVG grandes y color) */
+    /* Decoraciones SIEMPRE detrás del contenido */
+    .corner, .garland{
+      z-index: 1;
+      pointer-events:none;
+      opacity: .70; /* más suave para no “ensuciar” texto */
+    }
     .corner{
       position:absolute;
       width: 230px;
       height: 230px;
-      opacity: 1;
-      pointer-events:none;
-      z-index: 3;
-      filter: drop-shadow(0 10px 18px rgba(0,0,0,.10));
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,.08));
     }
     .corner.tl{ top:-26px; left:-26px; }
     .corner.tr{ top:-26px; right:-26px; transform: scaleX(-1); }
     .corner.bl{ bottom:-26px; left:-26px; transform: scaleY(-1); }
     .corner.br{ bottom:-26px; right:-26px; transform: scale(-1); }
 
-    /* Guirnaldas laterales para que “sí se vea” el marco floral */
     .garland{
       position:absolute;
       top: 40px;
       bottom: 40px;
       width: 86px;
-      opacity: .95;
-      pointer-events:none;
-      z-index: 2;
+      filter: drop-shadow(0 8px 14px rgba(0,0,0,.06));
     }
     .garland.left{ left: 6px; }
     .garland.right{ right: 6px; transform: scaleX(-1); }
@@ -264,7 +252,6 @@
       letter-spacing: 1.2px;
       color: var(--ink);
     }
-
     .subtitle{
       text-align:center;
       margin: 0 auto 24px;
@@ -273,7 +260,6 @@
       font-size: 14px;
       line-height: 1.7;
     }
-
     .divider{
       width: min(560px, 86vw);
       height: 1px;
@@ -298,7 +284,6 @@
       padding: 18px 16px;
       box-shadow: 0 10px 30px rgba(0,0,0,.08);
     }
-
     .label{
       display:inline-flex;
       align-items:center;
@@ -311,12 +296,10 @@
       font-size: 12px;
       letter-spacing: 1.6px;
       text-transform: uppercase;
+      max-width: 100%;
     }
-
     .info{ margin-top: 12px; display:grid; gap: 12px; }
-
     .info-row{ display:flex; gap: 12px; align-items:flex-start; }
-
     .icon{
       width: 38px;
       height: 38px;
@@ -328,7 +311,6 @@
       place-items:center;
     }
     .icon svg{ width: 20px; height: 20px; fill: none; stroke: var(--gold); stroke-width: 1.8; }
-
     .info-row h4{
       margin: 0 0 3px;
       font-family: "Playfair Display", serif;
@@ -341,6 +323,7 @@
       color: var(--muted);
       font-size: 14px;
       line-height: 1.6;
+      word-break: break-word;
     }
 
     .cash-envelope{
@@ -369,7 +352,6 @@
       font-size: 14px;
       line-height: 1.6;
     }
-
     .dresscode{
       display:flex;
       gap: 10px;
@@ -387,11 +369,11 @@
       border: 1px solid rgba(176,138,58,.35);
       background: rgba(255,255,255,.95);
       font-size: 13px;
+      max-width: 100%;
     }
     .badge svg{ width:18px; height:18px; stroke: var(--gold); fill:none; stroke-width: 1.8; }
 
     .btns{ display:flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
-
     .btn{
       appearance:none;
       border: 1px solid rgba(176,138,58,.55);
@@ -408,13 +390,12 @@
       display:inline-flex;
       align-items:center;
       gap: 10px;
+      max-width: 100%;
     }
     .btn:hover{ transform: translateY(-1px); box-shadow: 0 12px 26px rgba(0,0,0,.10); }
     .btn:active{ transform: translateY(0px); }
-
     .btn svg{ width:18px; height:18px; stroke: var(--gold); fill:none; stroke-width: 1.8; }
 
-    /* Map card */
     .map-wrap{
       position:relative;
       overflow:hidden;
@@ -441,7 +422,7 @@
     }
     .map-pin svg{ width:100%; height:100%; fill: var(--gold); }
 
-    /* ---------- RSVP (outside frame) ---------- */
+    /* ---------- RSVP ---------- */
     .rsvp{ padding: 30px 0 80px; }
 
     .rsvp-panel{
@@ -462,13 +443,10 @@
       grid-template-columns: 1fr 1fr;
       gap: 12px;
       margin-top: 14px;
-    }
-    @media (max-width: 820px){
-      form{ grid-template-columns: 1fr; }
-      .countdown{ grid-template-columns: repeat(2, 1fr); }
+      width: 100%;
     }
 
-    .field{ display:flex; flex-direction: column; gap: 6px; }
+    .field{ display:flex; flex-direction: column; gap: 6px; min-width: 0; }
     label{
       font-size: 12px;
       letter-spacing: 1.6px;
@@ -476,6 +454,7 @@
       color: rgba(26,26,26,.72);
     }
     input, select, textarea{
+      width: 100%;
       border-radius: 14px;
       border: 1px solid rgba(176,138,58,.28);
       padding: 12px 12px;
@@ -483,26 +462,30 @@
       outline: none;
       background: #fff;
       font-size: 14px;
+      min-width: 0;
     }
     textarea{ min-height: 110px; resize: vertical; grid-column: 1 / -1; }
 
     .radio-row{
       grid-column: 1 / -1;
       display:flex;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
       align-items:center;
       padding: 10px 12px;
       border-radius: 16px;
       border: 1px solid rgba(176,138,58,.28);
       background: rgba(176,138,58,.06);
+      justify-content: center; /* mejor centrado */
+      text-align:center;
     }
     .radio-row span{
+      flex: 1 1 100%;
       font-size: 12px;
       letter-spacing: 1.6px;
       text-transform: uppercase;
       color: rgba(26,26,26,.72);
-      margin-right: 6px;
+      margin-right: 0;
     }
     .radio{
       display:flex;
@@ -521,6 +504,7 @@
       gap: 10px;
       flex-wrap: wrap;
       margin-top: 4px;
+      justify-content: center; /* centra botones en móvil */
     }
 
     .btn-primary{
@@ -529,10 +513,12 @@
     }
 
     .footnote{
+      grid-column: 1 / -1;
       margin-top: 10px;
       color: rgba(26,26,26,.60);
       font-size: 12px;
       line-height: 1.6;
+      text-align: center;
     }
 
     /* ---------- AUDIO OVERLAY ---------- */
@@ -565,6 +551,41 @@
       color: rgba(26,26,26,.72);
       line-height: 1.6;
       font-size: 14px;
+    }
+
+    /* ---------- MOBILE TUNING ---------- */
+    @media (max-width: 820px){
+      .countdown{ grid-template-columns: repeat(2, 1fr); }
+      form{ grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 520px){
+      .section{ padding: 52px 0; }
+      .frame-inner{ padding: var(--frame-safe-m) 16px calc(var(--frame-safe-m) - 10px); }
+
+      /* reduce decoraciones para que no invadan */
+      .garland{ width: 64px; opacity: .55; }
+      .garland.left{ left: 2px; }
+      .garland.right{ right: 2px; }
+      .corner{ width: 170px; height: 170px; opacity: .55; }
+
+      .card{ padding: 16px 14px; }
+      .rsvp-panel{ padding: 18px 14px; }
+
+      /* IMPORTANTE: nombres dinámicos a 1 columna */
+      #namesContainer{
+        grid-template-columns: 1fr !important;
+      }
+
+      /* botones a ancho completo en móvil para que no se corten */
+      .btn{
+        width: 100%;
+        justify-content: center;
+      }
+
+      .btns .btn{
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -611,18 +632,17 @@
     <div class="wrap">
       <section class="frame" aria-label="Invitación">
 
-        <!-- Guirnaldas laterales (para que sí se note el “marco floral”) -->
+        <!-- Guirnaldas laterales -->
         <svg class="garland left" viewBox="0 0 120 520" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <defs>
             <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#b08a3a" stop-opacity=".45"/>
-              <stop offset="1" stop-color="#7ea6c8" stop-opacity=".30"/>
+              <stop offset="0" stop-color="#b08a3a" stop-opacity=".55"/>
+              <stop offset="1" stop-color="#7ea6c8" stop-opacity=".35"/>
             </linearGradient>
           </defs>
-          <path d="M70 10c-18 40-18 80 0 120s18 80 0 120-18 80 0 120-18 80 0 120"
-                fill="none" stroke="url(#g1)" stroke-width="3" stroke-linecap="round" opacity=".9"/>
-          <!-- hojitas -->
-          <g fill="none" stroke="#7e9a86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".85">
+          <path d="M70 10c-18 40-18 80 0 120s18 80 0 120-18 80 0 120-18 80 0 120-18 80 0 120"
+                fill="none" stroke="url(#g1)" stroke-width="3" stroke-linecap="round"/>
+          <g fill="none" stroke="#7e9a86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".9">
             <path d="M62 70c-18 6-28 16-30 30 18-6 28-16 30-30z"/>
             <path d="M76 140c18 6 28 16 30 30-18-6-28-16-30-30z"/>
             <path d="M62 230c-18 6-28 16-30 30 18-6 28-16 30-30z"/>
@@ -630,8 +650,7 @@
             <path d="M62 390c-18 6-28 16-30 30 18-6 28-16 30-30z"/>
             <path d="M76 460c18 6 28 16 30 30-18-6-28-16-30-30z"/>
           </g>
-          <!-- flores suaves -->
-          <g opacity=".9">
+          <g opacity=".95">
             <circle cx="52" cy="110" r="10" fill="#d7a0a7" fill-opacity=".35"/>
             <circle cx="82" cy="110" r="7" fill="#9c8cc3" fill-opacity=".30"/>
             <circle cx="50" cy="270" r="9" fill="#7ea6c8" fill-opacity=".35"/>
@@ -644,13 +663,13 @@
         <svg class="garland right" viewBox="0 0 120 520" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <defs>
             <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#b08a3a" stop-opacity=".45"/>
-              <stop offset="1" stop-color="#7ea6c8" stop-opacity=".30"/>
+              <stop offset="0" stop-color="#b08a3a" stop-opacity=".55"/>
+              <stop offset="1" stop-color="#7ea6c8" stop-opacity=".35"/>
             </linearGradient>
           </defs>
           <path d="M70 10c-18 40-18 80 0 120s18 80 0 120-18 80 0 120-18 80 0 120-18 80 0 120"
-                fill="none" stroke="url(#g2)" stroke-width="3" stroke-linecap="round" opacity=".9"/>
-          <g fill="none" stroke="#7e9a86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".85">
+                fill="none" stroke="url(#g2)" stroke-width="3" stroke-linecap="round"/>
+          <g fill="none" stroke="#7e9a86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".9">
             <path d="M62 70c-18 6-28 16-30 30 18-6 28-16 30-30z"/>
             <path d="M76 140c18 6 28 16 30 30-18-6-28-16-30-30z"/>
             <path d="M62 230c-18 6-28 16-30 30 18-6 28-16 30-30z"/>
@@ -658,7 +677,7 @@
             <path d="M62 390c-18 6-28 16-30 30 18-6 28-16 30-30z"/>
             <path d="M76 460c18 6 28 16 30 30-18-6-28-16-30-30z"/>
           </g>
-          <g opacity=".9">
+          <g opacity=".95">
             <circle cx="52" cy="110" r="10" fill="#d7a0a7" fill-opacity=".35"/>
             <circle cx="82" cy="110" r="7" fill="#9c8cc3" fill-opacity=".30"/>
             <circle cx="50" cy="270" r="9" fill="#7ea6c8" fill-opacity=".35"/>
@@ -668,9 +687,9 @@
           </g>
         </svg>
 
-        <!-- Esquinas florales con color -->
+        <!-- Esquinas florales -->
         <svg class="corner tl" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <g fill="none" stroke="#b08a3a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
+          <g fill="none" stroke="#b08a3a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
             <path d="M50 175c12-38 36-64 78-78"/>
             <path d="M56 170c14-18 30-30 52-38"/>
             <path d="M92 132c2 20-9 38-28 42 0-20 12-38 28-42z"/>
@@ -678,7 +697,7 @@
             <path d="M76 196c8-24 22-42 50-54"/>
             <path d="M96 198c10-12 22-20 38-22"/>
           </g>
-          <g opacity=".9">
+          <g>
             <circle cx="70" cy="185" r="12" fill="#d7a0a7" fill-opacity=".30"/>
             <circle cx="112" cy="140" r="10" fill="#7ea6c8" fill-opacity=".30"/>
             <circle cx="144" cy="122" r="8" fill="#9c8cc3" fill-opacity=".26"/>
@@ -687,7 +706,7 @@
         </svg>
 
         <svg class="corner tr" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <g fill="none" stroke="#b08a3a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
+          <g fill="none" stroke="#b08a3a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
             <path d="M50 175c12-38 36-64 78-78"/>
             <path d="M56 170c14-18 30-30 52-38"/>
             <path d="M92 132c2 20-9 38-28 42 0-20 12-38 28-42z"/>
@@ -695,7 +714,7 @@
             <path d="M76 196c8-24 22-42 50-54"/>
             <path d="M96 198c10-12 22-20 38-22"/>
           </g>
-          <g opacity=".9">
+          <g>
             <circle cx="70" cy="185" r="12" fill="#d7a0a7" fill-opacity=".30"/>
             <circle cx="112" cy="140" r="10" fill="#7ea6c8" fill-opacity=".30"/>
             <circle cx="144" cy="122" r="8" fill="#9c8cc3" fill-opacity=".26"/>
@@ -704,7 +723,7 @@
         </svg>
 
         <svg class="corner bl" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <g fill="none" stroke="#b08a3a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
+          <g fill="none" stroke="#b08a3a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
             <path d="M50 175c12-38 36-64 78-78"/>
             <path d="M56 170c14-18 30-30 52-38"/>
             <path d="M92 132c2 20-9 38-28 42 0-20 12-38 28-42z"/>
@@ -712,7 +731,7 @@
             <path d="M76 196c8-24 22-42 50-54"/>
             <path d="M96 198c10-12 22-20 38-22"/>
           </g>
-          <g opacity=".9">
+          <g>
             <circle cx="70" cy="185" r="12" fill="#d7a0a7" fill-opacity=".30"/>
             <circle cx="112" cy="140" r="10" fill="#7ea6c8" fill-opacity=".30"/>
             <circle cx="144" cy="122" r="8" fill="#9c8cc3" fill-opacity=".26"/>
@@ -721,7 +740,7 @@
         </svg>
 
         <svg class="corner br" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <g fill="none" stroke="#b08a3a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
+          <g fill="none" stroke="#b08a3a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
             <path d="M50 175c12-38 36-64 78-78"/>
             <path d="M56 170c14-18 30-30 52-38"/>
             <path d="M92 132c2 20-9 38-28 42 0-20 12-38 28-42z"/>
@@ -729,7 +748,7 @@
             <path d="M76 196c8-24 22-42 50-54"/>
             <path d="M96 198c10-12 22-20 38-22"/>
           </g>
-          <g opacity=".9">
+          <g>
             <circle cx="70" cy="185" r="12" fill="#d7a0a7" fill-opacity=".30"/>
             <circle cx="112" cy="140" r="10" fill="#7ea6c8" fill-opacity=".30"/>
             <circle cx="144" cy="122" r="8" fill="#9c8cc3" fill-opacity=".26"/>
@@ -747,7 +766,6 @@
           <div class="divider"></div>
 
           <div class="grid">
-            <!-- Left: details -->
             <div class="card">
               <div class="label">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="stroke:var(--gold);stroke-width:1.8;">
@@ -807,14 +825,14 @@
                       </svg>
                       Etiqueta formal
                     </div>
-                    <div class="badge" title="Smoking" aria-label="Smoking">
+                    <div class="badge" aria-label="Smoking">
                       <svg viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M7 4h10l-2 6v10H9V10L7 4Z"/>
                         <path d="M10 10h4"/>
                       </svg>
                       Smoking
                     </div>
-                    <div class="badge" title="Vestido" aria-label="Vestido">
+                    <div class="badge" aria-label="Vestido">
                       <svg viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M12 3c2 3 3 5 3 7l3 10H6l3-10c0-2 1-4 3-7Z"/>
                         <path d="M9 10h6"/>
@@ -825,7 +843,7 @@
                 </div>
 
                 <div class="btns">
-                  <a class="btn" href="#confirmacion" aria-label="Ir a confirmación">
+                  <a class="btn" href="#confirmacion">
                     <svg viewBox="0 0 24 24" aria-hidden="true">
                       <path d="M20 6 9 17l-5-5"/>
                     </svg>
@@ -835,7 +853,6 @@
               </div>
             </div>
 
-            <!-- Right: map -->
             <div class="card">
               <div class="label">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="stroke:var(--gold);stroke-width:1.8;">
@@ -880,7 +897,7 @@
                   </button>
                 </div>
 
-                <p style="margin:6px 0 0;color:rgba(26,26,26,.62);font-size:12px;line-height:1.6;">
+                <p style="margin:6px 0 0;color:rgba(26,26,26,.62);font-size:12px;line-height:1.6; text-align:center;">
                   Nota: el botón de calendario descarga un archivo <strong>.ics</strong>.
                 </p>
               </div>
@@ -891,7 +908,7 @@
     </div>
   </main>
 
-  <!-- RSVP OUTSIDE FRAME -->
+  <!-- RSVP -->
   <section class="rsvp" id="confirmacion" aria-label="Confirmación de asistencia">
     <div class="rsvp-panel">
       <h2 class="title" style="margin-bottom:6px;">Confirmación de asistencia</h2>
@@ -912,7 +929,6 @@
           </label>
         </div>
 
-        <!-- NOMBRES DINÁMICOS (se llenan por JS según ?num=) -->
         <div id="namesContainer" style="grid-column:1 / -1; display:grid; grid-template-columns: 1fr 1fr; gap:12px;"></div>
 
         <div class="field">
@@ -920,8 +936,6 @@
           <select id="invitados" name="invitados">
             <option value="1">1</option>
             <option value="2" selected>2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
           </select>
         </div>
 
@@ -975,38 +989,28 @@
   </div>
 
   <script>
-    // ---------------------------
-    // CONFIG
-    // ---------------------------
     const EVENT_TITLE = "Boda de Roberto & Ana";
-    const EVENT_DATE_LOCAL = "2026-04-25T20:00:00"; // hora local del dispositivo
-    const EVENT_DURATION_MIN = 240; // 4 horas
+    const EVENT_DATE_LOCAL = "2026-04-25T20:00:00";
+    const EVENT_DURATION_MIN = 240;
     const EVENT_LOCATION = "Salón El Tercer Piso, Av A. Serdán Pte & Avenida Ignacio Zaragoza, Centro, 81200 Los Mochis, Sin.";
     const EVENT_DESC =
       "Boda de Roberto & Ana.\n" +
       "Etiqueta formal.\n" +
       "Regalo en efectivo (sobre).";
 
-    const WHATSAPP_NUMBER = "526682713838"; // +52 6682713838 sin +
+    const WHATSAPP_NUMBER = "526682713838";
 
-    // ---------------------------
-    // UTIL: querystring num
-    // ---------------------------
     function getNumFromQuery(){
       const p = new URLSearchParams(window.location.search);
       let n = parseInt(p.get("num") || "2", 10);
       if (Number.isNaN(n)) n = 2;
-
-      // Normaliza: mínimo 1, máximo 4 (ajusta si quieres máximo 2)
-      n = Math.max(1, Math.min(4, n));
+      n = (n === 1) ? 1 : 2; // estricto 1 o 2 como pediste
       return n;
     }
 
     function renderNameFields(n){
       const container = document.getElementById("namesContainer");
       container.innerHTML = "";
-
-      // Responsivo: si es 1, solo una columna
       container.style.gridTemplateColumns = (n === 1) ? "1fr" : "1fr 1fr";
 
       for (let i = 1; i <= n; i++){
@@ -1019,16 +1023,12 @@
         container.appendChild(field);
       }
 
-      // Sincroniza el selector "Número de invitados" con ?num
       const sel = document.getElementById("invitados");
       sel.value = String(n);
-      sel.disabled = true; // controlado por link, como pediste
+      sel.disabled = true;
       sel.title = "Este valor está controlado por el enlace (?num=1 o ?num=2).";
     }
 
-    // ---------------------------
-    // COUNTDOWN
-    // ---------------------------
     const target = new Date(EVENT_DATE_LOCAL).getTime();
     const pad2 = (n) => String(n).padStart(2, "0");
 
@@ -1055,9 +1055,6 @@
     tick();
     setInterval(tick, 1000);
 
-    // ---------------------------
-    // CALENDAR (.ics)
-    // ---------------------------
     function toICSDate(dt){
       const y = dt.getUTCFullYear();
       const mo = pad2(dt.getUTCMonth() + 1);
@@ -1104,26 +1101,21 @@ END:VCALENDAR`;
       URL.revokeObjectURL(url);
     });
 
-    // ---------------------------
-    // RSVP -> WhatsApp (usa nombres dinámicos)
-    // ---------------------------
     document.getElementById("rsvpForm").addEventListener("submit", (e) => {
       e.preventDefault();
-
       const form = e.currentTarget;
       const asistencia = form.elements["asistencia"].value;
       const mensaje = form.elements["mensaje"].value.trim();
 
-      // Detecta cuántos nombres hay renderizados
       const nameInputs = Array.from(form.querySelectorAll('input[name^="nombre_"]'));
       const names = nameInputs.map(i => i.value.trim()).filter(Boolean);
 
-      const num = getNumFromQuery(); // el link manda el control
+      const num = getNumFromQuery();
       const fechaTexto = "Sábado 25 de abril de 2026, 8:00 pm";
       const lugarTexto = EVENT_LOCATION;
 
       const namesBlock = names.length
-        ? names.map((n, idx) => `- ${n}`).join("\n")
+        ? names.map((n) => `- ${n}`).join("\n")
         : "- (sin nombre)";
 
       const text =
@@ -1136,13 +1128,11 @@ END:VCALENDAR`;
         `Lugar: ${lugarTexto}\n` +
         (mensaje ? `\nMensaje: ${mensaje}\n` : "");
 
-      const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+      const waUrl = `https://wa.me/526682713838?text=${encodeURIComponent(text)}`;
       window.open(waUrl, "_blank", "noopener,noreferrer");
     });
 
-    // ---------------------------
-    // AUDIO AUTOPLAY (fallback)
-    // ---------------------------
+    // AUDIO fallback
     const audio = document.getElementById("bgAudio");
     const overlay = document.getElementById("audioOverlay");
     const btnPlay = document.getElementById("btnPlayAudio");
@@ -1161,17 +1151,11 @@ END:VCALENDAR`;
       try{
         await audio.play();
         overlay.style.display = "none";
-      } catch(e){
-        // si aún falla, se queda el modal
-      }
+      } catch(e){ }
     });
 
-    // ---------------------------
-    // INIT
-    // ---------------------------
     window.addEventListener("load", () => {
-      const n = getNumFromQuery();
-      renderNameFields(n);
+      renderNameFields(getNumFromQuery());
       tryAutoplay();
     });
   </script>
