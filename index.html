@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
-  <!-- Vista previa WhatsApp -->
+  <title>Invitación | Roberto & Ana</title>
+
+  <!-- Vista previa (WhatsApp / redes). IMPORTANTE: cambia og:url al publicar -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Roberto & Ana | Invitación de Boda" />
   <meta property="og:description" content="Sábado 25 de abril de 2026 · 8:00 pm · Salón El Tercer Piso · Los Mochis, Sin. RSVP por WhatsApp." />
@@ -17,11 +18,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Playlist (para otros textos si lo deseas) -->
-  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
-  <link href="https://api.fontshare.com/v2/css?f[]=playlist@400&display=swap" rel="stylesheet">
-
-  <!-- Brittany Signature (local) -->
+  <!-- Brittany Signature (local). Coloca estos archivos junto a index.html:
+       - BrittanySignature.woff2 (recomendado)
+       - BrittanySignature.ttf (opcional fallback)
+  -->
   <style>
     @font-face{
       font-family: "Brittany Signature";
@@ -44,8 +44,8 @@
       --shadow: 0 18px 55px rgba(0,0,0,.22);
       --max: 980px;
 
-      /* cuenta regresiva */
-      --bubble:#cfe3ff;         /* azul bajito */
+      /* Cuenta regresiva */
+      --bubble:#cfe3ff;        /* azul bajito */
       --bubbleText:#1f3b66;
     }
 
@@ -67,7 +67,7 @@
     .serif{font-family:"Cormorant Garamond", serif}
 
     /* =========================
-       COVER
+       COVER (foto + títulos)
        ========================= */
     .cover{
       position:relative;
@@ -88,69 +88,69 @@
       content:"";
       position:absolute; inset:0;
       background:
-        linear-gradient(to bottom, rgba(0,0,0,.06), rgba(0,0,0,.06) 40%, rgba(0,0,0,.52)),
-        radial-gradient(900px 520px at 50% 20%, rgba(199,162,74,.14), transparent 60%);
+        linear-gradient(to bottom, rgba(0,0,0,.04), rgba(0,0,0,.06) 40%, rgba(0,0,0,.52)),
+        radial-gradient(900px 520px at 50% 20%, rgba(199,162,74,.12), transparent 60%);
       z-index:-1;
     }
 
+    /* Forzamos que el texto quede abajo (evita “subidas” raras en móviles) */
     .cover-inner{
-      position:relative;
-      height:100%;
-      display:grid;
-      align-items:end;
-      padding: 8svh 0 12svh;
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0 0 12svh;
     }
 
     .cover-text{
-      text-align:center;
+      width: 100%;
+      text-align: center;
       padding: 0 12px;
+      position: relative;
+      z-index: 2;
     }
 
-    /* TEXTO BLANCO + CONTORNO NEGRO + MUCHO MÁS GRANDE */
+    /* TEXTO TOTALMENTE BLANCO + CONTORNO NEGRO + MUY GRANDE */
     .cover-kicker{
       margin:0 0 12px;
-      font-family: "Brittany Signature", "Playlist", "Allura", cursive;
-      font-size: clamp(3.6rem, 14vw, 7.2rem); /* mucho más grande */
-      line-height: .92;
+      font-family: "Brittany Signature", "Allura", cursive;
+      font-size: clamp(4.0rem, 16vw, 7.8rem); /* más grande */
+      line-height: .90;
       letter-spacing: .01em;
-
       color: #ffffff;
 
-      /* contorno negro (stroke) */
+      /* Contorno negro */
       -webkit-text-stroke: 3px rgba(0,0,0,.95);
-      text-stroke: 3px rgba(0,0,0,.95);
 
-      /* sombras para reforzar contorno en navegadores que fallen el stroke */
+      /* Refuerzo tipo “outline” por sombras */
       text-shadow:
-        2px 0 0 rgba(0,0,0,.90),
-        -2px 0 0 rgba(0,0,0,.90),
-        0 2px 0 rgba(0,0,0,.90),
-        0 -2px 0 rgba(0,0,0,.90),
-        0 12px 28px rgba(0,0,0,.45);
+        3px 0 0 rgba(0,0,0,.95),
+        -3px 0 0 rgba(0,0,0,.95),
+        0 3px 0 rgba(0,0,0,.95),
+        0 -3px 0 rgba(0,0,0,.95),
+        0 14px 30px rgba(0,0,0,.45);
     }
 
     .cover-names{
-	  margin: 10px 0 0;
-	  letter-spacing: .26em;
-	  text-transform: uppercase;
-	  font-size: clamp(1.15rem, 3.8vw, 1.45rem);
-	  line-height: 1.1;
-	}
+      margin: 8px 0 0;
+      text-transform: uppercase;
+      letter-spacing: .30em;
+      font-size: clamp(1.35rem, 4.6vw, 1.85rem); /* más grande */
+      line-height: 1.1;
+    }
+    .cover-names > span{
+      font-family:"Cormorant Garamond", serif;
+      color:#ffffff;
 
-	.cover-names > span{
-	  font-family:"Cormorant Garamond", serif;
-	  color:#fff;
-	  -webkit-text-stroke: 2px rgba(0,0,0,.95);
-	  text-stroke: 2px rgba(0,0,0,.95);
-	  text-shadow:
-		2px 0 0 rgba(0,0,0,.90),
-		-2px 0 0 rgba(0,0,0,.90),
-		0 2px 0 rgba(0,0,0,.90),
-		0 -2px 0 rgba(0,0,0,.90),
-		0 10px 22px rgba(0,0,0,.40);
-	}
-
-
+      -webkit-text-stroke: 2px rgba(0,0,0,.95);
+      text-shadow:
+        2px 0 0 rgba(0,0,0,.95),
+        -2px 0 0 rgba(0,0,0,.95),
+        0 2px 0 rgba(0,0,0,.95),
+        0 -2px 0 rgba(0,0,0,.95),
+        0 12px 24px rgba(0,0,0,.38);
+    }
 
     .scroll-hint{
       margin-top: 18px;
@@ -159,7 +159,7 @@
       opacity:.95;
     }
     .scroll-dot{
-      width: 40px; height: 40px;
+      width: 42px; height: 42px;
       border-radius: 999px;
       display:grid; place-items:center;
       border: 1px solid rgba(255,255,255,.35);
@@ -171,7 +171,7 @@
     .scroll-dot svg{fill: rgba(255,255,255,.92)}
 
     /* =========================
-       SHEET
+       SHEET blanca (contenido)
        ========================= */
     main{
       position:relative;
@@ -182,11 +182,32 @@
 
     .sheet{
       background: #fff;
-      border-radius: 32px 32px 0 0;
+      border-radius: 34px 34px 0 0;
       box-shadow: 0 -18px 55px rgba(0,0,0,.16);
-      padding-top: 24px;
+      padding-top: 18px;
       padding-bottom: 34px;
+      position: relative;
+      overflow: hidden;
     }
+
+    /* Adornos florales “blancos” (SVG embebido, no requiere archivos) */
+    .sheet::before,
+    .sheet::after{
+      content:"";
+      position:absolute;
+      width: 360px;
+      height: 360px;
+      opacity: .22;
+      pointer-events:none;
+      background-repeat:no-repeat;
+      background-size: contain;
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,.08));
+      /* Flor blanca en SVG (monocromo) */
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Cg fill='white'%3E%3Cpath d='M150 34c18 0 30 24 30 44s-12 34-30 34-30-14-30-34 12-44 30-44z'/%3E%3Cpath d='M150 188c18 0 30 24 30 44s-12 34-30 34-30-14-30-34 12-44 30-44z'/%3E%3Cpath d='M34 150c0-18 24-30 44-30s34 12 34 30-14 30-34 30-44-12-44-30z'/%3E%3Cpath d='M188 150c0-18 24-30 44-30s34 12 34 30-14 30-34 30-44-12-44-30z'/%3E%3Cpath d='M74 74c13-13 41-4 55 10s23 42 10 55-41 4-55-10S61 87 74 74z'/%3E%3Cpath d='M226 226c13-13 41-4 55 10s23 42 10 55-41 4-55-10-23-42-10-55z'/%3E%3Cpath d='M226 74c13 13 4 41-10 55s-42 23-55 10-4-41 10-55 42-23 55-10z'/%3E%3Cpath d='M74 226c13 13 4 41-10 55s-42 23-55 10-4-41 10-55 42-23 55-10z'/%3E%3Ccircle cx='150' cy='150' r='22'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .sheet::before{ top:-140px; left:-140px; transform: rotate(-18deg); }
+    .sheet::after{ bottom:-150px; right:-150px; transform: rotate(22deg); }
 
     section{padding: 22px 0}
     .center{text-align:center}
@@ -199,7 +220,7 @@
     }
     .subp{
       margin:0 auto;
-      max-width: 42ch;
+      max-width: 44ch;
       color: rgba(11,11,11,.70);
       line-height:1.6;
       font-size: 1.02rem;
@@ -209,9 +230,9 @@
     .player-inline{
       width: min(560px, 92vw);
       margin: 10px auto 0;
-      background: rgba(255,255,255,.95);
+      background: rgba(255,255,255,.97);
       border-radius: 18px;
-      box-shadow: 0 18px 40px rgba(0,0,0,.16);
+      box-shadow: 0 18px 40px rgba(0,0,0,.14);
       border: 1px solid rgba(0,0,0,.10);
       padding: 10px 12px;
       display:flex;
@@ -228,10 +249,7 @@
       cursor:pointer;
       display:grid; place-items:center;
     }
-    .pmeta{
-      flex:1 1 auto;
-      min-width: 0;
-    }
+    .pmeta{flex:1 1 auto; min-width: 0;}
     .ptime{
       display:flex;
       justify-content:space-between;
@@ -261,9 +279,7 @@
       font-size:.9rem;
     }
     .pvol input{width: 92px}
-    @media (max-width: 520px){
-      .pvol{display:none}
-    }
+    @media (max-width: 520px){ .pvol{display:none} }
 
     /* Contador burbujas */
     .bubbles{
@@ -303,16 +319,34 @@
       gap: 18px;
       margin-top: 20px;
     }
-    @media (max-width: 860px){
-      .grid{grid-template-columns: 1fr}
-    }
+    @media (max-width: 860px){ .grid{grid-template-columns: 1fr} }
+
     .card{
       background: rgba(255,255,255,.94);
       border: 1px solid rgba(199,162,74,.28);
       border-radius: 22px;
       box-shadow: var(--shadow);
       padding: 18px;
+      position: relative;
+      overflow:hidden;
     }
+
+    /* Detalle floral pequeño dentro de tarjetas (sutil) */
+    .card.flower::after{
+      content:"";
+      position:absolute;
+      right:-48px;
+      top:-48px;
+      width: 160px;
+      height: 160px;
+      opacity: .18;
+      pointer-events:none;
+      background-repeat:no-repeat;
+      background-size: contain;
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,.08));
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Cg fill='white'%3E%3Cpath d='M150 40c16 0 26 21 26 38s-10 30-26 30-26-13-26-30 10-38 26-38z'/%3E%3Cpath d='M150 192c16 0 26 21 26 38s-10 30-26 30-26-13-26-30 10-38 26-38z'/%3E%3Cpath d='M40 150c0-16 21-26 38-26s30 10 30 26-13 26-30 26-38-10-38-26z'/%3E%3Cpath d='M192 150c0-16 21-26 38-26s30 10 30 26-13 26-30 26-38-10-38-26z'/%3E%3Ccircle cx='150' cy='150' r='20'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
     .detail{
       display:flex;
       gap: 12px;
@@ -365,9 +399,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 18px;
     }
-    @media (max-width: 860px){
-      .rsvp-grid{grid-template-columns: 1fr}
-    }
+    @media (max-width: 860px){ .rsvp-grid{grid-template-columns: 1fr} }
 
     form{display:grid; gap: 12px; margin-top: 10px;}
     label{font-weight:900; font-size:.95rem}
@@ -390,9 +422,8 @@
       grid-template-columns: 1fr 1fr;
       gap: 12px;
     }
-    @media (max-width: 520px){
-      .row{grid-template-columns: 1fr}
-    }
+    @media (max-width: 520px){ .row{grid-template-columns: 1fr} }
+
     .actions{
       display:flex;
       gap:10px;
@@ -414,18 +445,19 @@
   <!-- COVER -->
   <header class="cover" role="banner">
     <div class="wrap cover-inner">
-     <div class="cover-text">
-	  <h1 class="cover-kicker">Nos casamos</h1>
-	  <p class="cover-names"><span>ROBERTO &amp; ANA</span></p>
+      <div class="cover-text">
+        <h1 class="cover-kicker">Nos casamos</h1>
+        <!-- NOTA: debe existir solo una vez en todo el documento -->
+        <p class="cover-names"><span>ROBERTO &amp; ANA</span></p>
 
-	  <div class="scroll-hint">
-		<button class="scroll-dot" id="goSheet" type="button" aria-label="Ver invitación">
-		  <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-			<path d="M12 16.5 4.5 9l1.4-1.4L12 13.7l6.1-6.1L19.5 9z"></path>
-		  </svg>
-		</button>
-	  </div>
-	 </div>
+        <div class="scroll-hint">
+          <button class="scroll-dot" id="goSheet" type="button" aria-label="Ver invitación">
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 16.5 4.5 9l1.4-1.4L12 13.7l6.1-6.1L19.5 9z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -433,9 +465,7 @@
   <main id="sheet" class="sheet">
     <div class="wrap">
       <section class="center">
-        <h2 class="names-font" style="font-size: clamp(2.2rem, 7vw, 3.0rem); margin-bottom: 4px;">
-          Estás invitado!
-        </h2>
+        <h2 style="margin-bottom:4px;">Estás invitado!</h2>
         <p class="subp">Queremos que seas parte de este momento tan especial.</p>
 
         <div class="player-inline" aria-label="Reproductor de música">
@@ -469,7 +499,7 @@
 
       <section>
         <div class="grid">
-          <article class="card">
+          <article class="card flower">
             <p class="serif" style="font-size:1.12rem; margin:0 0 12px;">
               Con alegría en el corazón, te invitamos a acompañarnos en el inicio de nuestra vida juntos.
             </p>
@@ -487,25 +517,28 @@
             </div>
           </article>
 
-          <aside class="card" aria-label="Detalles del evento">
+          <aside class="card flower" aria-label="Detalles del evento">
             <div class="detail">
               <div class="icon" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24"><path d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2zm13 6H6v12h14V8z"></path></svg>
               </div>
               <div><b>Fecha</b><small>Sábado 25 de abril de 2026</small></div>
             </div>
+
             <div class="detail">
               <div class="icon" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24"><path d="M3 11h18v10H3V11zm2-8h14v6H5V3zm2 2v2h10V5H7z"></path></svg>
               </div>
               <div><b>Hora</b><small>8:00 pm</small></div>
             </div>
+
             <div class="detail">
               <div class="icon" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 1 1 0 5.5z"></path></svg>
               </div>
               <div><b>Lugar</b><small>Salón El Tercer Piso</small></div>
             </div>
+
             <div class="detail">
               <div class="icon" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2 1 7l11 5 9-4.09V17h2V7L12 2zm-7 9.91V17l7 3 7-3v-5.09l-7 3-7-3z"></path></svg>
@@ -518,14 +551,14 @@
 
       <section id="rsvp">
         <div class="rsvp-grid">
-          <div class="card">
+          <div class="card flower">
             <h2 class="serif" style="margin:0 0 6px;">Confirmación de asistencia</h2>
             <p style="margin:0; color: rgba(11,11,11,.72); line-height:1.6;">
               Por favor confirma tu asistencia. Al enviar, se abrirá WhatsApp con el mensaje listo para mandar al número de confirmación.
             </p>
           </div>
 
-          <div class="card">
+          <div class="card flower">
             <form id="rsvpForm">
               <div>
                 <label for="nombre">Nombre completo</label>
@@ -569,17 +602,17 @@
   </main>
 
   <script>
-    // Maps
+    // ========= Maps =========
     const address = "Salón El Tercer Piso, Av A. Serdán Pte & Avenida Ignacio Zaragoza, Centro, 81200 Los Mochis, Sin.";
     const mapsUrl = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(address);
     document.getElementById("mapBtn").href = mapsUrl;
 
-    // Scroll
+    // ========= Scroll =========
     document.getElementById("goSheet").addEventListener("click", () => {
       document.getElementById("sheet").scrollIntoView({ behavior: "smooth" });
     });
 
-    // Audio
+    // ========= Audio =========
     const audio = document.getElementById("bgAudio");
     const btn = document.getElementById("audioBtn");
     const seekBar = document.getElementById("seekBar");
@@ -624,6 +657,7 @@
     }
     btn.addEventListener("click", toggle);
     vol.addEventListener("input", () => audio.volume = parseFloat(vol.value));
+
     audio.addEventListener("loadedmetadata", () => durTime.textContent = fmt(audio.duration));
     audio.addEventListener("timeupdate", () => {
       curTime.textContent = fmt(audio.currentTime);
@@ -639,7 +673,7 @@
       }
     });
 
-    // autoplay con fallback
+    // Autoplay con fallback
     playAuto();
     const firstInteract = () => {
       if(!isPlaying) playAuto();
@@ -649,8 +683,9 @@
     window.addEventListener("touchstart", firstInteract, {passive:true});
     window.addEventListener("click", firstInteract);
 
-    // Countdown
+    // ========= Countdown =========
     const target = new Date(2026, 3, 25, 20, 0, 0); // Abril=3
+
     const cdDays = document.getElementById("cdDays");
     const cdHours = document.getElementById("cdHours");
     const cdMins = document.getElementById("cdMins");
@@ -681,7 +716,7 @@
     tick();
     setInterval(tick, 1000);
 
-    // RSVP WhatsApp
+    // ========= RSVP WhatsApp =========
     const phone = "526682713838";
     const form = document.getElementById("rsvpForm");
     const preview = document.getElementById("previewMsg");
