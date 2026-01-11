@@ -1,261 +1,966 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="es-MX">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boda de Roberto & Ana</title>
-    
-    <meta property="og:title" content="¡Nos Casamos! Roberto & Ana">
-    <meta property="og:description" content="Te invitamos a celebrar nuestra boda el 25 de abril de 2026. ¡Haz clic para ver los detalles!">
-    <meta property="og:image" content="imagen.png">
-    <meta property="og:url" content="https://tu-boda.com">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#ffffff" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+  <title>Boda de Roberto & Ana | Invitación</title>
+  <meta name="description" content="Acompáñanos a celebrar nuestra boda. Sábado 25 de abril de 2026 · 8:00 pm · Salón El Tercer Piso, Los Mochis, Sin." />
 
-    <style>
-        :root {
-            --blanco: #ffffff;
-            --dorado: #c5a059;
-            --texto: #333333;
-        }
+  <!-- Open Graph (WhatsApp / Facebook / iMessage) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Roberto & Ana — Nuestra Boda" />
+  <meta property="og:description" content="Sábado 25 de abril de 2026 · 8:00 pm · Salón El Tercer Piso, Los Mochis, Sin. Confirma tu asistencia." />
+  <meta property="og:image" content="./imagen.png" />
+  <meta property="og:image:alt" content="Invitación Roberto y Ana" />
+  <!-- IMPORTANTE: cuando publiques, cambia esta URL por tu dominio real -->
+  <meta property="og:url" content="https://TU-DOMINIO.com/" />
 
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--blanco);
-            color: var(--texto);
-            scroll-behavior: smooth;
-        }
+  <!-- Twitter cards (por compatibilidad) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Roberto & Ana — Nuestra Boda" />
+  <meta name="twitter:description" content="Sábado 25 de abril de 2026 · 8:00 pm · Salón El Tercer Piso, Los Mochis, Sin." />
+  <meta name="twitter:image" content="./imagen.png" />
 
-        /* --- SECCIÓN 1: INICIO --- */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('imagen.png');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            cursor: pointer;
-        }
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-        .hero h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 2.5rem;
-            letter-spacing: 5px;
-            margin: 20px 0;
-            border-top: 1px solid white;
-            border-bottom: 1px solid white;
-            padding: 15px 30px;
-        }
+  <style>
+    :root{
+      --white:#ffffff;
+      --ink:#111111;
+      --muted:#4a4a4a;
+      --gold:#c9ad73;         /* dorado suave */
+      --gold-2:#e5d3a6;       /* dorado claro */
+      --line: rgba(201,173,115,.55);
+      --shadow: 0 20px 60px rgba(0,0,0,.18);
+      --radius: 22px;
+      --max: 980px;
+    }
 
-        .hero p { font-size: 1.2rem; letter-spacing: 3px; margin: 5px; }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--ink);
+      background: #fff;
+      font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height:1.5;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
 
-        /* --- SECCIÓN 2: CUERPO E INVITACIÓN --- */
-        .content-wrapper { padding: 60px 20px; display: flex; flex-direction: column; align-items: center; }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding: 0 18px;}
 
-        .card-frame {
-            max-width: 500px;
-            width: 100%;
-            padding: 40px;
-            border: 2px solid var(--dorado);
-            position: relative;
-            text-align: center;
-            box-sizing: border-box;
-        }
+    /* HERO estilo “foto a pantalla” con overlay diagonal */
+    .hero{
+      min-height: 92svh;
+      position: relative;
+      display:flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 26px 18px 40px;
+      overflow:hidden;
+      background: #000;
+    }
+    .hero::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        url("./imagen.png") center/cover no-repeat;
+      transform: scale(1.02);
+      filter: contrast(1.02) saturate(1.02);
+    }
+    /* overlay general */
+    .hero::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(to top, rgba(0,0,0,.62), rgba(0,0,0,.25) 45%, rgba(0,0,0,.10));
+      pointer-events:none;
+    }
+    /* overlay diagonal tipo ejemplo */
+    .diag{
+      position:absolute;
+      inset:-20% -40% -20% -40%;
+      background: rgba(255,255,255,.14);
+      transform: rotate(-18deg);
+      filter: blur(.2px);
+      pointer-events:none;
+      mix-blend-mode: soft-light;
+    }
 
-        .card-frame::before {
-            content: "";
-            position: absolute;
-            top: -10px; left: -10px;
-            width: 50px; height: 50px;
-            border-top: 5px solid var(--dorado);
-            border-left: 5px solid var(--dorado);
-        }
+    .heroCard{
+      position:relative;
+      width: min(860px, 100%);
+      margin: 0 auto;
+      z-index:2;
+      text-align:center;
+      color: #fff;
+    }
 
-        .cursive {
-            font-family: 'Great Vibes', cursive;
-            font-size: 3.5rem;
-            color: var(--dorado);
-            margin: 20px 0;
-        }
+    .heroTop{
+      display:flex;
+      flex-direction: column;
+      align-items:center;
+      gap: 10px;
+    }
 
-        /* --- CÓDIGO VESTIMENTA --- */
-        .dress-code {
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-        }
+    .kicker{
+      letter-spacing:.20em;
+      text-transform: uppercase;
+      font-size: 12px;
+      opacity:.92;
+    }
 
-        .dress-icon { text-align: center; font-size: 0.8rem; }
-        .dress-icon span { font-size: 2.5rem; display: block; margin-bottom: 5px; }
+    .names{
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(56px, 8vw, 96px);
+      line-height: .95;
+      margin: 0;
+      text-shadow: 0 8px 28px rgba(0,0,0,.45);
+    }
+    .and{
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(18px, 2.8vw, 28px);
+      font-weight: 500;
+      letter-spacing:.18em;
+      text-transform: uppercase;
+      margin-top: 4px;
+      opacity:.95;
+    }
 
-        /* --- MAPA Y CALENDARIO --- */
-        .map-box { width: 100%; max-width: 500px; margin-top: 40px; text-align: center; }
-        iframe { border-radius: 12px; border: 1px solid #ddd; margin-bottom: 15px; }
+    .heroFrame{
+      margin-top: 18px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 14px 18px;
+      border: 1px solid rgba(255,255,255,.55);
+      border-radius: 999px;
+      backdrop-filter: blur(6px);
+      background: rgba(0,0,0,.18);
+      box-shadow: 0 18px 45px rgba(0,0,0,.22);
+      gap: 10px;
+      max-width: 100%;
+    }
+    .heroFrame span{
+      font-family:"Cormorant Garamond", serif;
+      font-size: 16px;
+      letter-spacing:.08em;
+      white-space: nowrap;
+    }
 
-        .btn-action {
-            display: inline-block;
-            padding: 12px 25px;
-            border: 1px solid var(--dorado);
-            color: var(--dorado);
-            text-decoration: none;
-            font-size: 0.8rem;
-            font-weight: bold;
-            transition: 0.3s;
-            margin: 5px;
-        }
+    .countdown{
+      margin-top: 18px;
+      display:flex;
+      gap: 12px;
+      justify-content:center;
+      flex-wrap: wrap;
+    }
+    .cdItem{
+      width: 82px;
+      padding: 10px 10px 9px;
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 16px;
+      background: rgba(0,0,0,.20);
+      backdrop-filter: blur(6px);
+    }
+    .cdNum{
+      font-family:"Cormorant Garamond", serif;
+      font-size: 30px;
+      font-weight: 600;
+      line-height: 1;
+    }
+    .cdLbl{
+      margin-top: 4px;
+      font-size: 10px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      opacity: .9;
+    }
 
-        .btn-action:hover { background: var(--dorado); color: white; }
+    .heroActions{
+      margin-top: 22px;
+      display:flex;
+      gap: 10px;
+      justify-content:center;
+      flex-wrap: wrap;
+    }
+    .btn{
+      border: 1px solid rgba(255,255,255,.55);
+      color:#fff;
+      background: rgba(0,0,0,.16);
+      padding: 12px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      letter-spacing: .04em;
+      cursor:pointer;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      backdrop-filter: blur(6px);
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(0,0,0,.24); border-color: rgba(255,255,255,.75)}
+    .btn:active{transform: translateY(0px)}
+    .btnDark{
+      border-color: rgba(201,173,115,.65);
+      background: rgba(201,173,115,.18);
+    }
 
-        /* --- REGALO --- */
-        .gift-section {
-            background-color: #fcfcfc;
-            width: 100%;
-            padding: 50px 20px;
-            text-align: center;
-            margin-top: 40px;
-        }
+    /* Secciones */
+    main{
+      background: #fff;
+      padding: 28px 0 56px;
+    }
 
-        /* --- FORMULARIO RSVP --- */
-        .rsvp-section {
-            width: 100%;
-            max-width: 500px;
-            padding: 60px 20px;
-        }
+    .section{
+      margin: 18px auto;
+      max-width: var(--max);
+    }
 
-        .input-group { margin-bottom: 20px; text-align: left; }
-        .input-group label { font-size: 0.7rem; font-weight: bold; letter-spacing: 1px; color: var(--dorado); text-transform: uppercase; }
-        
-        input, select {
-            width: 100%;
-            padding: 15px;
-            margin-top: 8px;
-            border: 1px solid #eee;
-            border-radius: 0;
-            background: #f9f9f9;
-            font-family: inherit;
-            box-sizing: border-box;
-        }
+    /* Tarjeta “invitación” con marco dorado y flores */
+    .inviteCard{
+      position: relative;
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
 
-        .btn-whatsapp {
-            background-color: #25d366;
-            color: white;
-            border: none;
-            padding: 20px;
-            width: 100%;
-            font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+    .inviteInner{
+      position: relative;
+      padding: 26px 18px;
+    }
 
-        audio { display: none; }
-    </style>
+    /* Marco dorado: doble línea + esquinas */
+    .goldFrame{
+      position:absolute; inset: 14px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      pointer-events:none;
+    }
+    .goldFrame::before{
+      content:"";
+      position:absolute; inset: 8px;
+      border-radius: 14px;
+      border: 1px solid rgba(201,173,115,.28);
+    }
+
+    /* Flores SVG */
+    .floral{
+      position:absolute;
+      width: 170px;
+      height: 170px;
+      opacity: .95;
+      pointer-events:none;
+      filter: drop-shadow(0 10px 16px rgba(0,0,0,.08));
+    }
+    .floral.tl{top:-18px; left:-22px; transform: rotate(-6deg);}
+    .floral.br{bottom:-22px; right:-18px; transform: rotate(180deg);}
+
+    .h2{
+      font-family:"Cormorant Garamond", serif;
+      font-weight: 600;
+      letter-spacing:.06em;
+      text-transform: uppercase;
+      font-size: 14px;
+      color: #2a2a2a;
+      margin: 0 0 8px;
+    }
+
+    .titleScript{
+      font-family:"Great Vibes", cursive;
+      font-size: clamp(44px, 7vw, 70px);
+      line-height: 1;
+      margin: 0 0 8px;
+      color: #1a1a1a;
+    }
+
+    .lead{
+      margin: 8px auto 0;
+      max-width: 62ch;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .infoRow{
+      display:flex;
+      gap: 12px;
+      align-items:flex-start;
+      padding: 14px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(201,173,115,.22);
+      background: linear-gradient(180deg, rgba(201,173,115,.07), rgba(255,255,255,0));
+    }
+    .badge{
+      width: 42px; height: 42px;
+      border-radius: 14px;
+      display:grid; place-items:center;
+      border: 1px solid rgba(201,173,115,.35);
+      background: rgba(201,173,115,.10);
+      flex: 0 0 auto;
+    }
+    .infoText b{
+      display:block;
+      font-size: 14px;
+      letter-spacing:.02em;
+    }
+    .infoText span{
+      display:block;
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 2px;
+    }
+
+    .pillRow{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .pill{
+      border-radius: 999px;
+      border: 1px solid rgba(201,173,115,.30);
+      padding: 10px 12px;
+      font-size: 13px;
+      color: #2b2b2b;
+      background: rgba(255,255,255,.9);
+    }
+    .pill em{font-style: normal; color: #000}
+
+    .ctaRow{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+    .cta{
+      appearance:none;
+      border: 1px solid rgba(201,173,115,.45);
+      background: #fff;
+      color: #1b1b1b;
+      border-radius: 999px;
+      padding: 12px 14px;
+      cursor:pointer;
+      text-decoration:none;
+      font-size: 14px;
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+    }
+    .cta:hover{
+      transform: translateY(-1px);
+      border-color: rgba(201,173,115,.75);
+      box-shadow: 0 14px 34px rgba(201,173,115,.12);
+    }
+
+    /* Formulario */
+    .form{
+      margin-top: 18px;
+      display:grid;
+      gap: 12px;
+      max-width: 720px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+    label{
+      font-size: 13px;
+      color: #2c2c2c;
+      letter-spacing:.02em;
+    }
+    input, textarea, select{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(0,0,0,.12);
+      outline:none;
+      font: inherit;
+      background: #fff;
+    }
+    textarea{min-height: 90px; resize: vertical}
+
+    .radios{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .radioBtn{
+      display:flex; align-items:center; gap: 10px;
+      border: 1px solid rgba(0,0,0,.12);
+      border-radius: 999px;
+      padding: 10px 12px;
+      cursor:pointer;
+      user-select:none;
+    }
+    .radioBtn input{width:auto}
+    .submit{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+      justify-content:center;
+    }
+    .waBtn{
+      appearance:none;
+      border: 1px solid rgba(201,173,115,.60);
+      background: rgba(201,173,115,.14);
+      color: #1a1a1a;
+      border-radius: 999px;
+      padding: 14px 16px;
+      cursor:pointer;
+      font-size: 14px;
+      letter-spacing:.03em;
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+    }
+    .waBtn:hover{border-color: rgba(201,173,115,.9)}
+    .helper{
+      text-align:center;
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 6px;
+    }
+
+    footer{
+      padding: 26px 18px 30px;
+      text-align:center;
+      color: #6a6a6a;
+      font-size: 12px;
+    }
+
+    /* Responsive */
+    @media (min-width: 780px){
+      .inviteInner{padding: 34px 38px;}
+      .grid{grid-template-columns: 1fr 1fr;}
+      .cdItem{width: 92px;}
+    }
+
+    /* Íconos inline */
+    .ico{width: 18px; height: 18px; display:inline-block}
+    .ico svg{width:100%; height:100%}
+
+    /* Reduce motion */
+    @media (prefers-reduced-motion: reduce){
+      *{scroll-behavior:auto !important; transition:none !important}
+    }
+  </style>
 </head>
+
 <body>
+  <!-- Audio (móviles: se activa con botón) -->
+  <audio id="bgAudio" src="./videoplayback.mp3" preload="auto" loop></audio>
 
-    <audio id="audio" loop><source src="videoplayback.mp3" type="audio/mpeg"></audio>
+  <header class="hero" id="inicio" aria-label="Invitación de boda">
+    <div class="diag" aria-hidden="true"></div>
 
-    <section class="hero" onclick="document.getElementById('audio').play()">
-        <p>NUESTRA BODA</p>
-        <h1>ROBERTO & ANA</h1>
-        <p>25 . 04 . 26</p>
-        <small style="margin-top: 20px; opacity: 0.7;">(Toca para activar música 🎵)</small>
+    <div class="heroCard">
+      <div class="heroTop">
+        <div class="kicker">Nuestra boda</div>
+        <h1 class="names">Roberto <span class="and">&</span> Ana</h1>
+
+        <div class="heroFrame" aria-label="Fecha y hora">
+          <span>Sábado 25 de abril de 2026</span>
+          <span style="opacity:.75">•</span>
+          <span>8:00 pm</span>
+        </div>
+
+        <div class="countdown" id="countdown" aria-label="Cuenta regresiva">
+          <div class="cdItem"><div class="cdNum" id="cdDays">--</div><div class="cdLbl">Días</div></div>
+          <div class="cdItem"><div class="cdNum" id="cdHours">--</div><div class="cdLbl">Horas</div></div>
+          <div class="cdItem"><div class="cdNum" id="cdMins">--</div><div class="cdLbl">Min</div></div>
+          <div class="cdItem"><div class="cdNum" id="cdSecs">--</div><div class="cdLbl">Seg</div></div>
+        </div>
+
+        <div class="heroActions">
+          <button class="btn btnDark" id="musicBtn" type="button" aria-label="Activar música de fondo">
+            <span class="ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M10 18a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M10 18V6l10-2v12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M20 16a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+            </span>
+            Activar música
+          </button>
+
+          <a class="btn" href="#detalles">
+            <span class="ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 5.65-7 10-7 10Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            Ver detalles
+          </a>
+
+          <a class="btn" href="#confirmacion">
+            <span class="ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            Confirmar asistencia
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section wrap" id="detalles">
+      <article class="inviteCard">
+        <div class="goldFrame" aria-hidden="true"></div>
+
+        <!-- Flores (SVG) -->
+        <svg class="floral tl" viewBox="0 0 200 200" aria-hidden="true">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ffffff"/>
+              <stop offset="1" stop-color="#eaeaea"/>
+            </linearGradient>
+          </defs>
+          <g fill="url(#g1)" opacity=".92">
+            <path d="M52 70c18-12 35-8 45 8-16 8-33 6-45-8Z"/>
+            <path d="M78 40c12 18 8 35-8 45-8-16-6-33 8-45Z"/>
+            <path d="M90 78c22-14 42-8 56 10-18 10-40 8-56-10Z"/>
+            <circle cx="78" cy="74" r="9" fill="#f5f5f5"/>
+            <path d="M44 118c22-14 42-8 56 10-18 10-40 8-56-10Z"/>
+            <circle cx="66" cy="120" r="7" fill="#f7f7f7"/>
+          </g>
+          <g stroke="#c9ad73" stroke-width="2" opacity=".55" fill="none">
+            <path d="M25 150c30-30 60-55 90-70"/>
+            <path d="M40 160c40-40 70-65 110-82"/>
+          </g>
+        </svg>
+
+        <svg class="floral br" viewBox="0 0 200 200" aria-hidden="true">
+          <defs>
+            <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ffffff"/>
+              <stop offset="1" stop-color="#eaeaea"/>
+            </linearGradient>
+          </defs>
+          <g fill="url(#g2)" opacity=".92">
+            <path d="M52 70c18-12 35-8 45 8-16 8-33 6-45-8Z"/>
+            <path d="M78 40c12 18 8 35-8 45-8-16-6-33 8-45Z"/>
+            <path d="M90 78c22-14 42-8 56 10-18 10-40 8-56-10Z"/>
+            <circle cx="78" cy="74" r="9" fill="#f5f5f5"/>
+            <path d="M44 118c22-14 42-8 56 10-18 10-40 8-56-10Z"/>
+            <circle cx="66" cy="120" r="7" fill="#f7f7f7"/>
+          </g>
+          <g stroke="#c9ad73" stroke-width="2" opacity=".55" fill="none">
+            <path d="M25 150c30-30 60-55 90-70"/>
+            <path d="M40 160c40-40 70-65 110-82"/>
+          </g>
+        </svg>
+
+        <div class="inviteInner">
+          <div class="h2">Con mucha alegría</div>
+          <h2 class="titleScript">¡Nos casamos!</h2>
+
+          <p class="lead">
+            Queremos compartir contigo un momento muy especial. Te invitamos a celebrar nuestra boda y a
+            acompañarnos en una noche inolvidable.
+          </p>
+
+          <div class="grid" style="margin-top:18px;">
+            <div class="infoRow">
+              <div class="badge" aria-hidden="true">
+                <span class="ico">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M8 7V5a4 4 0 0 1 8 0v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    <path d="M6 9h12l-1 12H7L6 9Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </div>
+              <div class="infoText">
+                <b>Etiqueta</b>
+                <span>Formal</span>
+              </div>
+            </div>
+
+            <div class="infoRow">
+              <div class="badge" aria-hidden="true">
+                <span class="ico">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 5.65-7 10-7 10Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </div>
+              <div class="infoText">
+                <b>Regalo</b>
+                <span>En sobre (efectivo)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid">
+            <div class="infoRow">
+              <div class="badge" aria-hidden="true">
+                <span class="ico">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M7 3v2M17 3v2M4 7h16M6 21h12a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    <path d="M8 11h4M8 15h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  </svg>
+                </span>
+              </div>
+              <div class="infoText">
+                <b>Fecha</b>
+                <span>Sábado 25 de abril de 2026</span>
+              </div>
+            </div>
+
+            <div class="infoRow">
+              <div class="badge" aria-hidden="true">
+                <span class="ico">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" stroke="currentColor" stroke-width="1.8"/>
+                  </svg>
+                </span>
+              </div>
+              <div class="infoText">
+                <b>Hora</b>
+                <span>8:00 pm</span>
+              </div>
+            </div>
+
+            <div class="infoRow" style="grid-column: 1 / -1;">
+              <div class="badge" aria-hidden="true">
+                <span class="ico">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M12 22s8-4 8-10a8 8 0 1 0-16 0c0 6 8 10 8 10Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                    <path d="M12 13.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" stroke-width="1.8"/>
+                  </svg>
+                </span>
+              </div>
+              <div class="infoText">
+                <b>Lugar</b>
+                <span>
+                  Salón El Tercer Piso<br/>
+                  Av A. Serdán Pte & Avenida Ignacio Zaragoza, Centro, 81200 Los Mochis, Sin.
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pillRow" aria-label="Notas">
+            <div class="pill"><em>Puntualidad</em> sugerida para iniciar a tiempo</div>
+            <div class="pill"><em>Vestimenta</em> formal</div>
+            <div class="pill"><em>Regalo</em> en sobre (efectivo)</div>
+          </div>
+
+          <div class="ctaRow">
+            <a class="cta" id="mapsBtn" target="_blank" rel="noopener">
+              <span class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M12 22s8-4 8-10a8 8 0 1 0-16 0c0 6 8 10 8 10Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                  <path d="M12 13.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" stroke-width="1.8"/>
+                </svg>
+              </span>
+              Cómo llegar
+            </a>
+
+            <a class="cta" href="#confirmacion">
+              <span class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              Confirmar asistencia
+            </a>
+          </div>
+        </div>
+      </article>
     </section>
 
-    <div class="content-wrapper">
-        <div class="card-frame">
-            <p style="letter-spacing: 3px; font-size: 0.9rem;">NOS CASAMOS</p>
-            <div class="cursive">Roberto & Ana</div>
-            <p><strong>Sábado 25 de Abril, 2026</strong><br>8:00 PM</p>
-            <p>Salón El Tercer Piso <br>
-            <small>Av A. Serdán Pte & Avenida Ignacio Zaragoza, Centro, Los Mochis, Sin.</small></p>
-            
-            <hr style="margin: 30px 0; border: 0.5px solid #f0f0f0;">
-            
-            <p><strong>ETIQUETA FORMAL</strong></p>
-            <div class="dress-code">
-                <div class="dress-icon"><span>🤵‍♂️</span>MONO / SMOKING</div>
-                <div class="dress-icon"><span>👗</span>VESTIDO LARGO</div>
+    <section class="section wrap" id="mensaje">
+      <article class="inviteCard">
+        <div class="goldFrame" aria-hidden="true"></div>
+        <div class="inviteInner">
+          <div class="h2">Mensaje de invitación</div>
+          <h2 class="titleScript">Con cariño</h2>
+
+          <p class="lead" id="inviteText" style="white-space: pre-wrap;">
+Roberto y Ana
+tienen el honor de invitarte a celebrar su boda.
+
+Fecha: Sábado 25 de abril de 2026
+Hora: 8:00 pm
+Lugar: Salón El Tercer Piso, Los Mochis, Sin.
+
+Etiqueta: Formal
+Regalo: En sobre (efectivo)
+
+Será un gusto contar con tu presencia.
+          </p>
+
+          <div class="ctaRow" style="justify-content:center">
+            <button class="cta" type="button" id="copyMsgBtn">
+              <span class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M8 7h10v14H8V7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                  <path d="M6 17H4V3h10v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              </span>
+              Copiar mensaje
+            </button>
+
+            <button class="cta" type="button" id="shareWaBtn">
+              <span class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M20 11.5a8.5 8.5 0 0 1-13.7 6.7L4 19l.9-2.2A8.5 8.5 0 1 1 20 11.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                  <path d="M8.5 9.7c.2-.4.4-.4.6-.4h.5c.1 0 .3.1.3.3.1.3.4 1.1.4 1.2 0 .1 0 .2-.1.3l-.2.3c-.1.1-.2.2-.1.4.1.2.5.8 1.1 1.3.8.7 1.5.9 1.7 1 .2.1.3 0 .4-.1l.5-.6c.1-.1.2-.1.4-.1.1 0 1 .5 1.2.6.2.1.3.1.3.2 0 .1 0 .7-.3 1-.3.3-.6.4-1 .4-.4 0-1.4-.3-2.7-1.1-1.6-1-2.7-2.4-3-3-.3-.6-.3-1.1-.3-1.4 0-.3.1-.6.3-.8Z"
+                        stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              Compartir por WhatsApp
+            </button>
+          </div>
+
+          <p class="helper" id="copyHelper" aria-live="polite"></p>
+        </div>
+      </article>
+    </section>
+
+    <section class="section wrap" id="confirmacion">
+      <article class="inviteCard">
+        <div class="goldFrame" aria-hidden="true"></div>
+
+        <div class="inviteInner">
+          <div class="h2">Confirmación</div>
+          <h2 class="titleScript">¿Nos acompañas?</h2>
+          <p class="lead">Por favor confirma tu asistencia para ayudarnos con la organización.</p>
+
+          <form class="form" id="rsvpForm">
+            <div>
+              <label for="fullName">Nombre y apellido</label>
+              <input id="fullName" name="fullName" type="text" placeholder="Ej. Juan Pérez" required />
             </div>
+
+            <div>
+              <label>Respuesta</label>
+              <div class="radios">
+                <label class="radioBtn">
+                  <input type="radio" name="answer" value="Sí asistiré" required />
+                  Sí asistiré
+                </label>
+                <label class="radioBtn">
+                  <input type="radio" name="answer" value="No podré asistir" required />
+                  No podré asistir
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <label for="guests">Número de personas (incluyéndote)</label>
+              <select id="guests" name="guests">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="note">Mensaje (opcional)</label>
+              <textarea id="note" name="note" placeholder="Ej. ¡Felicidades! / Tengo alguna nota especial..."></textarea>
+            </div>
+
+            <div class="submit">
+              <button class="waBtn" type="submit">
+                <span class="ico" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M20 11.5a8.5 8.5 0 0 1-13.7 6.7L4 19l.9-2.2A8.5 8.5 0 1 1 20 11.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                    <path d="M8.5 9.7c.2-.4.4-.4.6-.4h.5c.1 0 .3.1.3.3.1.3.4 1.1.4 1.2 0 .1 0 .2-.1.3l-.2.3c-.1.1-.2.2-.1.4.1.2.5.8 1.1 1.3.8.7 1.5.9 1.7 1 .2.1.3 0 .4-.1l.5-.6c.1-.1.2-.1.4-.1.1 0 1 .5 1.2.6.2.1.3.1.3.2 0 .1 0 .7-.3 1-.3.3-.6.4-1 .4-.4 0-1.4-.3-2.7-1.1-1.6-1-2.7-2.4-3-3-.3-.6-.3-1.1-.3-1.4 0-.3.1-.6.3-.8Z"
+                          stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                Enviar confirmación por WhatsApp
+              </button>
+            </div>
+
+            <p class="helper">
+              Tu confirmación se enviará por WhatsApp al número <b>+52 668 271 3838</b>.
+            </p>
+          </form>
         </div>
+      </article>
+    </section>
+  </main>
 
-        <div class="map-box">
-            <h3 style="font-family: 'Cinzel'; margin-bottom: 20px;">Ubicación</h3>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3550.840616183616!2d-108.9958742!3d25.7952673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86ba28cc91e0a969%3A0xc68225e4c5b369c0!2sAv%20Aquiles%20Serd%C3%A1n%20Pte%20%26%20Av%20Ignacio%20Zaragoza%2C%20Centro%2C%2081200%20Los%20Mochis%2C%20Sin.!5e0!3m2!1ses-419!2smx!4v1700000000000" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            <br>
-            <a href="https://maps.app.goo.gl/uXvG9FkPr9N5Yx9W9" target="_blank" class="btn-action">VER EN GOOGLE MAPS</a>
-            <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Boda+de+Roberto+y+Ana&dates=20260426T020000Z/20260426T060000Z&details=¡Acompáñanos!&location=Salón+El+Tercer+Piso,+Los+Mochis&sf=true&output=xml" target="_blank" class="btn-action">AGENDAR FECHA</a>
-        </div>
+  <footer>
+    Roberto & Ana · 25 de abril de 2026 · Los Mochis, Sinaloa
+  </footer>
 
-        <div class="gift-section">
-            <div style="font-size: 2.5rem; margin-bottom: 10px;">✉️</div>
-            <h3 style="font-family: 'Cinzel';">Lluvia de Sobres</h3>
-            <p>Tu presencia es nuestro mejor regalo. Si deseas tener un detalle con nosotros, te agradecemos que sea en <strong>efectivo</strong> a través de un sobre el día del evento.</p>
-        </div>
+  <script>
+    // =========================
+    // Configuración principal
+    // =========================
+    const WEDDING = {
+      couple: "Roberto y Ana",
+      dateISO: "2026-04-25T20:00:00-07:00", // 8:00 pm (ajusta si deseas otra zona horaria)
+      venue: "Salón El Tercer Piso",
+      address: "Av A. Serdán Pte & Avenida Ignacio Zaragoza, Centro, 81200 Los Mochis, Sin.",
+      attire: "Formal",
+      gift: "En sobre (efectivo)",
+      rsvpPhoneE164: "526682713838" // sin "+"
+    };
 
-        <section class="rsvp-section">
-            <h2 style="text-align: center; font-family: 'Cinzel'; margin-bottom: 30px;">Confirmar Asistencia</h2>
-            <form id="rsvpForm">
-                <div id="inputsInvitados">
-                    </div>
-                
-                <div class="input-group">
-                    <label>¿Asistirán?</label>
-                    <select id="asistencia" required>
-                        <option value="Sí, asistiremos">Sí, asistiremos</option>
-                        <option value="No podremos asistir">No podremos asistir</option>
-                    </select>
-                </div>
+    // Enlace de Google Maps (búsqueda por texto)
+    const mapsQuery = encodeURIComponent(`${WEDDING.venue}, ${WEDDING.address}`);
+    document.getElementById("mapsBtn").href = `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`;
 
-                <button type="button" class="btn-whatsapp" onclick="enviarWhatsApp()">CONFIRMAR POR WHATSAPP</button>
-            </form>
-        </section>
-    </div>
+    // =========================
+    // Cuenta regresiva
+    // =========================
+    const target = new Date(WEDDING.dateISO).getTime();
 
-    <script>
-        // Lógica de Invitados Dinámicos (?num=X)
-        const urlParams = new URLSearchParams(window.location.search);
-        let cantidadPermitida = parseInt(urlParams.get('num')) || 1; 
+    function pad2(n){ return String(n).padStart(2,"0"); }
 
-        const contenedor = document.getElementById('inputsInvitados');
+    function tick(){
+      const now = Date.now();
+      let diff = Math.max(0, target - now);
 
-        for (let i = 1; i <= cantidadPermitida; i++) {
-            const div = document.createElement('div');
-            div.className = 'input-group';
-            div.innerHTML = `
-                <label>Nombre Invitado ${i}</label>
-                <input type="text" class="nombre-input" placeholder="Nombre completo" required>
-            `;
-            contenedor.appendChild(div);
+      const days = Math.floor(diff / (1000*60*60*24));
+      diff -= days * (1000*60*60*24);
+
+      const hours = Math.floor(diff / (1000*60*60));
+      diff -= hours * (1000*60*60);
+
+      const mins = Math.floor(diff / (1000*60));
+      diff -= mins * (1000*60);
+
+      const secs = Math.floor(diff / 1000);
+
+      document.getElementById("cdDays").textContent = days;
+      document.getElementById("cdHours").textContent = pad2(hours);
+      document.getElementById("cdMins").textContent = pad2(mins);
+      document.getElementById("cdSecs").textContent = pad2(secs);
+    }
+    tick();
+    setInterval(tick, 1000);
+
+    // =========================
+    // Audio: activar con botón (requerido usualmente en móviles)
+    // =========================
+    const audio = document.getElementById("bgAudio");
+    const musicBtn = document.getElementById("musicBtn");
+    let musicOn = false;
+
+    function setMusicLabel(){
+      musicBtn.textContent = musicOn ? "Pausar música" : "Activar música";
+    }
+    setMusicLabel();
+
+    musicBtn.addEventListener("click", async () => {
+      try{
+        if(!musicOn){
+          await audio.play();
+          musicOn = true;
+        }else{
+          audio.pause();
+          musicOn = false;
         }
+        setMusicLabel();
+      }catch(e){
+        // Si el navegador bloquea, al menos no rompemos la página
+        musicOn = false;
+        setMusicLabel();
+        alert("Tu dispositivo bloqueó la reproducción automática. Intenta nuevamente o sube el volumen.");
+      }
+    });
 
-        function enviarWhatsApp() {
-            const asistencia = document.getElementById('asistencia').value;
-            const inputs = document.querySelectorAll('.nombre-input');
-            let nombresArr = [];
+    // =========================
+    // Mensaje de invitación + copiar + compartir
+    // =========================
+    function buildInviteMessage(pageUrl){
+      return `Roberto & Ana
 
-            inputs.forEach(input => {
-                if(input.value.trim() !== "") nombresArr.push(input.value.trim());
-            });
+¡Nos casamos! Nos encantará que nos acompañes a celebrar.
 
-            if(nombresArr.length === 0) {
-                alert("Por favor escribe el nombre de los invitados.");
-                return;
-            }
+Fecha: Sábado 25 de abril de 2026
+Hora: 8:00 pm
+Lugar: ${WEDDING.venue}
+Dirección: ${WEDDING.address}
 
-            const textoNombres = nombresArr.join(', ');
-            const mensaje = `¡Hola! %0AQueremos confirmar nuestra asistencia para la boda de *Roberto y Ana*.%0A%0A*¿Asistirán?*: ${asistencia}%0A*Invitados*: ${textoNombres}%0A%0A¡Muchas gracias!`;
-            
-            window.open(`https://api.whatsapp.com/send?phone=526682713838&text=${mensaje}`, '_blank');
-        }
-    </script>
+Etiqueta: ${WEDDING.attire}
+Regalo: ${WEDDING.gift}
 
+Invitación: ${pageUrl}`;
+    }
+
+    const copyBtn = document.getElementById("copyMsgBtn");
+    const shareBtn = document.getElementById("shareWaBtn");
+    const copyHelper = document.getElementById("copyHelper");
+
+    copyBtn.addEventListener("click", async () => {
+      const msg = buildInviteMessage(window.location.href);
+      try{
+        await navigator.clipboard.writeText(msg);
+        copyHelper.textContent = "Mensaje copiado. Pégalo en WhatsApp para enviarlo.";
+      }catch{
+        copyHelper.textContent = "No se pudo copiar automáticamente. Selecciona y copia manualmente el texto.";
+      }
+    });
+
+    shareBtn.addEventListener("click", () => {
+      const msg = buildInviteMessage(window.location.href);
+      const url = `https://wa.me/?text=${encodeURIComponent(msg)}`;
+      window.open(url, "_blank", "noopener");
+    });
+
+    // =========================
+    // RSVP: enviar por WhatsApp
+    // =========================
+    const form = document.getElementById("rsvpForm");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const fullName = document.getElementById("fullName").value.trim();
+      const guests = document.getElementById("guests").value;
+      const note = document.getElementById("note").value.trim();
+
+      const answerEl = form.querySelector('input[name="answer"]:checked');
+      const answer = answerEl ? answerEl.value : "";
+
+      if(!fullName || !answer){
+        alert("Por favor completa tu nombre y selecciona una respuesta.");
+        return;
+      }
+
+      const lines = [
+        `Confirmación de asistencia — ${WEDDING.couple}`,
+        ``,
+        `Nombre: ${fullName}`,
+        `Respuesta: ${answer}`,
+        `Personas: ${guests}`,
+        `Evento: Sábado 25 de abril de 2026 · 8:00 pm`,
+        `Lugar: ${WEDDING.venue}`,
+      ];
+      if(note) lines.push(``, `Mensaje: ${note}`);
+
+      const waText = lines.join("\n");
+      const waUrl = `https://wa.me/${WEDDING.rsvpPhoneE164}?text=${encodeURIComponent(waText)}`;
+      window.open(waUrl, "_blank", "noopener");
+    });
+  </script>
 </body>
 </html>
