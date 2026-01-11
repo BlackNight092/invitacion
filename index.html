@@ -129,7 +129,6 @@
       margin-top: 10px;
     }
 
-    /* Fix de centrado robusto para el cuadro de cuenta regresiva */
     .hero-card{
       margin: 18px auto 12px;
       width: min(640px, 92vw);
@@ -185,6 +184,24 @@
       letter-spacing: 2px;
       text-transform: uppercase;
     }
+    .sil-icon{
+      width: 72px;
+      height: 72px;
+      display: block;
+      fill: var(--gold); /* dorado */
+    }
+
+    .sil-icon{ fill:#111; }
+
+    .figure{
+      padding: 16px 12px;
+      gap: 10px;
+    }
+    .figure .cap{
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+
 
     /* ---------- SECTION BASE ---------- */
     .section{ padding: 70px 0; }
@@ -212,7 +229,6 @@
       pointer-events:none;
       z-index: 0;
     }
-
     .frame-inner{
       position: relative;
       z-index: 3;
@@ -242,9 +258,8 @@
       letter-spacing: 1.2px;
       color: var(--ink);
     }
-    /* "Nos Casamos" cursiva */
     .title.cursive{
-      font-family: "Playfair Display", serif;
+      font-family: "Allura", cursive;
       font-weight: 400;
       letter-spacing: .8px;
       font-size: clamp(38px, 6.2vw, 56px);
@@ -284,8 +299,6 @@
       box-shadow: 0 10px 30px rgba(0,0,0,.08);
       width: 100%;
     }
-
-    /* Centrado visual de tarjetas principales en pantallas medianas/pequeñas */
     .card.centerable{
       max-width: 860px;
       margin: 0 auto;
@@ -334,7 +347,7 @@
       word-break: break-word;
     }
 
-    /* Separación: Regalo y Etiqueta en cuadros distintos */
+    /* Regalo y Etiqueta en cuadros distintos */
     .split-cards{
       display:grid;
       grid-template-columns: 1fr;
@@ -367,26 +380,49 @@
       line-height: 1.6;
     }
 
-    .dresscode{
-      display:flex;
-      gap: 10px;
-      align-items:center;
-      justify-content: center;
+    /* NUEVO: Figuras para Smoking y Vestido */
+    .figures{
       margin-top: 10px;
-      flex-wrap: wrap;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
     }
-    .badge{
-      display:inline-flex;
-      gap:8px;
-      align-items:center;
-      padding: 9px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(176,138,58,.35);
-      background: rgba(255,255,255,.95);
-      font-size: 13px;
-      max-width: 100%;
+    .figure{
+      border-radius: 16px;
+      border: 1px solid rgba(176,138,58,.30);
+      background: rgba(255,255,255,.90);
+      padding: 12px 10px;
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align:center;
+      gap: 8px;
+      box-shadow: 0 10px 26px rgba(0,0,0,.06);
     }
-    .badge svg{ width:18px; height:18px; stroke: var(--gold); fill:none; stroke-width: 1.8; }
+    .figure .cap{
+      font-size: 12px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: rgba(26,26,26,.70);
+      font-weight: 600;
+    }
+    .figure svg{
+      stroke: var(--gold);
+      stroke-width: 2.2;   /* antes 1.8 */
+      fill: none;
+    }
+    .figure svg path{
+      vector-effect: non-scaling-stroke; /* evita que se vea delgado en móvil */
+    }
+
+    .figure small{
+      display:block;
+      color: rgba(26,26,26,.65);
+      font-size: 12px;
+      line-height: 1.5;
+      max-width: 26ch;
+    }
 
     .btns{ display:flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; justify-content: center; }
     .btn{
@@ -564,12 +600,102 @@
       line-height: 1.6;
       font-size: 14px;
     }
+    .audio-actions{
+      display:flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* =========================
+   ETIQUETA (idéntico al ejemplo)
+   ========================= */
+  .etiqueta-box{
+    padding: 14px 14px 12px;
+    border-style: dashed;
+  }
+
+  .etq-top-icon{
+    fill: none;
+    stroke: var(--gold);
+    stroke-width: 1.9;
+  }
+
+  .etq-items{
+    margin-top: 10px;
+    display: grid;
+    gap: 12px;
+  }
+
+  .etq-item{
+    background: rgba(255,255,255,.92);
+    border: 1px solid rgba(176,138,58,.30);
+    border-radius: 18px;
+    padding: 18px 14px 16px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    box-shadow: 0 10px 26px rgba(0,0,0,.06);
+  }
+
+  /* Siluetas tipo la imagen (doradas) */
+  .sil-icon{
+    width: 62px;
+    height: 62px;
+    display: block;
+    fill: var(--gold);
+  }
+
+  .etq-title{
+    margin-top: 10px;
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: 600;
+    color: rgba(26,26,26,.78);
+  }
+
+  .etq-sub{
+    margin-top: 6px;
+    font-size: 13px;
+    color: rgba(26,26,26,.60);
+  }
+
+  /* Pastilla inferior */
+  .etq-pill{
+    margin-top: 12px;
+    width: 100%;
+    border-radius: 14px;
+    border: 1px solid rgba(176,138,58,.40);
+    background: linear-gradient(180deg, rgba(176,138,58,.10), rgba(126,166,200,.06));
+    padding: 12px 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 600;
+    letter-spacing: .4px;
+    color: rgba(26,26,26,.88);
+  }
+
+  .etq-pill svg{
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: var(--gold);
+    stroke-width: 1.9;
+  }
+
+  /* Para que en móvil se vea igual de limpio */
+  @media (max-width: 520px){
+    .sil-icon{ width: 58px; height: 58px; }
+    .etq-item{ padding: 16px 12px 14px; }
+  }
+
 
     /* ---------- MOBILE ---------- */
     @media (max-width: 820px){
       .countdown{ grid-template-columns: repeat(2, 1fr); }
 
-      /* Centrado “a prueba de navegador” del hero-card */
       .hero-card{
         position: relative;
         left: 50%;
@@ -591,6 +717,8 @@
 
       .btn{ width: 100%; justify-content: center; }
       .btns .btn{ width: 100%; }
+
+      .figures{ grid-template-columns: 1fr; } /* figuras una debajo de otra en móvil */
     }
   </style>
 </head>
@@ -637,8 +765,7 @@
     <div class="wrap">
       <section class="frame" aria-label="Invitación">
 
-        <!-- Rosas blancas (4 esquinas) -->
-        <!-- SVG “rosa blanca” con degradados -->
+        <!-- Rosas blancas (SVG) -->
         <svg class="roses tl" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <defs>
             <radialGradient id="petal" cx="40%" cy="35%" r="70%">
@@ -651,28 +778,25 @@
               <stop offset="1" stop-color="#5e7e6a"/>
             </linearGradient>
           </defs>
-          <!-- hojas -->
           <path d="M52 182c30-24 52-26 84-18-28 22-52 30-84 18Z" fill="url(#leaf)" opacity=".85"/>
           <path d="M92 210c24-18 44-18 70-10-22 18-44 24-70 10Z" fill="url(#leaf)" opacity=".75"/>
-          <!-- tallo dorado -->
           <path d="M62 200c30-54 62-92 118-122" fill="none" stroke="#b08a3a" stroke-opacity=".55" stroke-width="3" stroke-linecap="round"/>
-          <!-- flor -->
           <g transform="translate(70 48)">
             <path d="M66 20c18 10 24 30 8 44-14 12-34 10-46-4-14-16-4-34 14-40 8-3 16-3 24 0Z" fill="url(#petal)"/>
             <path d="M44 38c14 8 18 22 6 32-10 9-24 7-32-3-10-12-3-24 10-28 6-2 11-2 16-1Z" fill="url(#petal)" opacity=".95"/>
             <path d="M54 54c10 6 12 16 4 22-7 6-16 5-22-2-7-8-2-16 7-19 4-1 8-1 11-1Z" fill="url(#petal)" opacity=".92"/>
             <circle cx="54" cy="60" r="7" fill="#f7f2e6" opacity=".85"/>
           </g>
-          <!-- flor secundaria -->
           <g transform="translate(140 80) scale(.85)">
             <path d="M40 10c14 8 18 22 6 32-10 9-24 7-32-3-10-12-3-24 10-28 6-2 11-2 16-1Z" fill="url(#petal)"/>
             <path d="M48 28c10 6 12 16 4 22-7 6-16 5-22-2-7-8-2-16 7-19 4-1 8-1 11-1Z" fill="url(#petal)" opacity=".92"/>
             <circle cx="48" cy="32" r="6" fill="#f7f2e6" opacity=".85"/>
           </g>
         </svg>
+
+        <!-- Duplico el mismo svg en otras esquinas por simplicidad -->
         <svg class="roses tr" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <use href="#"></use>
-          <!-- duplicado por compatibilidad: reutilizo mismo contenido copiándolo -->
           <defs>
             <radialGradient id="petal2" cx="40%" cy="35%" r="70%">
               <stop offset="0" stop-color="#ffffff"/>
@@ -699,6 +823,7 @@
             <circle cx="48" cy="32" r="6" fill="#f7f2e6" opacity=".85"/>
           </g>
         </svg>
+
         <svg class="roses bl" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <defs>
             <radialGradient id="petal3" cx="40%" cy="35%" r="70%">
@@ -726,6 +851,7 @@
             <circle cx="48" cy="32" r="6" fill="#f7f2e6" opacity=".85"/>
           </g>
         </svg>
+
         <svg class="roses br" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <defs>
             <radialGradient id="petal4" cx="40%" cy="35%" r="70%">
@@ -755,7 +881,7 @@
         </svg>
 
         <div class="frame-inner">
-          <h2 class="title cursive">Nos Casamos</h2>
+          <h2 class="title">Nos Casamos</h2>
           <p class="subtitle">
             Con alegría en el corazón, queremos invitarte a celebrar con nosotros el inicio de una nueva etapa.
             Tu presencia será un regalo invaluable.
@@ -764,7 +890,6 @@
           <div class="divider"></div>
 
           <div class="grid">
-            <!-- Detalles centrados -->
             <div class="card centerable">
               <div class="label">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="stroke:var(--gold);stroke-width:1.8;">
@@ -804,7 +929,6 @@
                   </div>
                 </div>
 
-                <!-- Regalo separado -->
                 <div class="split-cards">
                   <div class="mini-card" aria-label="Sobre de regalo">
                     <div class="top">
@@ -815,33 +939,77 @@
                       </svg>
                     </div>
                     <div class="note">
-                      Agradeceremos que el regalo sea en <strong>efectivo</strong>, presentado en sobre.
+                      Tu presencia es el mejor regalo para nosotros, sin embargo, si prefieres darnos un obsequio en efectivo habra un cofre con sobres en la recepcion.
                     </div>
                   </div>
 
-                  <div class="mini-card" aria-label="Etiqueta formal">
+                  <div class="mini-card etiqueta-box" aria-label="Etiqueta">
                     <div class="top">
                       <strong>Etiqueta</strong>
-                      <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="none" style="stroke:var(--gold);stroke-width:1.8;">
+
+                      <!-- iconito de etiqueta (como en tu ejemplo) -->
+                      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" class="etq-top-icon">
                         <path d="M9 3 7 6 9 9l-3 12h12L15 9l2-3-2-3-3 4-3-4Z"/>
                         <path d="M12 7v14"/>
                       </svg>
                     </div>
-                    <div class="dresscode">
-                      <div class="badge" aria-label="Smoking">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                          <path d="M7 4h10l-2 6v10H9V10L7 4Z"/>
-                          <path d="M10 10h4"/>
+
+                    <div class="etq-items">
+                      <!-- SMOKING -->
+                      <div class="etq-item">
+                        <svg viewBox="0 0 128 128" aria-hidden="true" class="sil-icon">
+                          <!-- Chaqueta + torso -->
+                          <path d="M42 22l10-10h24l10 10 10 14v70H32V36l10-14z"/>
+                          <!-- Solapas (vacío) -->
+                          <path d="M56 22l-10 18 18 18 18-18-10-18H56z" fill="#fff"/>
+                          <!-- Camisa -->
+                          <path d="M62 22h4v58h-4z"/>
+                          <!-- Botones -->
+                          <circle cx="64" cy="44" r="2.5" fill="#fff"/>
+                          <circle cx="64" cy="54" r="2.5" fill="#fff"/>
+                          <circle cx="64" cy="64" r="2.5" fill="#fff"/>
+                          <!-- Moño -->
+                          <path d="M56 18l-10 6 10 6 4-6-4-6z"/>
+                          <path d="M72 18l10 6-10 6-4-6 4-6z"/>
+                          <circle cx="64" cy="24" r="2.2" fill="#fff"/>
+                          <!-- Mangas -->
+                          <path d="M32 40l-14 10 10 56h14z"/>
+                          <path d="M96 40l14 10-10 56H86z"/>
+                          <!-- Faldón -->
+                          <path d="M40 106c8-20 14-28 24-28s16 8 24 28H40z"/>
+                          <!-- Detalle de cintura -->
+                          <path d="M46 76l18 10 18-10v10l-18 10-18-10V76z" fill="#fff"/>
                         </svg>
-                        Smoking
+
+                        <div class="etq-title">SMOKING</div>
+                        <div class="etq-sub">Traje formal</div>
                       </div>
-                      <div class="badge" aria-label="Vestido">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                          <path d="M12 3c2 3 3 5 3 7l3 10H6l3-10c0-2 1-4 3-7Z"/>
-                          <path d="M9 10h6"/>
+
+                      <!-- VESTIDO -->
+                      <div class="etq-item">
+                        <svg viewBox="0 0 128 128" aria-hidden="true" class="sil-icon">
+                          <!-- Parte superior -->
+                          <path d="M52 16c4 10 10 14 12 14s8-4 12-14h10v18c0 10-8 20-22 22v8h18c10 0 20 8 22 18l10 46H24l10-46c2-10 12-18 22-18h18v-8C50 54 42 44 42 34V16h10z"/>
+                          <!-- Escote en V (vacío) -->
+                          <path d="M64 34l-10-12h20L64 34z" fill="#fff"/>
+                          <!-- Cintura (vacío) -->
+                          <rect x="40" y="64" width="48" height="6" fill="#fff"/>
+                          <!-- Caída / abertura central -->
+                          <path d="M62 76c-6 14-8 28-10 52h24c-2-24-4-38-10-52h-4z" fill="#fff"/>
                         </svg>
-                        Vestido
+
+                        <div class="etq-title">VESTIDO</div>
+                        <div class="etq-sub">Vestimenta formal</div>
                       </div>
+                    </div>
+
+                    <!-- Pastilla inferior -->
+                    <div class="etq-pill">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M9 3 7 6 9 9l-3 12h12L15 9l2-3-2-3-3 4-3-4Z"/>
+                        <path d="M12 7v14"/>
+                      </svg>
+                      Etiqueta formal
                     </div>
                   </div>
                 </div>
@@ -857,7 +1025,6 @@
               </div>
             </div>
 
-            <!-- Ubicación centrada -->
             <div class="card centerable">
               <div class="label">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="stroke:var(--gold);stroke-width:1.8;">
@@ -893,7 +1060,6 @@
                     Abrir en Maps
                   </a>
 
-                  <!-- Google Calendar link (sin .ics) -->
                   <a class="btn btn-primary" id="btnGoogleCal" target="_blank" rel="noopener noreferrer" href="#">
                     <svg viewBox="0 0 24 24" aria-hidden="true">
                       <path d="M8 7V3m8 4V3M4 9h16M6 21h12a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2Z"/>
@@ -978,19 +1144,31 @@
   <!-- AUDIO -->
   <audio id="bgAudio" src="videoplayback.mp3" preload="auto" autoplay loop playsinline></audio>
 
-  <div class="audio-overlay" id="audioOverlay" role="dialog" aria-modal="true" aria-label="Activar música">
+  <div class="audio-overlay" id="audioOverlay" role="dialog" aria-modal="true" aria-label="Preferencia de música">
     <div class="audio-modal">
       <h3>Música de fondo</h3>
       <p>
         Para reproducir la música, tu navegador requiere una interacción.
-        Presiona el botón para iniciar.
+        Puedes iniciar la música o continuar sin música.
       </p>
-      <button class="btn btn-primary" id="btnPlayAudio" type="button">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M8 5v14l11-7z"/>
-        </svg>
-        Reproducir
-      </button>
+
+      <div class="audio-actions">
+        <button class="btn btn-primary" id="btnPlayAudio" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+          Reproducir
+        </button>
+
+        <button class="btn" id="btnNoMusic" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M9 9v6"/>
+            <path d="M15 9v6"/>
+            <path d="M4 4l16 16"/>
+          </svg>
+          Continuar sin música
+        </button>
+      </div>
     </div>
   </div>
 
@@ -1074,7 +1252,6 @@
     // Google Calendar link (TEMPLATE)
     // ---------------------------
     function formatGoogleDateRange(startLocalStr, durationMin){
-      // Google Calendar espera UTC en formato YYYYMMDDTHHMMSSZ
       const start = new Date(startLocalStr);
       const end = new Date(start.getTime() + durationMin * 60 * 1000);
 
@@ -1139,13 +1316,26 @@
     });
 
     // ---------------------------
-    // AUDIO AUTOPLAY (fallback)
+    // AUDIO AUTOPLAY (fallback + opción sin música)
     // ---------------------------
     const audio = document.getElementById("bgAudio");
     const overlay = document.getElementById("audioOverlay");
     const btnPlay = document.getElementById("btnPlayAudio");
+    const btnNoMusic = document.getElementById("btnNoMusic");
+
+    function userChoseNoMusic(){
+      try { localStorage.setItem("noMusic", "1"); } catch(e){}
+    }
+    function shouldSkipMusicPrompt(){
+      try { return localStorage.getItem("noMusic") === "1"; } catch(e){ return false; }
+    }
 
     async function tryAutoplay(){
+      if (shouldSkipMusicPrompt()){
+        audio.pause();
+        overlay.style.display = "none";
+        return;
+      }
       try{
         audio.volume = 0.85;
         await audio.play();
@@ -1160,6 +1350,12 @@
         await audio.play();
         overlay.style.display = "none";
       } catch(e){ }
+    });
+
+    btnNoMusic.addEventListener("click", () => {
+      userChoseNoMusic();
+      audio.pause();
+      overlay.style.display = "none";
     });
 
     window.addEventListener("load", () => {
