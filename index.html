@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Invitación | Roberto & Ana</title>
+
+  <!-- Vista previa (WhatsApp / Facebook / iMessage) -->
+  <!-- IMPORTANTE: actualiza og:url cuando lo publiques -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Roberto & Ana | Invitación de Boda" />
+  <meta property="og:description" content="Sábado 25 de abril de 2026 · 8:00 pm · Salón El Tercer Piso · Los Mochis, Sin. RSVP por WhatsApp." />
+  <meta property="og:image" content="imagen.png" />
+  <meta property="og:url" content="https://TU-DOMINIO.com/rsvp/" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0b0b0b" />
+
+  <!-- Fuentes (cursiva + serif elegante + sans de apoyo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #ffffff;
+      --ink: #0b0b0b;
+      --muted: rgba(11,11,11,.68);
+      --gold: #c7a24a;
+      --gold-2: #b8922f;
+      --card: rgba(255,255,255,.86);
+      --card2: rgba(255,255,255,.92);
+      --shadow: 0 16px 40px rgba(0,0,0,.18);
+      --radius: 18px;
+      --radius2: 28px;
+      --max: 980px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--ink);
+      background: radial-gradient(900px 500px at 50% -10%, rgba(199,162,74,.12), transparent 65%),
+                  radial-gradient(900px 500px at 10% 20%, rgba(199,162,74,.10), transparent 55%),
+                  var(--bg);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a{color:inherit}
+    .wrap{width:min(var(--max), 92vw); margin:0 auto;}
+    .gold{color:var(--gold)}
+    .serif{font-family:"Cormorant Garamond", serif}
+    .script{font-family:"Great Vibes", cursive; letter-spacing:.5px}
+    .kicker{
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      font-size: .78rem;
+      color: rgba(255,255,255,.85);
+    }
+
+    /* HERO */
+    .hero{
+      position:relative;
+      min-height: 100svh;
+      display:grid;
+      align-items:end;
+      overflow:hidden;
+      background: #111;
+    }
+    .hero::before{
+      content:"";
+      position:absolute; inset:0;
+      background: url("imagen.png") center/cover no-repeat;
+      transform: scale(1.02);
+      filter: contrast(1.02) saturate(.92);
+    }
+    .hero::after{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(to top, rgba(0,0,0,.75), rgba(0,0,0,.30) 45%, rgba(0,0,0,.10)),
+        radial-gradient(900px 600px at 50% 15%, rgba(199,162,74,.16), transparent 60%);
+    }
+    .hero-inner{
+      position:relative;
+      padding: 18svh 0 7svh;
+    }
+    .hero-card{
+      background: rgba(0,0,0,.38);
+      border: 1px solid rgba(199,162,74,.35);
+      border-radius: var(--radius2);
+      padding: 22px 22px 18px;
+      box-shadow: 0 24px 60px rgba(0,0,0,.35);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .names{
+      margin: 6px 0 6px;
+      font-size: clamp(2.4rem, 7vw, 4.2rem);
+      line-height: 1.02;
+      color: #fff;
+    }
+    .amp{
+      display:inline-block;
+      margin: 0 .25em;
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+    .subline{
+      margin: 0;
+      color: rgba(255,255,255,.88);
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.05rem, 3.2vw, 1.35rem);
+      letter-spacing: .02em;
+    }
+    .meta{
+      display:flex; flex-wrap:wrap;
+      gap: 10px 14px;
+      margin-top: 14px;
+      color: rgba(255,255,255,.92);
+      font-size: .98rem;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.14);
+    }
+    .dot{
+      width:8px; height:8px; border-radius:50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 4px rgba(199,162,74,.18);
+    }
+    .scroll{
+      margin-top: 18px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap: 10px;
+    }
+    .scroll small{color: rgba(255,255,255,.74)}
+    .arrow{
+      width: 42px; height: 42px; border-radius: 999px;
+      border: 1px solid rgba(199,162,74,.45);
+      background: rgba(0,0,0,.28);
+      display:grid; place-items:center;
+      cursor:pointer;
+      transition: transform .15s ease, background .15s ease;
+    }
+    .arrow:hover{transform: translateY(1px); background: rgba(0,0,0,.38)}
+    .arrow svg{fill: var(--gold)}
+
+    /* AUDIO CONTROL */
+    .audio{
+      position: fixed;
+      right: 14px;
+      bottom: 14px;
+      z-index: 20;
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(199,162,74,.35);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .audio button{
+      border: none;
+      background: var(--ink);
+      color: #fff;
+      padding: 10px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+      letter-spacing: .01em;
+    }
+    .audio button:active{transform: scale(.98)}
+    .audio span{
+      font-size: .9rem;
+      color: rgba(11,11,11,.75);
+      max-width: 46vw;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* SECTIONS */
+    section{padding: 56px 0}
+    .section-title{
+      display:flex; align-items:baseline; justify-content:space-between;
+      gap: 16px;
+      margin: 0 0 18px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size: clamp(1.8rem, 4.2vw, 2.3rem);
+      font-family:"Cormorant Garamond", serif;
+      letter-spacing: .01em;
+    }
+    .section-title p{margin:0; color: var(--muted)}
+    .grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+    }
+    @media (max-width: 860px){
+      .grid{grid-template-columns: 1fr}
+    }
+
+    .card{
+      background: var(--card2);
+      border: 1px solid rgba(199,162,74,.26);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      padding: 20px;
+    }
+    .card p{margin: 0 0 12px; color: rgba(11,11,11,.80); line-height: 1.6}
+    .card p:last-child{margin-bottom:0}
+
+    .details{
+      display:grid;
+      gap: 12px;
+    }
+    .detail{
+      display:flex;
+      gap: 12px;
+      padding: 14px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(0,0,0,.08);
+      background: rgba(255,255,255,.75);
+    }
+    .detail b{display:block}
+    .detail small{color: var(--muted)}
+    .icon{
+      width: 42px; height: 42px; border-radius: 14px;
+      display:grid; place-items:center;
+      background: rgba(199,162,74,.12);
+      border: 1px solid rgba(199,162,74,.25);
+      flex: 0 0 auto;
+    }
+    .icon svg{fill: var(--gold-2)}
+
+    /* Envelope (regalo en efectivo) */
+    .envelope{
+      position: relative;
+      padding: 18px;
+      border-radius: var(--radius2);
+      background:
+        linear-gradient(180deg, rgba(199,162,74,.14), rgba(199,162,74,.04)),
+        rgba(255,255,255,.92);
+      border: 1px solid rgba(199,162,74,.35);
+      overflow:hidden;
+    }
+    .envelope::before{
+      content:"";
+      position:absolute; inset:-40px -40px auto auto;
+      width: 180px; height: 180px;
+      background: radial-gradient(circle at 30% 30%, rgba(199,162,74,.35), transparent 60%);
+      transform: rotate(25deg);
+    }
+    .envelope h3{
+      margin: 0 0 6px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.45rem;
+    }
+    .envelope p{margin:0; color: rgba(11,11,11,.78); line-height:1.6}
+    .badge-row{
+      margin-top: 14px;
+      display:flex; flex-wrap:wrap;
+      gap: 10px;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(11,11,11,.92);
+      color: #fff;
+      border: 1px solid rgba(199,162,74,.35);
+      font-size: .92rem;
+    }
+    .badge i{
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--gold);
+      display:inline-block;
+    }
+
+    /* RSVP */
+    .rsvp{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items:start;
+    }
+    @media (max-width: 860px){
+      .rsvp{grid-template-columns: 1fr}
+    }
+    form{
+      display:grid;
+      gap: 12px;
+    }
+    label{
+      font-weight: 600;
+      color: rgba(11,11,11,.86);
+      font-size: .95rem;
+    }
+    input, select, textarea{
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid rgba(0,0,0,.14);
+      padding: 12px 12px;
+      font: inherit;
+      background: rgba(255,255,255,.92);
+      outline: none;
+    }
+    input:focus, select:focus, textarea:focus{
+      border-color: rgba(199,162,74,.75);
+      box-shadow: 0 0 0 4px rgba(199,162,74,.18);
+    }
+    textarea{min-height: 92px; resize: vertical}
+    .row{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 520px){
+      .row{grid-template-columns: 1fr}
+    }
+
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      align-items:center;
+    }
+    .btn{
+      border: none;
+      cursor: pointer;
+      border-radius: 999px;
+      padding: 12px 16px;
+      font-weight: 700;
+      letter-spacing: .01em;
+      transition: transform .15s ease, filter .15s ease;
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+    }
+    .btn:active{transform: scale(.99)}
+    .btn-primary{
+      background: var(--ink);
+      color:#fff;
+      border: 1px solid rgba(199,162,74,.35);
+    }
+    .btn-secondary{
+      background: rgba(255,255,255,.9);
+      color: var(--ink);
+      border: 1px solid rgba(0,0,0,.16);
+    }
+    .hint{
+      color: var(--muted);
+      font-size: .92rem;
+      line-height: 1.45;
+    }
+
+    footer{
+      padding: 22px 0 40px;
+      color: rgba(11,11,11,.55);
+      text-align:center;
+      font-size: .9rem;
+    }
+
+    .divider{
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(199,162,74,.55), transparent);
+      margin: 26px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Audio (archivo local en la misma carpeta) -->
+  <div class="audio" aria-label="Control de música">
+    <button id="audioBtn" type="button">Reproducir</button>
+    <span>Música de fondo</span>
+    <audio id="bgAudio" src="videoplayback.mp3" preload="auto" loop></audio>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero" role="banner">
+    <div class="wrap hero-inner">
+      <div class="hero-card">
+        <div class="kicker serif">INVITACIÓN DE BODA</div>
+
+        <h1 class="names script">
+          Roberto <span class="amp">&amp;</span> Ana
+        </h1>
+
+        <p class="subline serif">
+          Con alegría en el corazón, te invitamos a acompañarnos en el inicio de nuestra vida juntos.
+        </p>
+
+        <div class="meta" aria-label="Datos principales">
+          <div class="pill"><span class="dot"></span> Sábado 25 de abril de 2026</div>
+          <div class="pill"><span class="dot"></span> 8:00 pm</div>
+          <div class="pill"><span class="dot"></span> Salón El Tercer Piso · Los Mochis, Sin.</div>
+        </div>
+
+        <div class="scroll">
+          <small>Desliza para ver los detalles</small>
+          <button class="arrow" id="goDetails" type="button" aria-label="Ir a detalles">
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 16.5 4.5 9l1.4-1.4L12 13.7l6.1-6.1L19.5 9z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- MENSAJE / INVITACIÓN -->
+    <section id="details">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Nos encantaría contar contigo</h2>
+          <p class="serif"><span class="gold">Roberto</span> &amp; <span class="gold">Ana</span></p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <p class="serif" style="font-size:1.18rem; margin-bottom: 10px;">
+              “El amor no se mira, se siente… y se celebra.”
+            </p>
+            <p>
+              Te invitamos a compartir con nosotros una noche muy especial. Tu presencia es parte importante de este día,
+              y será un honor celebrar juntos nuestra boda.
+            </p>
+            <div class="divider"></div>
+            <p>
+              <b class="serif" style="font-size:1.08rem;">Código de vestimenta:</b><br/>
+              <span class="gold" style="font-weight:700;">Etiqueta formal</span>.
+            </p>
+
+            <div class="divider"></div>
+
+            <!-- Sobre / Regalo en efectivo -->
+            <div class="envelope" aria-label="Información de regalo">
+              <h3>Sobre</h3>
+              <p>
+                Nuestro mejor regalo es tu compañía. Si deseas obsequiarnos algo, agradeceremos que sea en
+                <b>efectivo dentro de un sobre</b>.
+              </p>
+              <div class="badge-row">
+                <span class="badge"><i></i> Regalo en efectivo</span>
+                <span class="badge"><i></i> Etiqueta formal</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- DETALLES -->
+          <aside class="card">
+            <div class="details" aria-label="Detalles del evento">
+              <div class="detail">
+                <div class="icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24">
+                    <path d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2zm13 6H6v12h14V8z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <b>Fecha</b>
+                  <small>Sábado 25 de abril de 2026</small>
+                </div>
+              </div>
+
+              <div class="detail">
+                <div class="icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24">
+                    <path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <b>Lugar</b>
+                  <small>Salón El Tercer Piso</small>
+                </div>
+              </div>
+
+              <div class="detail">
+                <div class="icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24">
+                    <path d="M3 11h18v10H3V11zm2-8h14v6H5V3zm2 2v2h10V5H7z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <b>Hora</b>
+                  <small>8:00 pm</small>
+                </div>
+              </div>
+
+              <div class="detail">
+                <div class="icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24">
+                    <path d="M12 2 1 7l11 5 9-4.09V17h2V7L12 2zm-7 9.91V17l7 3 7-3v-5.09l-7 3-7-3z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <b>Dirección</b>
+                  <small>Av A. Serdán Pte &amp; Avenida Ignacio Zaragoza, Centro, 81200 Los Mochis, Sin.</small>
+                </div>
+              </div>
+
+              <div class="divider"></div>
+
+              <p class="hint">
+                Sugerencia: si lo publicarás en hosting, usa HTTPS para asegurar la vista previa en WhatsApp y el audio.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP -->
+    <section id="rsvp">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Confirmación de asistencia</h2>
+          <p class="serif">RSVP</p>
+        </div>
+
+        <div class="rsvp">
+          <div class="card">
+            <p class="serif" style="font-size:1.15rem;">
+              Por favor confirma tu asistencia para ayudarnos con la organización.
+            </p>
+            <p class="hint">
+              Al enviar, se abrirá WhatsApp con un mensaje listo para mandar al número de confirmación.
+            </p>
+            <div class="divider"></div>
+            <p class="hint">
+              Nota: Si WhatsApp está en una computadora sin sesión iniciada, te llevará a WhatsApp Web.
+            </p>
+          </div>
+
+          <div class="card">
+            <form id="rsvpForm">
+              <div>
+                <label for="nombre">Nombre completo</label>
+                <input id="nombre" name="nombre" type="text" placeholder="Ej. Juan Pérez" required />
+              </div>
+
+              <div class="row">
+                <div>
+                  <label for="asistencia">¿Asistirás?</label>
+                  <select id="asistencia" name="asistencia" required>
+                    <option value="" selected disabled>Selecciona una opción</option>
+                    <option value="Sí, confirmo mi asistencia">Sí, asistiré</option>
+                    <option value="No podré asistir">No podré asistir</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="acompanantes">Acompañantes</label>
+                  <input id="acompanantes" name="acompanantes" type="number" min="0" max="10" value="0" />
+                </div>
+              </div>
+
+              <div>
+                <label for="comentarios">Comentarios (opcional)</label>
+                <textarea id="comentarios" name="comentarios" placeholder="Ej. Llegaré un poco más tarde, alergias, etc."></textarea>
+              </div>
+
+              <div class="actions">
+                <button class="btn btn-primary" type="submit">
+                  Enviar por WhatsApp
+                  <span aria-hidden="true">→</span>
+                </button>
+                <button class="btn btn-secondary" type="button" id="copyMsg">
+                  Copiar mensaje
+                </button>
+              </div>
+
+              <p class="hint" id="previewMsg" style="margin-top:6px;"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <div class="divider"></div>
+        <div class="serif">Roberto &amp; Ana · 25 de abril de 2026</div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Scroll suave a detalles
+    document.getElementById("goDetails").addEventListener("click", () => {
+      document.getElementById("details").scrollIntoView({ behavior: "smooth" });
+    });
+
+    // Audio control (los navegadores suelen bloquear autoplay sin interacción)
+    const audio = document.getElementById("bgAudio");
+    const audioBtn = document.getElementById("audioBtn");
+    let isPlaying = false;
+
+    async function toggleAudio(){
+      try{
+        if(!isPlaying){
+          await audio.play();
+          isPlaying = true;
+          audioBtn.textContent = "Pausar";
+        }else{
+          audio.pause();
+          isPlaying = false;
+          audioBtn.textContent = "Reproducir";
+        }
+      }catch(e){
+        // Si el navegador bloquea reproducción, se queda en "Reproducir"
+        isPlaying = false;
+        audioBtn.textContent = "Reproducir";
+        alert("Tu navegador bloqueó la reproducción automática. Toca 'Reproducir' nuevamente.");
+      }
+    }
+    audioBtn.addEventListener("click", toggleAudio);
+
+    // RSVP -> WhatsApp
+    const phone = "526682713838"; // sin + para wa.me
+    const form = document.getElementById("rsvpForm");
+    const preview = document.getElementById("previewMsg");
+    const copyBtn = document.getElementById("copyMsg");
+
+    function buildMessage(){
+      const nombre = document.getElementById("nombre").value.trim();
+      const asistencia = document.getElementById("asistencia").value;
+      const acomp = document.getElementById("acompanantes").value;
+      const comentarios = document.getElementById("comentarios").value.trim();
+
+      // Mensaje claro y listo para enviar
+      let msg =
+`RSVP Boda Roberto & Ana
+Nombre: ${nombre}
+Asistencia: ${asistencia}
+Acompañantes: ${acomp}`;
+
+      if(comentarios){
+        msg += `\nComentarios: ${comentarios}`;
+      }
+
+      msg += `\n\nEvento: Sábado 25 de abril de 2026 · 8:00 pm
+Lugar: Salón El Tercer Piso, Los Mochis, Sin.`;
+
+      return msg;
+    }
+
+    function updatePreview(){
+      const nombre = document.getElementById("nombre").value.trim();
+      const asistencia = document.getElementById("asistencia").value;
+      if(!nombre || !asistencia){
+        preview.textContent = "";
+        return;
+      }
+      preview.textContent = "Vista previa del mensaje: " + buildMessage().replace(/\n/g, " · ");
+    }
+
+    ["nombre","asistencia","acompanantes","comentarios"].forEach(id => {
+      document.getElementById(id).addEventListener("input", updatePreview);
+      document.getElementById(id).addEventListener("change", updatePreview);
+    });
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const nombre = document.getElementById("nombre").value.trim();
+      const asistencia = document.getElementById("asistencia").value;
+
+      if(!nombre || !asistencia){
+        alert("Por favor completa tu nombre y selecciona si asistirás.");
+        return;
+      }
+
+      const text = encodeURIComponent(buildMessage());
+      const url = `https://wa.me/${phone}?text=${text}`;
+      window.open(url, "_blank", "noopener,noreferrer");
+    });
+
+    copyBtn.addEventListener("click", async () => {
+      try{
+        const nombre = document.getElementById("nombre").value.trim();
+        const asistencia = document.getElementById("asistencia").value;
+        if(!nombre || !asistencia){
+          alert("Completa tu nombre y asistencia para copiar el mensaje.");
+          return;
+        }
+        await navigator.clipboard.writeText(buildMessage());
+        copyBtn.textContent = "Copiado";
+        setTimeout(() => copyBtn.textContent = "Copiar mensaje", 1200);
+      }catch(e){
+        alert("No se pudo copiar automáticamente. Intenta desde un navegador compatible.");
+      }
+    });
+  </script>
+</body>
+</html>
