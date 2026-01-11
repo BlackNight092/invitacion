@@ -1,786 +1,229 @@
-<!doctype html>
-<html lang="es-MX">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Invitación | Roberto & Ana</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boda de Roberto & Ana</title>
+    
+    <meta property="og:title" content="¡Nos Casamos! Roberto & Ana">
+    <meta property="og:description" content="Te invitamos a celebrar nuestra boda el 25 de abril de 2026. ¡Haz clic para ver los detalles!">
+    <meta property="og:image" content="imagen.png">
+    <meta property="og:url" content="https://tu-sitio-web.com">
 
-  <!-- Vista previa (WhatsApp / redes). IMPORTANTE: cambia og:url al publicar -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Roberto & Ana | Invitación de Boda" />
-  <meta property="og:description" content="Sábado 25 de abril de 2026 · 8:00 pm · Salón El Tercer Piso · Los Mochis, Sin. RSVP por WhatsApp." />
-  <meta property="og:image" content="imagen.png" />
-  <meta property="og:url" content="https://TU-DOMINIO.com/boda/" />
-  <meta name="theme-color" content="#ffffff" />
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
-  <!-- Fuentes base -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blanco: #ffffff;
+            --dorado: #c5a059;
+            --texto: #333333;
+        }
 
-  <!-- Brittany Signature (local). Coloca estos archivos junto a index.html:
-       - BrittanySignature.woff2 (recomendado)
-       - BrittanySignature.ttf (opcional fallback)
-  -->
-  <style>
-    @font-face{
-      font-family: "Brittany Signature";
-      src:
-        url("./BrittanySignature.woff2") format("woff2"),
-        url("./BrittanySignature.ttf") format("truetype");
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
-  </style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--blanco);
+            color: var(--texto);
+            scroll-behavior: smooth;
+        }
 
-  <style>
-    :root{
-      --bg:#ffffff;
-      --ink:#0b0b0b;
-      --muted: rgba(11,11,11,.68);
-      --gold:#c7a24a;
-      --gold2:#b8922f;
-      --shadow: 0 18px 55px rgba(0,0,0,.22);
-      --max: 980px;
+        /* --- SECCIÓN 1: INICIO (ESTILO FOTO 1) --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('imagen.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
 
-      /* Cuenta regresiva */
-      --bubble:#cfe3ff;        /* azul bajito */
-      --bubbleText:#1f3b66;
-    }
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            letter-spacing: 5px;
+            margin-bottom: 10px;
+            border-top: 1px solid white;
+            border-bottom: 1px solid white;
+            padding: 10px 20px;
+        }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      background:
-        radial-gradient(900px 560px at 50% -10%, rgba(199,162,74,.14), transparent 62%),
-        radial-gradient(900px 560px at 10% 30%, rgba(199,162,74,.10), transparent 60%),
-        var(--bg);
-      color: var(--ink);
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
+        .hero p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+        }
 
-    .wrap{width:min(var(--max), 92vw); margin:0 auto;}
-    .serif{font-family:"Cormorant Garamond", serif}
+        /* --- SECCIÓN 2: DETALLES (ESTILO FOTO 2 CON MARCO) --- */
+        .details-container {
+            padding: 50px 20px;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+        }
 
-    /* =========================
-       COVER (foto + títulos)
-       ========================= */
-    .cover{
-      position:relative;
-      height: min(92svh, 820px);
-      background:#111;
-      overflow:hidden;
-      isolation:isolate;
-    }
-    .cover::before{
-      content:"";
-      position:absolute; inset:0;
-      background: url("imagen.png") center/cover no-repeat;
-      transform: scale(1.02);
-      filter: contrast(1.02) saturate(.92);
-      z-index:-2;
-    }
-    .cover::after{
-      content:"";
-      position:absolute; inset:0;
-      background:
-        linear-gradient(to bottom, rgba(0,0,0,.04), rgba(0,0,0,.06) 40%, rgba(0,0,0,.52)),
-        radial-gradient(900px 520px at 50% 20%, rgba(199,162,74,.12), transparent 60%);
-      z-index:-1;
-    }
+        .card-frame {
+            max-width: 500px;
+            width: 100%;
+            padding: 40px;
+            border: 2px solid var(--dorado);
+            position: relative;
+            text-align: center;
+        }
 
-    /* Forzamos que el texto quede abajo (evita “subidas” raras en móviles) */
-    .cover-inner{
-      position: relative;
-      height: 100%;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      padding: 0 0 12svh;
-    }
+        /* Simulación de esquinas decorativas */
+        .card-frame::before {
+            content: "";
+            position: absolute;
+            top: -10px; left: -10px;
+            width: 50px; height: 50px;
+            border-top: 5px solid var(--dorado);
+            border-left: 5px solid var(--dorado);
+        }
 
-    .cover-text{
-      width: 100%;
-      text-align: center;
-      padding: 0 12px;
-      position: relative;
-      z-index: 2;
-    }
+        .cursive {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            color: var(--dorado);
+            margin: 20px 0;
+        }
 
-    /* TEXTO TOTALMENTE BLANCO + CONTORNO NEGRO + MUY GRANDE */
-    .cover-kicker{
-      margin:0 0 12px;
-      font-family: "Brittany Signature", "Allura", cursive;
-      font-size: clamp(4.0rem, 16vw, 7.8rem); /* más grande */
-      line-height: .90;
-      letter-spacing: .01em;
-      color: #ffffff;
+        .info-text {
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
 
-      /* Contorno negro */
-      -webkit-text-stroke: 3px rgba(0,0,0,.95);
+        .btn-mapa {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 1px solid var(--dorado);
+            color: var(--dorado);
+            text-decoration: none;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
 
-      /* Refuerzo tipo “outline” por sombras */
-      text-shadow:
-        3px 0 0 rgba(0,0,0,.95),
-        -3px 0 0 rgba(0,0,0,.95),
-        0 3px 0 rgba(0,0,0,.95),
-        0 -3px 0 rgba(0,0,0,.95),
-        0 14px 30px rgba(0,0,0,.45);
-    }
+        .btn-mapa:hover {
+            background: var(--dorado);
+            color: white;
+        }
 
-    .cover-names{
-      margin: 8px 0 0;
-      text-transform: uppercase;
-      letter-spacing: .30em;
-      font-size: clamp(1.35rem, 4.6vw, 1.85rem); /* más grande */
-      line-height: 1.1;
-    }
-    .cover-names > span{
-      font-family:"Cormorant Garamond", serif;
-      color:#ffffff;
+        /* --- SECCIÓN SOBRE (REGALO) Y ETIQUETA --- */
+        .gift-section {
+            background-color: #f9f9f9;
+            padding: 40px 20px;
+            text-align: center;
+        }
 
-      -webkit-text-stroke: 2px rgba(0,0,0,.95);
-      text-shadow:
-        2px 0 0 rgba(0,0,0,.95),
-        -2px 0 0 rgba(0,0,0,.95),
-        0 2px 0 rgba(0,0,0,.95),
-        0 -2px 0 rgba(0,0,0,.95),
-        0 12px 24px rgba(0,0,0,.38);
-    }
+        .icon-envelope { font-size: 2rem; margin-bottom: 10px; }
 
-    .scroll-hint{
-      margin-top: 18px;
-      display:flex;
-      justify-content:center;
-      opacity:.95;
-    }
-    .scroll-dot{
-      width: 42px; height: 42px;
-      border-radius: 999px;
-      display:grid; place-items:center;
-      border: 1px solid rgba(255,255,255,.35);
-      background: rgba(0,0,0,.20);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      cursor:pointer;
-    }
-    .scroll-dot svg{fill: rgba(255,255,255,.92)}
+        /* --- FORMULARIO --- */
+        .rsvp-section {
+            padding: 60px 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-    /* =========================
-       SHEET blanca (contenido)
-       ========================= */
-    main{
-      position:relative;
-      background: transparent;
-      margin-top: -7svh;
-      z-index: 10;
-    }
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
 
-    .sheet{
-      background: #fff;
-      border-radius: 34px 34px 0 0;
-      box-shadow: 0 -18px 55px rgba(0,0,0,.16);
-      padding-top: 18px;
-      padding-bottom: 34px;
-      position: relative;
-      overflow: hidden;
-    }
+        .btn-confirmar {
+            background-color: #25d366;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+        }
 
-    /* Adornos florales “blancos” (SVG embebido, no requiere archivos) */
-    .sheet::before,
-    .sheet::after{
-      content:"";
-      position:absolute;
-      width: 360px;
-      height: 360px;
-      opacity: .22;
-      pointer-events:none;
-      background-repeat:no-repeat;
-      background-size: contain;
-      filter: drop-shadow(0 10px 18px rgba(0,0,0,.08));
-      /* Flor blanca en SVG (monocromo) */
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Cg fill='white'%3E%3Cpath d='M150 34c18 0 30 24 30 44s-12 34-30 34-30-14-30-34 12-44 30-44z'/%3E%3Cpath d='M150 188c18 0 30 24 30 44s-12 34-30 34-30-14-30-34 12-44 30-44z'/%3E%3Cpath d='M34 150c0-18 24-30 44-30s34 12 34 30-14 30-34 30-44-12-44-30z'/%3E%3Cpath d='M188 150c0-18 24-30 44-30s34 12 34 30-14 30-34 30-44-12-44-30z'/%3E%3Cpath d='M74 74c13-13 41-4 55 10s23 42 10 55-41 4-55-10S61 87 74 74z'/%3E%3Cpath d='M226 226c13-13 41-4 55 10s23 42 10 55-41 4-55-10-23-42-10-55z'/%3E%3Cpath d='M226 74c13 13 4 41-10 55s-42 23-55 10-4-41 10-55 42-23 55-10z'/%3E%3Cpath d='M74 226c13 13 4 41-10 55s-42 23-55 10-4-41 10-55 42-23 55-10z'/%3E%3Ccircle cx='150' cy='150' r='22'/%3E%3C/g%3E%3C/svg%3E");
-    }
-
-    .sheet::before{ top:-140px; left:-140px; transform: rotate(-18deg); }
-    .sheet::after{ bottom:-150px; right:-150px; transform: rotate(22deg); }
-
-    section{padding: 22px 0}
-    .center{text-align:center}
-
-    h2{
-      margin:0 0 6px;
-      font-family:"Cormorant Garamond", serif;
-      font-size: clamp(2.0rem, 7vw, 2.6rem);
-      letter-spacing:.01em;
-    }
-    .subp{
-      margin:0 auto;
-      max-width: 44ch;
-      color: rgba(11,11,11,.70);
-      line-height:1.6;
-      font-size: 1.02rem;
-    }
-
-    /* Player debajo */
-    .player-inline{
-      width: min(560px, 92vw);
-      margin: 10px auto 0;
-      background: rgba(255,255,255,.97);
-      border-radius: 18px;
-      box-shadow: 0 18px 40px rgba(0,0,0,.14);
-      border: 1px solid rgba(0,0,0,.10);
-      padding: 10px 12px;
-      display:flex;
-      gap: 10px;
-      align-items:center;
-    }
-    .pbtn{
-      border:none;
-      width: 42px; height: 42px;
-      border-radius: 999px;
-      background: #111;
-      color:#fff;
-      font-weight:900;
-      cursor:pointer;
-      display:grid; place-items:center;
-    }
-    .pmeta{flex:1 1 auto; min-width: 0;}
-    .ptime{
-      display:flex;
-      justify-content:space-between;
-      font-size:.82rem;
-      color: rgba(11,11,11,.70);
-      margin-bottom: 6px;
-    }
-    .bar{
-      position:relative;
-      height: 6px;
-      border-radius: 999px;
-      background: rgba(0,0,0,.10);
-      overflow:hidden;
-      cursor:pointer;
-    }
-    .bar > i{
-      position:absolute; left:0; top:0; bottom:0;
-      width: 0%;
-      background: linear-gradient(90deg, var(--gold), var(--gold2));
-      display:block;
-    }
-    .pvol{
-      display:flex;
-      gap:8px;
-      align-items:center;
-      color: rgba(11,11,11,.72);
-      font-size:.9rem;
-    }
-    .pvol input{width: 92px}
-    @media (max-width: 520px){ .pvol{display:none} }
-
-    /* Contador burbujas */
-    .bubbles{
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap: 18px;
-      margin-top: 18px;
-    }
-    .bubble{
-      display:grid;
-      justify-items:center;
-      gap: 6px;
-      width: 74px;
-    }
-    .bubble .num{
-      width: 54px; height: 54px;
-      border-radius: 999px;
-      display:grid; place-items:center;
-      background: var(--bubble);
-      color: var(--bubbleText);
-      font-weight: 900;
-      box-shadow: 0 10px 22px rgba(0,0,0,.10);
-      border: 1px solid rgba(255,255,255,.70);
-    }
-    .bubble .lbl{
-      font-size: .72rem;
-      letter-spacing:.14em;
-      color: rgba(11,11,11,.65);
-      text-transform: uppercase;
-    }
-
-    /* Layout */
-    .grid{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 18px;
-      margin-top: 20px;
-    }
-    @media (max-width: 860px){ .grid{grid-template-columns: 1fr} }
-
-    .card{
-      background: rgba(255,255,255,.94);
-      border: 1px solid rgba(199,162,74,.28);
-      border-radius: 22px;
-      box-shadow: var(--shadow);
-      padding: 18px;
-      position: relative;
-      overflow:hidden;
-    }
-
-    /* Detalle floral pequeño dentro de tarjetas (sutil) */
-    .card.flower::after{
-      content:"";
-      position:absolute;
-      right:-48px;
-      top:-48px;
-      width: 160px;
-      height: 160px;
-      opacity: .18;
-      pointer-events:none;
-      background-repeat:no-repeat;
-      background-size: contain;
-      filter: drop-shadow(0 10px 18px rgba(0,0,0,.08));
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Cg fill='white'%3E%3Cpath d='M150 40c16 0 26 21 26 38s-10 30-26 30-26-13-26-30 10-38 26-38z'/%3E%3Cpath d='M150 192c16 0 26 21 26 38s-10 30-26 30-26-13-26-30 10-38 26-38z'/%3E%3Cpath d='M40 150c0-16 21-26 38-26s30 10 30 26-13 26-30 26-38-10-38-26z'/%3E%3Cpath d='M192 150c0-16 21-26 38-26s30 10 30 26-13 26-30 26-38-10-38-26z'/%3E%3Ccircle cx='150' cy='150' r='20'/%3E%3C/g%3E%3C/svg%3E");
-    }
-
-    .detail{
-      display:flex;
-      gap: 12px;
-      padding: 12px 12px;
-      border-radius: 16px;
-      border: 1px solid rgba(0,0,0,.08);
-      background: rgba(255,255,255,.85);
-      margin-bottom: 10px;
-    }
-    .detail:last-child{margin-bottom:0}
-    .icon{
-      width: 42px; height: 42px;
-      border-radius: 14px;
-      display:grid; place-items:center;
-      background: rgba(199,162,74,.12);
-      border: 1px solid rgba(199,162,74,.25);
-      flex: 0 0 auto;
-    }
-    .icon svg{fill: var(--gold2)}
-    .detail b{display:block}
-    .detail small{color: rgba(11,11,11,.65)}
-
-    .btn{
-      border:none;
-      cursor:pointer;
-      border-radius: 999px;
-      padding: 12px 16px;
-      font-weight: 900;
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      text-decoration:none;
-      justify-content:center;
-      white-space: nowrap;
-    }
-    .btn-primary{
-      background: #111;
-      color:#fff;
-      border: 1px solid rgba(199,162,74,.35);
-    }
-    .btn-ghost{
-      background: #fff;
-      color:#111;
-      border: 1px solid rgba(0,0,0,.14);
-    }
-
-    /* RSVP */
-    .rsvp-grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-    @media (max-width: 860px){ .rsvp-grid{grid-template-columns: 1fr} }
-
-    form{display:grid; gap: 12px; margin-top: 10px;}
-    label{font-weight:900; font-size:.95rem}
-    input,select,textarea{
-      width:100%;
-      border-radius: 14px;
-      border: 1px solid rgba(0,0,0,.14);
-      padding: 12px 12px;
-      font: inherit;
-      background: #fff;
-      outline:none;
-    }
-    input:focus,select:focus,textarea:focus{
-      border-color: rgba(199,162,74,.75);
-      box-shadow: 0 0 0 4px rgba(199,162,74,.18);
-    }
-    textarea{min-height: 92px; resize: vertical}
-    .row{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-    @media (max-width: 520px){ .row{grid-template-columns: 1fr} }
-
-    .actions{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-    .actions .btn{flex: 1 1 220px;}
-
-    footer{
-      padding: 22px 0 30px;
-      color: rgba(11,11,11,.55);
-      text-align:center;
-      font-size:.9rem;
-    }
-  </style>
+        audio { display: none; }
+    </style>
 </head>
-
 <body>
-  <!-- COVER -->
-  <header class="cover" role="banner">
-    <div class="wrap cover-inner">
-      <div class="cover-text">
-        <h1 class="cover-kicker">Nos casamos</h1>
-        <!-- NOTA: debe existir solo una vez en todo el documento -->
-        <p class="cover-names"><span>ROBERTO &amp; ANA</span></p>
 
-        <div class="scroll-hint">
-          <button class="scroll-dot" id="goSheet" type="button" aria-label="Ver invitación">
-            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 16.5 4.5 9l1.4-1.4L12 13.7l6.1-6.1L19.5 9z"></path>
-            </svg>
-          </button>
+    <audio id="audio" loop>
+        <source src="videoplayback.mp3" type="audio/mpeg">
+    </audio>
+
+    <section class="hero" onclick="document.getElementById('audio').play()">
+        <p>NUESTRA BODA</p>
+        <h1>ROBERTO & ANA</h1>
+        <p>25 . 04 . 26</p>
+        <small style="margin-top: 20px; opacity: 0.8;">(Toca para activar música)</small>
+    </section>
+
+    <section class="details-container">
+        <div class="card-frame">
+            <p style="letter-spacing: 2px;">¡NOS CASAMOS!</p>
+            <div class="cursive">Roberto & Ana</div>
+            <div class="info-text">
+                Hay momentos en la vida que son especiales por sí solos, pero compartirlos con las personas que más queremos los hace inolvidables. <br><br>
+                <strong>Sábado 25 de Abril de 2026</strong><br>
+                8:00 PM <br><br>
+                <strong>Lugar:</strong> Salón El Tercer Piso <br>
+                Av A. Serdán Pte & Av. Ignacio Zaragoza, Centro <br>
+                Los Mochis, Sinaloa.
+            </div>
+            <a href="https://www.google.com/maps/search/?api=1&query=Salón+El+Tercer+Piso+Los+Mochis" target="_blank" class="btn-mapa">VER UBICACIÓN</a>
+            
+            <hr style="margin: 40px 0; border: 0.5px solid #eee;">
+            
+            <div class="info-text">
+                <strong>Código de Vestimenta:</strong> <br>
+                Etiqueta Formal
+            </div>
         </div>
-      </div>
-    </div>
-  </header>
+    </section>
 
-  <!-- SHEET -->
-  <main id="sheet" class="sheet">
-    <div class="wrap">
-      <section class="center">
-        <h2 style="margin-bottom:4px;">Estás invitado!</h2>
-        <p class="subp">Queremos que seas parte de este momento tan especial.</p>
+    <section class="gift-section">
+        <div class="icon-envelope">✉️</div>
+        <h3>Lluvia de Sobres</h3>
+        <p>Tu presencia es nuestro mejor regalo, pero si deseas tener un detalle con nosotros, te agradecemos que sea en <b>efectivo</b> el día del evento.</p>
+    </section>
 
-        <div class="player-inline" aria-label="Reproductor de música">
-          <button class="pbtn" id="audioBtn" type="button" aria-label="Play/Pause">II</button>
+    <section class="rsvp-section" id="confirmar">
+        <h2 style="text-align: center; font-family: 'Cinzel';">Confirmar Asistencia</h2>
+        <form id="rsvpForm">
+            <input type="text" id="nombre" placeholder="Nombre completo" required>
+            <select id="asistencia" required>
+                <option value="">¿Asistirás?</option>
+                <option value="Sí, asistiré">Sí, asistiré</option>
+                <option value="No podré asistir">No podré asistir</option>
+            </select>
+            <input type="number" id="personas" placeholder="Número de acompañantes" min="0" max="5">
+            <button type="button" class="btn-confirmar" onclick="enviarWhatsApp()">CONFIRMAR POR WHATSAPP</button>
+        </form>
+    </section>
 
-          <div class="pmeta">
-            <div class="ptime">
-              <span id="curTime">0:00</span>
-              <span id="durTime">0:00</span>
-            </div>
-            <div class="bar" id="seekBar" aria-label="Barra de progreso">
-              <i id="seekFill"></i>
-            </div>
-          </div>
+    <script>
+        function enviarWhatsApp() {
+            const nombre = document.getElementById('nombre').value;
+            const asistencia = document.getElementById('asistencia').value;
+            const personas = document.getElementById('personas').value;
+            const telefono = "526682713838";
 
-          <div class="pvol" aria-label="Volumen">
-            <span>🔊</span>
-            <input id="vol" type="range" min="0" max="1" step="0.01" value="0.85" />
-          </div>
+            if(nombre === "" || asistencia === "") {
+                alert("Por favor completa los campos principales.");
+                return;
+            }
 
-          <audio id="bgAudio" src="videoplayback.mp3" preload="auto" loop playsinline></audio>
-        </div>
-
-        <div class="bubbles" aria-label="Cuenta regresiva">
-          <div class="bubble"><div class="num" id="cdDays">—</div><div class="lbl">Días</div></div>
-          <div class="bubble"><div class="num" id="cdHours">—</div><div class="lbl">Horas</div></div>
-          <div class="bubble"><div class="num" id="cdMins">—</div><div class="lbl">Minutos</div></div>
-          <div class="bubble"><div class="num" id="cdSecs">—</div><div class="lbl">Segundos</div></div>
-        </div>
-      </section>
-
-      <section>
-        <div class="grid">
-          <article class="card flower">
-            <p class="serif" style="font-size:1.12rem; margin:0 0 12px;">
-              Con alegría en el corazón, te invitamos a acompañarnos en el inicio de nuestra vida juntos.
-            </p>
-            <p style="margin:0 0 10px; color: rgba(11,11,11,.78); line-height:1.6;">
-              <b>Código de vestimenta:</b> <span style="color: var(--gold2); font-weight:900;">Etiqueta formal</span>.
-            </p>
-            <p style="margin:0; color: rgba(11,11,11,.78); line-height:1.6;">
-              <b>Sobre:</b> Nuestro mejor regalo es tu compañía. Si deseas obsequiarnos algo, agradeceremos que sea en
-              <b>efectivo dentro de un sobre</b>.
-            </p>
-
-            <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
-              <a class="btn btn-ghost" id="mapBtn" target="_blank" rel="noopener noreferrer">Ver ubicación</a>
-              <a class="btn btn-primary" href="#rsvp">Confirmar asistencia</a>
-            </div>
-          </article>
-
-          <aside class="card flower" aria-label="Detalles del evento">
-            <div class="detail">
-              <div class="icon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24"><path d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2zm13 6H6v12h14V8z"></path></svg>
-              </div>
-              <div><b>Fecha</b><small>Sábado 25 de abril de 2026</small></div>
-            </div>
-
-            <div class="detail">
-              <div class="icon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24"><path d="M3 11h18v10H3V11zm2-8h14v6H5V3zm2 2v2h10V5H7z"></path></svg>
-              </div>
-              <div><b>Hora</b><small>8:00 pm</small></div>
-            </div>
-
-            <div class="detail">
-              <div class="icon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 1 1 0 5.5z"></path></svg>
-              </div>
-              <div><b>Lugar</b><small>Salón El Tercer Piso</small></div>
-            </div>
-
-            <div class="detail">
-              <div class="icon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2 1 7l11 5 9-4.09V17h2V7L12 2zm-7 9.91V17l7 3 7-3v-5.09l-7 3-7-3z"></path></svg>
-              </div>
-              <div><b>Dirección</b><small>Av A. Serdán Pte &amp; Avenida Ignacio Zaragoza, Centro, 81200 Los Mochis, Sin.</small></div>
-            </div>
-          </aside>
-        </div>
-      </section>
-
-      <section id="rsvp">
-        <div class="rsvp-grid">
-          <div class="card flower">
-            <h2 class="serif" style="margin:0 0 6px;">Confirmación de asistencia</h2>
-            <p style="margin:0; color: rgba(11,11,11,.72); line-height:1.6;">
-              Por favor confirma tu asistencia. Al enviar, se abrirá WhatsApp con el mensaje listo para mandar al número de confirmación.
-            </p>
-          </div>
-
-          <div class="card flower">
-            <form id="rsvpForm">
-              <div>
-                <label for="nombre">Nombre completo</label>
-                <input id="nombre" name="nombre" type="text" placeholder="Ej. Juan Pérez" required />
-              </div>
-
-              <div class="row">
-                <div>
-                  <label for="asistencia">¿Asistirás?</label>
-                  <select id="asistencia" name="asistencia" required>
-                    <option value="" selected disabled>Selecciona una opción</option>
-                    <option value="Sí, confirmo mi asistencia">Sí, asistiré</option>
-                    <option value="No podré asistir">No podré asistir</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label for="acompanantes">Acompañantes</label>
-                  <input id="acompanantes" name="acompanantes" type="number" min="0" max="10" value="0" />
-                </div>
-              </div>
-
-              <div>
-                <label for="comentarios">Comentarios (opcional)</label>
-                <textarea id="comentarios" name="comentarios" placeholder="Ej. Llegaré un poco más tarde, alergias, etc."></textarea>
-              </div>
-
-              <div class="actions">
-                <button class="btn btn-primary" type="submit">Enviar por WhatsApp →</button>
-                <button class="btn btn-ghost" type="button" id="copyMsg">Copiar mensaje</button>
-              </div>
-
-              <p style="margin:10px 0 0; color: rgba(11,11,11,.62); font-size:.92rem;" id="previewMsg"></p>
-            </form>
-          </div>
-        </div>
-      </section>
-
-      <footer>Roberto &amp; Ana · 25 de abril de 2026</footer>
-    </div>
-  </main>
-
-  <script>
-    // ========= Maps =========
-    const address = "Salón El Tercer Piso, Av A. Serdán Pte & Avenida Ignacio Zaragoza, Centro, 81200 Los Mochis, Sin.";
-    const mapsUrl = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(address);
-    document.getElementById("mapBtn").href = mapsUrl;
-
-    // ========= Scroll =========
-    document.getElementById("goSheet").addEventListener("click", () => {
-      document.getElementById("sheet").scrollIntoView({ behavior: "smooth" });
-    });
-
-    // ========= Audio =========
-    const audio = document.getElementById("bgAudio");
-    const btn = document.getElementById("audioBtn");
-    const seekBar = document.getElementById("seekBar");
-    const seekFill = document.getElementById("seekFill");
-    const vol = document.getElementById("vol");
-    const curTime = document.getElementById("curTime");
-    const durTime = document.getElementById("durTime");
-    let isPlaying = false;
-
-    function fmt(t){
-      if(!isFinite(t)) return "0:00";
-      const m = Math.floor(t/60);
-      const s = Math.floor(t%60);
-      return `${m}:${String(s).padStart(2,"0")}`;
-    }
-    async function playAuto(){
-      try{
-        audio.volume = parseFloat(vol.value || "0.85");
-        await audio.play();
-        isPlaying = true;
-        btn.textContent = "II";
-      }catch(e){
-        isPlaying = false;
-        btn.textContent = "▶";
-      }
-    }
-    async function toggle(){
-      try{
-        if(!isPlaying){
-          await audio.play();
-          isPlaying = true;
-          btn.textContent = "II";
-        }else{
-          audio.pause();
-          isPlaying = false;
-          btn.textContent = "▶";
+            const mensaje = `¡Hola! Soy ${nombre}. %0AConfirmo mi asistencia: *${asistencia}*. %0ANúmero de personas: ${personas}. %0A¡Nos vemos en la boda de Roberto y Ana!`;
+            
+            window.open(`https://api.whatsapp.com/send?phone=${telefono}&text=${mensaje}`, '_blank');
         }
-      }catch(e){
-        isPlaying = false;
-        btn.textContent = "▶";
-      }
-    }
-    btn.addEventListener("click", toggle);
-    vol.addEventListener("input", () => audio.volume = parseFloat(vol.value));
+    </script>
 
-    audio.addEventListener("loadedmetadata", () => durTime.textContent = fmt(audio.duration));
-    audio.addEventListener("timeupdate", () => {
-      curTime.textContent = fmt(audio.currentTime);
-      if(isFinite(audio.duration) && audio.duration > 0){
-        seekFill.style.width = ((audio.currentTime / audio.duration) * 100) + "%";
-      }
-    });
-    seekBar.addEventListener("click", (e) => {
-      const r = seekBar.getBoundingClientRect();
-      const x = Math.min(Math.max(0, e.clientX - r.left), r.width);
-      if(isFinite(audio.duration) && audio.duration > 0){
-        audio.currentTime = (x / r.width) * audio.duration;
-      }
-    });
-
-    // Autoplay con fallback
-    playAuto();
-    const firstInteract = () => {
-      if(!isPlaying) playAuto();
-      window.removeEventListener("touchstart", firstInteract, {passive:true});
-      window.removeEventListener("click", firstInteract);
-    };
-    window.addEventListener("touchstart", firstInteract, {passive:true});
-    window.addEventListener("click", firstInteract);
-
-    // ========= Countdown =========
-    const target = new Date(2026, 3, 25, 20, 0, 0); // Abril=3
-
-    const cdDays = document.getElementById("cdDays");
-    const cdHours = document.getElementById("cdHours");
-    const cdMins = document.getElementById("cdMins");
-    const cdSecs = document.getElementById("cdSecs");
-    const pad = (n) => String(n).padStart(2,"0");
-
-    function tick(){
-      const now = new Date();
-      let diff = target.getTime() - now.getTime();
-      if(diff <= 0){
-        cdDays.textContent = "0";
-        cdHours.textContent = "00";
-        cdMins.textContent = "00";
-        cdSecs.textContent = "00";
-        return;
-      }
-      const totalSeconds = Math.floor(diff/1000);
-      const days = Math.floor(totalSeconds / 86400);
-      const hours = Math.floor((totalSeconds % 86400) / 3600);
-      const mins = Math.floor((totalSeconds % 3600) / 60);
-      const secs = totalSeconds % 60;
-
-      cdDays.textContent = String(days);
-      cdHours.textContent = pad(hours);
-      cdMins.textContent = pad(mins);
-      cdSecs.textContent = pad(secs);
-    }
-    tick();
-    setInterval(tick, 1000);
-
-    // ========= RSVP WhatsApp =========
-    const phone = "526682713838";
-    const form = document.getElementById("rsvpForm");
-    const preview = document.getElementById("previewMsg");
-    const copyBtn = document.getElementById("copyMsg");
-
-    function buildMessage(){
-      const nombre = document.getElementById("nombre").value.trim();
-      const asistencia = document.getElementById("asistencia").value;
-      const acomp = document.getElementById("acompanantes").value;
-      const comentarios = document.getElementById("comentarios").value.trim();
-
-      let msg =
-`RSVP Boda Roberto & Ana
-Nombre: ${nombre}
-Asistencia: ${asistencia}
-Acompañantes: ${acomp}`;
-
-      if(comentarios) msg += `\nComentarios: ${comentarios}`;
-
-      msg += `\n\nEvento: Sábado 25 de abril de 2026 · 8:00 pm
-Lugar: Salón El Tercer Piso, Los Mochis, Sin.`;
-
-      return msg;
-    }
-
-    function updatePreview(){
-      const nombre = document.getElementById("nombre").value.trim();
-      const asistencia = document.getElementById("asistencia").value;
-      if(!nombre || !asistencia){ preview.textContent = ""; return; }
-      preview.textContent = "Vista previa del mensaje: " + buildMessage().replace(/\n/g, " · ");
-    }
-
-    ["nombre","asistencia","acompanantes","comentarios"].forEach(id => {
-      document.getElementById(id).addEventListener("input", updatePreview);
-      document.getElementById(id).addEventListener("change", updatePreview);
-    });
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const nombre = document.getElementById("nombre").value.trim();
-      const asistencia = document.getElementById("asistencia").value;
-      if(!nombre || !asistencia){
-        alert("Por favor completa tu nombre y selecciona si asistirás.");
-        return;
-      }
-      const text = encodeURIComponent(buildMessage());
-      window.open(`https://wa.me/${phone}?text=${text}`, "_blank", "noopener,noreferrer");
-    });
-
-    copyBtn.addEventListener("click", async () => {
-      try{
-        const nombre = document.getElementById("nombre").value.trim();
-        const asistencia = document.getElementById("asistencia").value;
-        if(!nombre || !asistencia){
-          alert("Completa tu nombre y asistencia para copiar el mensaje.");
-          return;
-        }
-        await navigator.clipboard.writeText(buildMessage());
-        copyBtn.textContent = "Copiado";
-        setTimeout(() => copyBtn.textContent = "Copiar mensaje", 1200);
-      }catch(e){
-        alert("No se pudo copiar automáticamente. Intenta desde un navegador compatible.");
-      }
-    });
-  </script>
 </body>
 </html>
