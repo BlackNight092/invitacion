@@ -6,29 +6,28 @@
     <title>Boda de Roberto & Ana</title>
     
     <meta property="og:title" content="¡Nos Casamos! Roberto & Ana">
-    <meta property="og:description" content="Acompáñanos a celebrar nuestro gran día el 25 de abril de 2026.">
+    <meta property="og:description" content="Te invitamos a celebrar nuestra boda el 25 de abril de 2026.">
     <meta property="og:image" content="imagen.png">
 
-    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cinzel+Decorative:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --blanco: #ffffff;
             --negro: #1a1a1a;
-            --dorado: #b8924b;
-            --verde-hoja: #5b7c5b;
-            --texto: #2c2c2c;
+            --dorado: #c5a059;
+            --texto: #333333;
         }
 
         body, html {
             margin: 0; padding: 0;
             font-family: 'Montserrat', sans-serif;
-            background-color: #fcfaf7;
+            background-color: var(--blanco);
             color: var(--texto);
             scroll-behavior: smooth;
         }
 
-        /* --- SECCIÓN INICIO --- */
+        /* --- SECCIÓN 1: INICIO --- */
         .hero {
             height: 100vh;
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('imagen.png');
@@ -38,77 +37,79 @@
         }
 
         .hero h1 {
-            font-family: 'Playfair Display', serif; font-size: 2.5rem; letter-spacing: 4px;
-            margin: 20px 0; border-top: 1px solid rgba(255,255,255,0.6); border-bottom: 1px solid rgba(255,255,255,0.6); padding: 15px 30px;
+            font-family: 'Playfair Display', serif; font-size: 2.2rem; letter-spacing: 5px;
+            margin: 20px 0; border-top: 1px solid white; border-bottom: 1px solid white; padding: 15px 30px;
         }
 
-        /* --- MARCO CON ROSAS --- */
-        .content-wrapper { padding: 80px 15px; display: flex; flex-direction: column; align-items: center; }
+        /* --- SECCIÓN 2: INVITACIÓN (MARCO CON FLORES) --- */
+        .content-wrapper { padding: 80px 20px; display: flex; flex-direction: column; align-items: center; }
 
         .card-frame {
-            max-width: 550px; width: 100%; padding: 60px 25px;
+            max-width: 550px; width: 100%; padding: 60px 30px;
             border: 2px solid var(--negro); position: relative;
             text-align: center; box-sizing: border-box;
-            background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            background: white;
         }
 
-        /* Imágenes de Rosas en Esquinas */
-        .rose-corner {
-            position: absolute; width: 120px; height: auto; z-index: 2;
+        /* Decoración Floral en esquinas */
+        .flower-corner {
+            position: absolute; width: 100px; height: 100px;
+            pointer-events: none;
         }
-        .top-left { top: -45px; left: -45px; }
-        .bottom-right { bottom: -45px; right: -45px; transform: rotate(180deg); }
+        .top-left { top: -15px; left: -15px; transform: rotate(0deg); }
+        .bottom-right { bottom: -15px; right: -15px; transform: rotate(180deg); }
 
         .cursive-name {
-            font-family: 'Pinyon Script', cursive; font-size: 4.2rem;
-            color: var(--dorado); margin: 10px 0; font-weight: 400;
+            font-family: 'Pinyon Script', cursive; font-size: 4rem;
+            color: var(--dorado); margin: 10px 0;
+            font-weight: 400;
         }
 
         .titulo-formal {
             font-family: 'Playfair Display', serif;
-            font-weight: 700; font-size: 1.5rem;
-            color: var(--negro); letter-spacing: 1px; margin-bottom: 20px;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--negro);
+            letter-spacing: 2px;
+            margin-bottom: 20px;
         }
 
         .dedicatoria {
-            font-family: 'Playfair Display', serif; font-style: italic;
-            font-size: 1rem; line-height: 1.8; margin: 25px 0;
-            color: var(--verde-hoja); max-width: 85%; margin-left: auto; margin-right: auto;
+            font-style: italic; font-size: 0.95rem; line-height: 1.8;
+            margin: 25px 0; color: #555; max-width: 80%; margin-left: auto; margin-right: auto;
         }
 
-        /* --- VESTIMENTA --- */
+        /* --- VESTIMENTA (FIGURAS) --- */
         .dress-code-container {
             margin-top: 35px; display: flex; justify-content: center; gap: 40px; align-items: flex-end;
         }
-        .dress-item { text-align: center; font-size: 0.7rem; font-weight: bold; color: var(--negro); }
-        .dress-item svg { margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto; fill: var(--negro); }
+        .dress-item { text-align: center; font-size: 0.7rem; font-weight: bold; letter-spacing: 1px; }
+        .dress-item svg { margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto; }
 
-        /* --- MAPA Y UBICACIÓN --- */
-        .map-section { width: 100%; max-width: 550px; margin-top: 60px; text-align: center; }
-        iframe { border-radius: 4px; border: 2px solid #eee; margin-top: 15px; }
-
+        /* --- MAPA Y BOTONES --- */
+        .map-section { width: 100%; max-width: 550px; margin-top: 50px; text-align: center; }
         .btn-action {
-            display: inline-block; padding: 14px 25px; border: 1.5px solid var(--dorado);
-            color: var(--dorado); text-decoration: none; font-size: 0.8rem;
-            font-weight: 600; transition: 0.3s; margin: 10px 5px; border-radius: 2px;
+            display: inline-block; padding: 14px 28px; border: 1px solid var(--negro);
+            color: var(--negro); text-decoration: none; font-size: 0.75rem;
+            font-weight: 600; transition: 0.3s; margin: 10px 5px;
+            letter-spacing: 1px;
         }
-        .btn-action:hover { background: var(--dorado); color: white; }
+        .btn-action:hover { background: var(--negro); color: white; }
 
         /* --- REGALO --- */
-        .gift-box { 
-            background-color: #f2f5f2; width: 100%; padding: 50px 20px; 
-            text-align: center; margin-top: 60px; border-top: 1px solid #e0e0e0;
-        }
+        .gift-box { background-color: #fafafa; width: 100%; padding: 50px 20px; text-align: center; margin-top: 50px; }
 
         /* --- RSVP --- */
         .rsvp-container { width: 100%; max-width: 500px; padding: 60px 20px; }
+        .input-group { margin-bottom: 20px; text-align: left; }
+        .input-group label { font-size: 0.7rem; font-weight: 600; color: #888; letter-spacing: 1px; }
         input, select {
-            width: 100%; padding: 15px; border: 1px solid #ddd; font-family: inherit; 
-            box-sizing: border-box; margin-top: 5px; border-radius: 0;
+            width: 100%; padding: 15px; border: 1px solid #ddd; font-family: 'Montserrat', sans-serif; box-sizing: border-box;
+            border-radius: 0; margin-top: 5px;
         }
         .btn-confirmar {
             background-color: #25d366; color: white; border: none; padding: 20px;
-            width: 100%; font-weight: bold; cursor: pointer; font-size: 0.9rem; margin-top: 20px;
+            width: 100%; font-weight: bold; cursor: pointer; font-size: 0.9rem; letter-spacing: 1px;
         }
 
         audio { display: none; }
@@ -119,85 +120,91 @@
     <audio id="audio" loop><source src="videoplayback.mp3" type="audio/mpeg"></audio>
 
     <section class="hero" onclick="document.getElementById('audio').play()">
-        <p style="letter-spacing: 5px;">ESTÁS INVITADO A LA BODA DE</p>
+        <p>NUESTRA BODA</p>
         <h1>ROBERTO & ANA</h1>
-        <p>25 DE ABRIL, 2026</p>
-        <small style="margin-top: 30px; border: 1px solid white; padding: 5px 15px;">TOCA PARA ESCUCHAR 🎵</small>
+        <p>25 . 04 . 2026</p>
+        <small style="margin-top: 20px; opacity: 0.8;">(Toca para activar música 🎵)</small>
     </section>
 
     <div class="content-wrapper">
         <div class="card-frame">
-            <img src="https://cdn-icons-png.flaticon.com/512/3505/3505423.png" class="rose-corner top-left" alt="rosa">
-            <img src="https://cdn-icons-png.flaticon.com/512/3505/3505423.png" class="rose-corner bottom-right" alt="rosa">
+            <svg class="flower-corner top-left" viewBox="0 0 100 100">
+                <path d="M0,0 Q30,0 40,30 T70,40 M0,0 Q0,30 30,40 T40,70" stroke="#1a1a1a" fill="none" stroke-width="1.5"/>
+                <circle cx="15" cy="15" r="3" fill="#c5a059"/>
+                <path d="M5,25 Q15,25 20,15 T35,5" stroke="#c5a059" fill="none" stroke-width="1"/>
+                <path d="M25,5 Q25,15 15,20 T5,35" stroke="#c5a059" fill="none" stroke-width="1"/>
+            </svg>
 
-            <p style="letter-spacing: 4px; font-weight: 600; font-size: 0.8rem; color: var(--verde-hoja);">¡NOS CASAMOS!</p>
+            <p style="letter-spacing: 4px; font-weight: 400; font-size: 0.8rem;">ESTÁS INVITADO A</p>
+            <h2 class="titulo-formal" style="font-size: 1.1rem; margin-top: 10px;">¡NOS CASAMOS!</h2>
             
             <div class="cursive-name">Roberto & Ana</div>
             
-            <div class="dedicatoria">
+            <p class="dedicatoria">
                 "Hay momentos en la vida que son especiales por sí solos, 
                 pero compartirlos con las personas que más queremos 
                 los hace inolvidables."
-            </div>
-
-            <p style="font-family: 'Playfair Display'; font-size: 1.1rem;">
-                <strong>Sábado 25 de abril del 2026</strong><br>
-                Recepción: 8:00 pm
             </p>
 
-            <hr style="width: 50%; border: 0; border-top: 1px solid #eee; margin: 30px auto;">
+            <p><strong>Sábado 25 de abril del 2026</strong><br>
+            Recepción: 8:00 pm</p>
 
-            <p style="font-size: 0.8rem; letter-spacing: 2px; font-weight: 600;">CÓDIGO DE VESTIMENTA</p>
+            <p style="margin-top: 35px; font-size: 0.8rem; letter-spacing: 2px; font-weight: 600;">CÓDIGO DE VESTIMENTA</p>
             <div class="dress-code-container">
                 <div class="dress-item">
-                    <svg width="45" height="60" viewBox="0 0 100 120">
-                        <path d="M20,20 L50,60 L80,20 L100,20 L100,120 L0,120 L0,20 Z"/>
+                    <svg width="50" height="70" viewBox="0 0 100 120">
+                        <path d="M20,20 L50,60 L80,20 L100,20 L100,120 L0,120 L0,20 Z" fill="black"/>
                         <path d="M50,60 L20,20 L80,20 Z" fill="white"/>
                         <rect x="45" y="30" width="10" height="5" fill="black"/>
                     </svg>
                     <p>FORMAL / SMOKING</p>
                 </div>
                 <div class="dress-item">
-                    <svg width="45" height="60" viewBox="0 0 100 120">
-                        <path d="M30,10 Q50,0 70,10 L85,40 L65,50 L75,120 L25,120 L35,50 L15,40 Z"/>
+                    <svg width="50" height="70" viewBox="0 0 100 120">
+                        <path d="M30,10 Q50,0 70,10 L85,40 L65,50 L75,120 L25,120 L35,50 L15,40 Z" fill="black"/>
                     </svg>
                     <p>VESTIDO LARGO</p>
                 </div>
             </div>
+
+            <svg class="flower-corner bottom-right" viewBox="0 0 100 100">
+                <path d="M0,0 Q30,0 40,30 T70,40 M0,0 Q0,30 30,40 T40,70" stroke="#1a1a1a" fill="none" stroke-width="1.5"/>
+                <circle cx="15" cy="15" r="3" fill="#c5a059"/>
+            </svg>
         </div>
 
         <div class="map-section">
             <h3 class="titulo-formal">Lugar y Ubicación</h3>
             <p><strong>Salón El Tercer Piso</strong><br>
-            Av A. Serdán Pte & Av. Ignacio Zaragoza, Centro</p>
+            <small>Av A. Serdán Pte & Avenida Ignacio Zaragoza, Centro</small></p>
             
             <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3550.5630635397445!2d-108.9959604!3d25.792842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86bb2b79427382d5%3A0xe21271017e4719c8!2zQXYuIEEuIFNlcmTDoW4gUHRlLiAmIEF2LiBJZ25hY2lvIFphcmFnb3phLCBDZW50cm8sIDgxMjAwIExvcyBNb2NoaXMsIFNpbi4!5e0!3m2!1ses-419!2smx!4v1715600000000!5m2!1ses-419!2smx" 
-                width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy">
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3550.052824944933!2d-108.9959604!3d25.792576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86ba259505494191%3A0x86134b22300b90f4!2sAv%20A.%20Serd%C3%A1n%20Pte%20%26%20Av.%20Ignacio%20Zaragoza%2C%20Centro%2C%2081200%20Los%20Mochis%2C%20Sin.!5e0!3m2!1ses-419!2smx!4v1710000000000!5m2!1ses-419!2smx" 
+                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
             </iframe>
             
-            <a href="https://maps.app.goo.gl/9yXW78yCjA6n7FvH7" target="_blank" class="btn-action">ABRIR EN GOOGLE MAPS</a>
-            <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Boda+de+Roberto+y+Ana&dates=20260426T020000Z/20260426T060000Z&details=¡Nos+vemos+en+la+boda!&location=Salón+El+Tercer+Piso,+Los+Mochis&sf=true&output=xml" target="_blank" class="btn-action">AGENDAR EN MI CALENDARIO</a>
+            <a href="https://maps.app.goo.gl/3Q8Y7kXh7E8P9z9w6" target="_blank" class="btn-action">VER EN GOOGLE MAPS</a>
+            <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Boda+de+Roberto+y+Ana&dates=20260426T020000Z/20260426T060000Z&details=¡Acompáñanos!&location=Salón+El+Tercer+Piso,+Los+Mochis&sf=true&output=xml" target="_blank" class="btn-action">AGENDAR FECHA</a>
         </div>
 
         <div class="gift-box">
             <h3 class="titulo-formal">Lluvia de Sobres</h3>
-            <p>Tu presencia es nuestro mejor regalo. Si deseas tener un detalle con nosotros, te agradecemos que sea en <strong>efectivo</strong> a través de un sobre el día del evento.</p>
-            <span style="font-size: 2.5rem;">✉️</span>
+            <p>Tu presencia es nuestro mejor regalo. Si deseas tener un detalle con nosotros, te agradecemos que sea en <strong>efectivo</strong> el día del evento.</p>
+            <div style="font-size: 2rem; margin-top: 15px;">✉️</div>
         </div>
 
         <section class="rsvp-container">
-            <h2 class="titulo-formal" style="text-align: center;">Confirmar Asistencia</h2>
+            <h2 class="titulo-formal" style="text-align: center; font-size: 1.2rem;">Confirmar Asistencia</h2>
             <form id="rsvpForm">
                 <div id="inputsInvitados"></div>
-                <div style="margin-top: 15px;">
-                    <label style="font-size: 0.7rem; font-weight: 600;">¿ASISTIRÁN?</label>
+                <div class="input-group">
+                    <label>¿ASISTIRÁN?</label>
                     <select id="asistencia" required>
-                        <option value="Sí, confirmamos">Sí, con mucho gusto asistiremos</option>
-                        <option value="No podemos asistir">Lamentablemente no podremos asistir</option>
+                        <option value="Sí, confirmamos">Sí, confirmamos asistencia</option>
+                        <option value="No podemos asistir">Lamentablemente no podemos asistir</option>
                     </select>
                 </div>
-                <button type="button" class="btn-confirmar" onclick="enviarWhatsApp()">CONFIRMAR ASISTENCIA</button>
+                <button type="button" class="btn-confirmar" onclick="enviarWhatsApp()">ENVIAR POR WHATSAPP</button>
             </form>
         </section>
     </div>
@@ -210,9 +217,9 @@
         const contenedor = document.getElementById('inputsInvitados');
         for (let i = 1; i <= pases; i++) {
             const div = document.createElement('div');
-            div.style.marginBottom = "15px";
-            div.innerHTML = `<label style="font-size: 0.7rem; font-weight: 600;">NOMBRE INVITADO ${i}</label>
-                             <input type="text" class="nombre-in" placeholder="Escribe el nombre completo" required>`;
+            div.className = 'input-group';
+            div.innerHTML = `<label>NOMBRE INVITADO ${i}</label>
+                             <input type="text" class="nombre-in" placeholder="Nombre completo" required>`;
             contenedor.appendChild(div);
         }
 
@@ -222,9 +229,9 @@
             let nombres = [];
             inputs.forEach(inp => { if(inp.value.trim() !== "") nombres.push(inp.value.trim()); });
 
-            if(nombres.length === 0) { alert("Por favor escribe el nombre de los invitados."); return; }
+            if(nombres.length === 0) { alert("Ingresa los nombres."); return; }
 
-            const msg = `¡Hola! %0AQueremos confirmar nuestra asistencia para la boda de *Roberto y Ana*.%0A%0A*Estatus*: ${asistencia}%0A*Invitados*: ${nombres.join(', ')}%0A%0A¡Muchas gracias!`;
+            const msg = `¡Hola! %0AConfirmamos asistencia para la boda de *Roberto y Ana*.%0A%0A*Estatus*: ${asistencia}%0A*Invitados*: ${nombres.join(', ')}%0A%0A¡Muchas gracias!`;
             window.open(`https://api.whatsapp.com/send?phone=526682713838&text=${msg}`, '_blank');
         }
     </script>
