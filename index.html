@@ -8,7 +8,6 @@
   <meta name="description" content="Acompáñanos a celebrar nuestra boda. Sábado 25 de abril de 2026 · 8:00 pm · Salón El Tercer Piso, Los Mochis, Sin." />
 
   <!-- Open Graph (WhatsApp/Facebook) -->
-  <!-- IMPORTANTE: sustituye con URLs ABSOLUTAS (https) cuando lo publiques -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Roberto & Ana | Invitación de Boda" />
   <meta property="og:description" content="Sábado 25 de abril de 2026 · 8:00 pm · Salón El Tercer Piso, Los Mochis, Sin." />
@@ -40,9 +39,8 @@
       --shadow: 0 18px 60px rgba(0,0,0,.22);
       --max: 1080px;
 
-      /* Safe padding para que decoraciones NO tapen contenido */
-      --frame-safe: 70px;     /* desktop/tablet */
-      --frame-safe-m: 54px;   /* móvil */
+      --frame-safe: 84px;
+      --frame-safe-m: 58px;
     }
 
     *{ box-sizing: border-box; }
@@ -54,7 +52,7 @@
       font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden; /* evita scroll horizontal por decoraciones */
+      overflow-x: hidden;
     }
     a{ color: inherit; }
     .wrap{ width:min(var(--max), 92vw); margin:0 auto; }
@@ -130,6 +128,8 @@
       opacity: .95;
       margin-top: 10px;
     }
+
+    /* Fix de centrado robusto para el cuadro de cuenta regresiva */
     .hero-card{
       margin: 18px auto 12px;
       width: min(640px, 92vw);
@@ -139,7 +139,10 @@
       border-radius: 14px;
       padding: 16px 14px 14px;
       box-shadow: 0 16px 45px rgba(0,0,0,.30);
+      display: block;
+      max-width: 92vw;
     }
+
     .hero-date{
       color:#fff;
       font-family: "Playfair Display", serif;
@@ -153,6 +156,7 @@
       display:grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 10px;
+      width: 100%;
     }
     .cd{
       border-radius: 14px;
@@ -209,40 +213,26 @@
       z-index: 0;
     }
 
-    /* Importante: el contenido va arriba */
     .frame-inner{
       position: relative;
       z-index: 3;
-      /* Safe padding para evitar que flores/guirnaldas tapen */
-      padding: var(--frame-safe) 22px calc(var(--frame-safe) - 16px);
+      padding: var(--frame-safe) 22px calc(var(--frame-safe) - 18px);
     }
 
-    /* Decoraciones SIEMPRE detrás del contenido */
-    .corner, .garland{
+    /* Rosas blancas (SVG) - detrás del contenido */
+    .roses{
+      position:absolute;
+      width: 260px;
+      height: 260px;
       z-index: 1;
       pointer-events:none;
-      opacity: .70; /* más suave para no “ensuciar” texto */
-    }
-    .corner{
-      position:absolute;
-      width: 230px;
-      height: 230px;
+      opacity: .88;
       filter: drop-shadow(0 10px 18px rgba(0,0,0,.08));
     }
-    .corner.tl{ top:-26px; left:-26px; }
-    .corner.tr{ top:-26px; right:-26px; transform: scaleX(-1); }
-    .corner.bl{ bottom:-26px; left:-26px; transform: scaleY(-1); }
-    .corner.br{ bottom:-26px; right:-26px; transform: scale(-1); }
-
-    .garland{
-      position:absolute;
-      top: 40px;
-      bottom: 40px;
-      width: 86px;
-      filter: drop-shadow(0 8px 14px rgba(0,0,0,.06));
-    }
-    .garland.left{ left: 6px; }
-    .garland.right{ right: 6px; transform: scaleX(-1); }
+    .roses.tl{ top:-28px; left:-28px; }
+    .roses.tr{ top:-28px; right:-28px; transform: scaleX(-1); }
+    .roses.bl{ bottom:-28px; left:-28px; transform: scaleY(-1); }
+    .roses.br{ bottom:-28px; right:-28px; transform: scale(-1); }
 
     .title{
       text-align:center;
@@ -252,6 +242,15 @@
       letter-spacing: 1.2px;
       color: var(--ink);
     }
+    /* "Nos Casamos" cursiva */
+    .title.cursive{
+      font-family: "Playfair Display", serif;
+      font-weight: 400;
+      letter-spacing: .8px;
+      font-size: clamp(38px, 6.2vw, 56px);
+      margin-bottom: 6px;
+    }
+
     .subtitle{
       text-align:center;
       margin: 0 auto 24px;
@@ -283,7 +282,15 @@
       background: rgba(255,255,255,.94);
       padding: 18px 16px;
       box-shadow: 0 10px 30px rgba(0,0,0,.08);
+      width: 100%;
     }
+
+    /* Centrado visual de tarjetas principales en pantallas medianas/pequeñas */
+    .card.centerable{
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
     .label{
       display:inline-flex;
       align-items:center;
@@ -298,6 +305,7 @@
       text-transform: uppercase;
       max-width: 100%;
     }
+
     .info{ margin-top: 12px; display:grid; gap: 12px; }
     .info-row{ display:flex; gap: 12px; align-items:flex-start; }
     .icon{
@@ -326,37 +334,44 @@
       word-break: break-word;
     }
 
-    .cash-envelope{
+    /* Separación: Regalo y Etiqueta en cuadros distintos */
+    .split-cards{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
       margin-top: 12px;
+    }
+    .mini-card{
       border-radius: 16px;
-      border: 1px dashed rgba(176,138,58,.60);
+      border: 1px dashed rgba(176,138,58,.55);
       background:
-        radial-gradient(circle at 20% 10%, rgba(215,160,167,.14), transparent 45%),
-        radial-gradient(circle at 90% 20%, rgba(126,166,200,.14), transparent 45%),
+        radial-gradient(circle at 20% 10%, rgba(215,160,167,.12), transparent 45%),
+        radial-gradient(circle at 90% 20%, rgba(126,166,200,.12), transparent 45%),
         rgba(176,138,58,.06);
       padding: 14px 14px;
     }
-    .cash-envelope .top{
+    .mini-card .top{
       display:flex;
       align-items:center;
       justify-content: space-between;
       gap: 12px;
       margin-bottom: 8px;
     }
-    .cash-envelope .top strong{
+    .mini-card .top strong{
       font-family: "Playfair Display", serif;
       letter-spacing: .6px;
     }
-    .cash-envelope .note{
+    .mini-card .note{
       color: rgba(26,26,26,.78);
       font-size: 14px;
       line-height: 1.6;
     }
+
     .dresscode{
       display:flex;
       gap: 10px;
       align-items:center;
-      justify-content: flex-start;
+      justify-content: center;
       margin-top: 10px;
       flex-wrap: wrap;
     }
@@ -373,7 +388,7 @@
     }
     .badge svg{ width:18px; height:18px; stroke: var(--gold); fill:none; stroke-width: 1.8; }
 
-    .btns{ display:flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+    .btns{ display:flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; justify-content: center; }
     .btn{
       appearance:none;
       border: 1px solid rgba(176,138,58,.55);
@@ -395,6 +410,10 @@
     .btn:hover{ transform: translateY(-1px); box-shadow: 0 12px 26px rgba(0,0,0,.10); }
     .btn:active{ transform: translateY(0px); }
     .btn svg{ width:18px; height:18px; stroke: var(--gold); fill:none; stroke-width: 1.8; }
+    .btn-primary{
+      background: linear-gradient(180deg, rgba(176,138,58,.34), rgba(215,160,167,.12));
+      border: 1px solid rgba(176,138,58,.65);
+    }
 
     .map-wrap{
       position:relative;
@@ -445,7 +464,6 @@
       margin-top: 14px;
       width: 100%;
     }
-
     .field{ display:flex; flex-direction: column; gap: 6px; min-width: 0; }
     label{
       font-size: 12px;
@@ -476,7 +494,7 @@
       border-radius: 16px;
       border: 1px solid rgba(176,138,58,.28);
       background: rgba(176,138,58,.06);
-      justify-content: center; /* mejor centrado */
+      justify-content: center;
       text-align:center;
     }
     .radio-row span{
@@ -485,7 +503,6 @@
       letter-spacing: 1.6px;
       text-transform: uppercase;
       color: rgba(26,26,26,.72);
-      margin-right: 0;
     }
     .radio{
       display:flex;
@@ -504,12 +521,7 @@
       gap: 10px;
       flex-wrap: wrap;
       margin-top: 4px;
-      justify-content: center; /* centra botones en móvil */
-    }
-
-    .btn-primary{
-      background: linear-gradient(180deg, rgba(176,138,58,.34), rgba(215,160,167,.12));
-      border: 1px solid rgba(176,138,58,.65);
+      justify-content: center;
     }
 
     .footnote{
@@ -553,9 +565,17 @@
       font-size: 14px;
     }
 
-    /* ---------- MOBILE TUNING ---------- */
+    /* ---------- MOBILE ---------- */
     @media (max-width: 820px){
       .countdown{ grid-template-columns: repeat(2, 1fr); }
+
+      /* Centrado “a prueba de navegador” del hero-card */
+      .hero-card{
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
       form{ grid-template-columns: 1fr; }
     }
 
@@ -563,29 +583,14 @@
       .section{ padding: 52px 0; }
       .frame-inner{ padding: var(--frame-safe-m) 16px calc(var(--frame-safe-m) - 10px); }
 
-      /* reduce decoraciones para que no invadan */
-      .garland{ width: 64px; opacity: .55; }
-      .garland.left{ left: 2px; }
-      .garland.right{ right: 2px; }
-      .corner{ width: 170px; height: 170px; opacity: .55; }
-
+      .roses{ width: 200px; height: 200px; opacity: .78; }
       .card{ padding: 16px 14px; }
       .rsvp-panel{ padding: 18px 14px; }
 
-      /* IMPORTANTE: nombres dinámicos a 1 columna */
-      #namesContainer{
-        grid-template-columns: 1fr !important;
-      }
+      #namesContainer{ grid-template-columns: 1fr !important; }
 
-      /* botones a ancho completo en móvil para que no se corten */
-      .btn{
-        width: 100%;
-        justify-content: center;
-      }
-
-      .btns .btn{
-        width: 100%;
-      }
+      .btn{ width: 100%; justify-content: center; }
+      .btns .btn{ width: 100%; }
     }
   </style>
 </head>
@@ -632,132 +637,125 @@
     <div class="wrap">
       <section class="frame" aria-label="Invitación">
 
-        <!-- Guirnaldas laterales -->
-        <svg class="garland left" viewBox="0 0 120 520" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Rosas blancas (4 esquinas) -->
+        <!-- SVG “rosa blanca” con degradados -->
+        <svg class="roses tl" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <defs>
-            <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#b08a3a" stop-opacity=".55"/>
-              <stop offset="1" stop-color="#7ea6c8" stop-opacity=".35"/>
+            <radialGradient id="petal" cx="40%" cy="35%" r="70%">
+              <stop offset="0" stop-color="#ffffff"/>
+              <stop offset="0.55" stop-color="#f3f3f3"/>
+              <stop offset="1" stop-color="#dedede"/>
+            </radialGradient>
+            <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#7e9a86"/>
+              <stop offset="1" stop-color="#5e7e6a"/>
             </linearGradient>
           </defs>
-          <path d="M70 10c-18 40-18 80 0 120s18 80 0 120-18 80 0 120-18 80 0 120-18 80 0 120"
-                fill="none" stroke="url(#g1)" stroke-width="3" stroke-linecap="round"/>
-          <g fill="none" stroke="#7e9a86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".9">
-            <path d="M62 70c-18 6-28 16-30 30 18-6 28-16 30-30z"/>
-            <path d="M76 140c18 6 28 16 30 30-18-6-28-16-30-30z"/>
-            <path d="M62 230c-18 6-28 16-30 30 18-6 28-16 30-30z"/>
-            <path d="M76 300c18 6 28 16 30 30-18-6-28-16-30-30z"/>
-            <path d="M62 390c-18 6-28 16-30 30 18-6 28-16 30-30z"/>
-            <path d="M76 460c18 6 28 16 30 30-18-6-28-16-30-30z"/>
+          <!-- hojas -->
+          <path d="M52 182c30-24 52-26 84-18-28 22-52 30-84 18Z" fill="url(#leaf)" opacity=".85"/>
+          <path d="M92 210c24-18 44-18 70-10-22 18-44 24-70 10Z" fill="url(#leaf)" opacity=".75"/>
+          <!-- tallo dorado -->
+          <path d="M62 200c30-54 62-92 118-122" fill="none" stroke="#b08a3a" stroke-opacity=".55" stroke-width="3" stroke-linecap="round"/>
+          <!-- flor -->
+          <g transform="translate(70 48)">
+            <path d="M66 20c18 10 24 30 8 44-14 12-34 10-46-4-14-16-4-34 14-40 8-3 16-3 24 0Z" fill="url(#petal)"/>
+            <path d="M44 38c14 8 18 22 6 32-10 9-24 7-32-3-10-12-3-24 10-28 6-2 11-2 16-1Z" fill="url(#petal)" opacity=".95"/>
+            <path d="M54 54c10 6 12 16 4 22-7 6-16 5-22-2-7-8-2-16 7-19 4-1 8-1 11-1Z" fill="url(#petal)" opacity=".92"/>
+            <circle cx="54" cy="60" r="7" fill="#f7f2e6" opacity=".85"/>
           </g>
-          <g opacity=".95">
-            <circle cx="52" cy="110" r="10" fill="#d7a0a7" fill-opacity=".35"/>
-            <circle cx="82" cy="110" r="7" fill="#9c8cc3" fill-opacity=".30"/>
-            <circle cx="50" cy="270" r="9" fill="#7ea6c8" fill-opacity=".35"/>
-            <circle cx="82" cy="270" r="7" fill="#d8b56b" fill-opacity=".35"/>
-            <circle cx="52" cy="430" r="10" fill="#d7a0a7" fill-opacity=".32"/>
-            <circle cx="82" cy="430" r="7" fill="#7ea6c8" fill-opacity=".30"/>
+          <!-- flor secundaria -->
+          <g transform="translate(140 80) scale(.85)">
+            <path d="M40 10c14 8 18 22 6 32-10 9-24 7-32-3-10-12-3-24 10-28 6-2 11-2 16-1Z" fill="url(#petal)"/>
+            <path d="M48 28c10 6 12 16 4 22-7 6-16 5-22-2-7-8-2-16 7-19 4-1 8-1 11-1Z" fill="url(#petal)" opacity=".92"/>
+            <circle cx="48" cy="32" r="6" fill="#f7f2e6" opacity=".85"/>
           </g>
         </svg>
-
-        <svg class="garland right" viewBox="0 0 120 520" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <svg class="roses tr" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <use href="#"></use>
+          <!-- duplicado por compatibilidad: reutilizo mismo contenido copiándolo -->
           <defs>
-            <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#b08a3a" stop-opacity=".55"/>
-              <stop offset="1" stop-color="#7ea6c8" stop-opacity=".35"/>
+            <radialGradient id="petal2" cx="40%" cy="35%" r="70%">
+              <stop offset="0" stop-color="#ffffff"/>
+              <stop offset="0.55" stop-color="#f3f3f3"/>
+              <stop offset="1" stop-color="#dedede"/>
+            </radialGradient>
+            <linearGradient id="leaf2" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#7e9a86"/>
+              <stop offset="1" stop-color="#5e7e6a"/>
             </linearGradient>
           </defs>
-          <path d="M70 10c-18 40-18 80 0 120s18 80 0 120-18 80 0 120-18 80 0 120-18 80 0 120"
-                fill="none" stroke="url(#g2)" stroke-width="3" stroke-linecap="round"/>
-          <g fill="none" stroke="#7e9a86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".9">
-            <path d="M62 70c-18 6-28 16-30 30 18-6 28-16 30-30z"/>
-            <path d="M76 140c18 6 28 16 30 30-18-6-28-16-30-30z"/>
-            <path d="M62 230c-18 6-28 16-30 30 18-6 28-16 30-30z"/>
-            <path d="M76 300c18 6 28 16 30 30-18-6-28-16-30-30z"/>
-            <path d="M62 390c-18 6-28 16-30 30 18-6 28-16 30-30z"/>
-            <path d="M76 460c18 6 28 16 30 30-18-6-28-16-30-30z"/>
+          <path d="M52 182c30-24 52-26 84-18-28 22-52 30-84 18Z" fill="url(#leaf2)" opacity=".85"/>
+          <path d="M92 210c24-18 44-18 70-10-22 18-44 24-70 10Z" fill="url(#leaf2)" opacity=".75"/>
+          <path d="M62 200c30-54 62-92 118-122" fill="none" stroke="#b08a3a" stroke-opacity=".55" stroke-width="3" stroke-linecap="round"/>
+          <g transform="translate(70 48)">
+            <path d="M66 20c18 10 24 30 8 44-14 12-34 10-46-4-14-16-4-34 14-40 8-3 16-3 24 0Z" fill="url(#petal2)"/>
+            <path d="M44 38c14 8 18 22 6 32-10 9-24 7-32-3-10-12-3-24 10-28 6-2 11-2 16-1Z" fill="url(#petal2)" opacity=".95"/>
+            <path d="M54 54c10 6 12 16 4 22-7 6-16 5-22-2-7-8-2-16 7-19 4-1 8-1 11-1Z" fill="url(#petal2)" opacity=".92"/>
+            <circle cx="54" cy="60" r="7" fill="#f7f2e6" opacity=".85"/>
           </g>
-          <g opacity=".95">
-            <circle cx="52" cy="110" r="10" fill="#d7a0a7" fill-opacity=".35"/>
-            <circle cx="82" cy="110" r="7" fill="#9c8cc3" fill-opacity=".30"/>
-            <circle cx="50" cy="270" r="9" fill="#7ea6c8" fill-opacity=".35"/>
-            <circle cx="82" cy="270" r="7" fill="#d8b56b" fill-opacity=".35"/>
-            <circle cx="52" cy="430" r="10" fill="#d7a0a7" fill-opacity=".32"/>
-            <circle cx="82" cy="430" r="7" fill="#7ea6c8" fill-opacity=".30"/>
+          <g transform="translate(140 80) scale(.85)">
+            <path d="M40 10c14 8 18 22 6 32-10 9-24 7-32-3-10-12-3-24 10-28 6-2 11-2 16-1Z" fill="url(#petal2)"/>
+            <path d="M48 28c10 6 12 16 4 22-7 6-16 5-22-2-7-8-2-16 7-19 4-1 8-1 11-1Z" fill="url(#petal2)" opacity=".92"/>
+            <circle cx="48" cy="32" r="6" fill="#f7f2e6" opacity=".85"/>
           </g>
         </svg>
-
-        <!-- Esquinas florales -->
-        <svg class="corner tl" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <g fill="none" stroke="#b08a3a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M50 175c12-38 36-64 78-78"/>
-            <path d="M56 170c14-18 30-30 52-38"/>
-            <path d="M92 132c2 20-9 38-28 42 0-20 12-38 28-42z"/>
-            <path d="M124 104c-2 20 9 38 28 42 0-20-12-38-28-42z"/>
-            <path d="M76 196c8-24 22-42 50-54"/>
-            <path d="M96 198c10-12 22-20 38-22"/>
+        <svg class="roses bl" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <radialGradient id="petal3" cx="40%" cy="35%" r="70%">
+              <stop offset="0" stop-color="#ffffff"/>
+              <stop offset="0.55" stop-color="#f3f3f3"/>
+              <stop offset="1" stop-color="#dedede"/>
+            </radialGradient>
+            <linearGradient id="leaf3" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#7e9a86"/>
+              <stop offset="1" stop-color="#5e7e6a"/>
+            </linearGradient>
+          </defs>
+          <path d="M52 182c30-24 52-26 84-18-28 22-52 30-84 18Z" fill="url(#leaf3)" opacity=".85"/>
+          <path d="M92 210c24-18 44-18 70-10-22 18-44 24-70 10Z" fill="url(#leaf3)" opacity=".75"/>
+          <path d="M62 200c30-54 62-92 118-122" fill="none" stroke="#b08a3a" stroke-opacity=".55" stroke-width="3" stroke-linecap="round"/>
+          <g transform="translate(70 48)">
+            <path d="M66 20c18 10 24 30 8 44-14 12-34 10-46-4-14-16-4-34 14-40 8-3 16-3 24 0Z" fill="url(#petal3)"/>
+            <path d="M44 38c14 8 18 22 6 32-10 9-24 7-32-3-10-12-3-24 10-28 6-2 11-2 16-1Z" fill="url(#petal3)" opacity=".95"/>
+            <path d="M54 54c10 6 12 16 4 22-7 6-16 5-22-2-7-8-2-16 7-19 4-1 8-1 11-1Z" fill="url(#petal3)" opacity=".92"/>
+            <circle cx="54" cy="60" r="7" fill="#f7f2e6" opacity=".85"/>
           </g>
-          <g>
-            <circle cx="70" cy="185" r="12" fill="#d7a0a7" fill-opacity=".30"/>
-            <circle cx="112" cy="140" r="10" fill="#7ea6c8" fill-opacity=".30"/>
-            <circle cx="144" cy="122" r="8" fill="#9c8cc3" fill-opacity=".26"/>
-            <circle cx="92" cy="158" r="7" fill="#7e9a86" fill-opacity=".25"/>
-          </g>
-        </svg>
-
-        <svg class="corner tr" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <g fill="none" stroke="#b08a3a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M50 175c12-38 36-64 78-78"/>
-            <path d="M56 170c14-18 30-30 52-38"/>
-            <path d="M92 132c2 20-9 38-28 42 0-20 12-38 28-42z"/>
-            <path d="M124 104c-2 20 9 38 28 42 0-20-12-38-28-42z"/>
-            <path d="M76 196c8-24 22-42 50-54"/>
-            <path d="M96 198c10-12 22-20 38-22"/>
-          </g>
-          <g>
-            <circle cx="70" cy="185" r="12" fill="#d7a0a7" fill-opacity=".30"/>
-            <circle cx="112" cy="140" r="10" fill="#7ea6c8" fill-opacity=".30"/>
-            <circle cx="144" cy="122" r="8" fill="#9c8cc3" fill-opacity=".26"/>
-            <circle cx="92" cy="158" r="7" fill="#7e9a86" fill-opacity=".25"/>
+          <g transform="translate(140 80) scale(.85)">
+            <path d="M40 10c14 8 18 22 6 32-10 9-24 7-32-3-10-12-3-24 10-28 6-2 11-2 16-1Z" fill="url(#petal3)"/>
+            <path d="M48 28c10 6 12 16 4 22-7 6-16 5-22-2-7-8-2-16 7-19 4-1 8-1 11-1Z" fill="url(#petal3)" opacity=".92"/>
+            <circle cx="48" cy="32" r="6" fill="#f7f2e6" opacity=".85"/>
           </g>
         </svg>
-
-        <svg class="corner bl" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <g fill="none" stroke="#b08a3a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M50 175c12-38 36-64 78-78"/>
-            <path d="M56 170c14-18 30-30 52-38"/>
-            <path d="M92 132c2 20-9 38-28 42 0-20 12-38 28-42z"/>
-            <path d="M124 104c-2 20 9 38 28 42 0-20-12-38-28-42z"/>
-            <path d="M76 196c8-24 22-42 50-54"/>
-            <path d="M96 198c10-12 22-20 38-22"/>
+        <svg class="roses br" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <radialGradient id="petal4" cx="40%" cy="35%" r="70%">
+              <stop offset="0" stop-color="#ffffff"/>
+              <stop offset="0.55" stop-color="#f3f3f3"/>
+              <stop offset="1" stop-color="#dedede"/>
+            </radialGradient>
+            <linearGradient id="leaf4" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#7e9a86"/>
+              <stop offset="1" stop-color="#5e7e6a"/>
+            </linearGradient>
+          </defs>
+          <path d="M52 182c30-24 52-26 84-18-28 22-52 30-84 18Z" fill="url(#leaf4)" opacity=".85"/>
+          <path d="M92 210c24-18 44-18 70-10-22 18-44 24-70 10Z" fill="url(#leaf4)" opacity=".75"/>
+          <path d="M62 200c30-54 62-92 118-122" fill="none" stroke="#b08a3a" stroke-opacity=".55" stroke-width="3" stroke-linecap="round"/>
+          <g transform="translate(70 48)">
+            <path d="M66 20c18 10 24 30 8 44-14 12-34 10-46-4-14-16-4-34 14-40 8-3 16-3 24 0Z" fill="url(#petal4)"/>
+            <path d="M44 38c14 8 18 22 6 32-10 9-24 7-32-3-10-12-3-24 10-28 6-2 11-2 16-1Z" fill="url(#petal4)" opacity=".95"/>
+            <path d="M54 54c10 6 12 16 4 22-7 6-16 5-22-2-7-8-2-16 7-19 4-1 8-1 11-1Z" fill="url(#petal4)" opacity=".92"/>
+            <circle cx="54" cy="60" r="7" fill="#f7f2e6" opacity=".85"/>
           </g>
-          <g>
-            <circle cx="70" cy="185" r="12" fill="#d7a0a7" fill-opacity=".30"/>
-            <circle cx="112" cy="140" r="10" fill="#7ea6c8" fill-opacity=".30"/>
-            <circle cx="144" cy="122" r="8" fill="#9c8cc3" fill-opacity=".26"/>
-            <circle cx="92" cy="158" r="7" fill="#7e9a86" fill-opacity=".25"/>
-          </g>
-        </svg>
-
-        <svg class="corner br" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <g fill="none" stroke="#b08a3a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M50 175c12-38 36-64 78-78"/>
-            <path d="M56 170c14-18 30-30 52-38"/>
-            <path d="M92 132c2 20-9 38-28 42 0-20 12-38 28-42z"/>
-            <path d="M124 104c-2 20 9 38 28 42 0-20-12-38-28-42z"/>
-            <path d="M76 196c8-24 22-42 50-54"/>
-            <path d="M96 198c10-12 22-20 38-22"/>
-          </g>
-          <g>
-            <circle cx="70" cy="185" r="12" fill="#d7a0a7" fill-opacity=".30"/>
-            <circle cx="112" cy="140" r="10" fill="#7ea6c8" fill-opacity=".30"/>
-            <circle cx="144" cy="122" r="8" fill="#9c8cc3" fill-opacity=".26"/>
-            <circle cx="92" cy="158" r="7" fill="#7e9a86" fill-opacity=".25"/>
+          <g transform="translate(140 80) scale(.85)">
+            <path d="M40 10c14 8 18 22 6 32-10 9-24 7-32-3-10-12-3-24 10-28 6-2 11-2 16-1Z" fill="url(#petal4)"/>
+            <path d="M48 28c10 6 12 16 4 22-7 6-16 5-22-2-7-8-2-16 7-19 4-1 8-1 11-1Z" fill="url(#petal4)" opacity=".92"/>
+            <circle cx="48" cy="32" r="6" fill="#f7f2e6" opacity=".85"/>
           </g>
         </svg>
 
         <div class="frame-inner">
-          <h2 class="title">Nos Casamos</h2>
+          <h2 class="title cursive">Nos Casamos</h2>
           <p class="subtitle">
             Con alegría en el corazón, queremos invitarte a celebrar con nosotros el inicio de una nueva etapa.
             Tu presencia será un regalo invaluable.
@@ -766,7 +764,8 @@
           <div class="divider"></div>
 
           <div class="grid">
-            <div class="card">
+            <!-- Detalles centrados -->
+            <div class="card centerable">
               <div class="label">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="stroke:var(--gold);stroke-width:1.8;">
                   <path d="M8 7V3m8 4V3M4 9h16M6 21h12a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2Z"/>
@@ -805,39 +804,44 @@
                   </div>
                 </div>
 
-                <div class="cash-envelope" aria-label="Sobre de regalo">
-                  <div class="top">
-                    <strong>Regalo</strong>
-                    <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="none" style="stroke:var(--gold);stroke-width:1.8;">
-                      <path d="M4 8h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8Z"/>
-                      <path d="m4 8 8 6 8-6"/>
-                    </svg>
-                  </div>
-                  <div class="note">
-                    Agradeceremos que el regalo sea en <strong>efectivo</strong>, presentado en sobre.
+                <!-- Regalo separado -->
+                <div class="split-cards">
+                  <div class="mini-card" aria-label="Sobre de regalo">
+                    <div class="top">
+                      <strong>Regalo</strong>
+                      <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="none" style="stroke:var(--gold);stroke-width:1.8;">
+                        <path d="M4 8h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8Z"/>
+                        <path d="m4 8 8 6 8-6"/>
+                      </svg>
+                    </div>
+                    <div class="note">
+                      Agradeceremos que el regalo sea en <strong>efectivo</strong>, presentado en sobre.
+                    </div>
                   </div>
 
-                  <div class="dresscode" aria-label="Etiqueta">
-                    <div class="badge">
-                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <div class="mini-card" aria-label="Etiqueta formal">
+                    <div class="top">
+                      <strong>Etiqueta</strong>
+                      <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="none" style="stroke:var(--gold);stroke-width:1.8;">
                         <path d="M9 3 7 6 9 9l-3 12h12L15 9l2-3-2-3-3 4-3-4Z"/>
                         <path d="M12 7v14"/>
                       </svg>
-                      Etiqueta formal
                     </div>
-                    <div class="badge" aria-label="Smoking">
-                      <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M7 4h10l-2 6v10H9V10L7 4Z"/>
-                        <path d="M10 10h4"/>
-                      </svg>
-                      Smoking
-                    </div>
-                    <div class="badge" aria-label="Vestido">
-                      <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M12 3c2 3 3 5 3 7l3 10H6l3-10c0-2 1-4 3-7Z"/>
-                        <path d="M9 10h6"/>
-                      </svg>
-                      Vestido
+                    <div class="dresscode">
+                      <div class="badge" aria-label="Smoking">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M7 4h10l-2 6v10H9V10L7 4Z"/>
+                          <path d="M10 10h4"/>
+                        </svg>
+                        Smoking
+                      </div>
+                      <div class="badge" aria-label="Vestido">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M12 3c2 3 3 5 3 7l3 10H6l3-10c0-2 1-4 3-7Z"/>
+                          <path d="M9 10h6"/>
+                        </svg>
+                        Vestido
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -853,7 +857,8 @@
               </div>
             </div>
 
-            <div class="card">
+            <!-- Ubicación centrada -->
+            <div class="card centerable">
               <div class="label">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="stroke:var(--gold);stroke-width:1.8;">
                   <path d="M12 21s7-4.4 7-11a7 7 0 1 0-14 0c0 6.6 7 11 7 11Z"/>
@@ -888,17 +893,18 @@
                     Abrir en Maps
                   </a>
 
-                  <button class="btn" id="btnCalendar" type="button">
+                  <!-- Google Calendar link (sin .ics) -->
+                  <a class="btn btn-primary" id="btnGoogleCal" target="_blank" rel="noopener noreferrer" href="#">
                     <svg viewBox="0 0 24 24" aria-hidden="true">
                       <path d="M8 7V3m8 4V3M4 9h16M6 21h12a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2Z"/>
                       <path d="M8 13h4m-4 4h8"/>
                     </svg>
-                    Agendar en calendario
-                  </button>
+                    Agendar en Google Calendar
+                  </a>
                 </div>
 
                 <p style="margin:6px 0 0;color:rgba(26,26,26,.62);font-size:12px;line-height:1.6; text-align:center;">
-                  Nota: el botón de calendario descarga un archivo <strong>.ics</strong>.
+                  Se abrirá Google Calendar con el evento listo para guardar.
                 </p>
               </div>
             </div>
@@ -913,7 +919,7 @@
     <div class="rsvp-panel">
       <h2 class="title" style="margin-bottom:6px;">Confirmación de asistencia</h2>
       <p class="subtitle" style="margin-bottom:0;">
-        Confirma tu asistencia. Este enlace controla el número de invitados con <strong>?num=1</strong> o <strong>?num=2</strong>.
+        Confirma tu asistencia.
       </p>
 
       <form id="rsvpForm" autocomplete="on">
@@ -989,9 +995,12 @@
   </div>
 
   <script>
+    // ---------------------------
+    // CONFIG
+    // ---------------------------
     const EVENT_TITLE = "Boda de Roberto & Ana";
-    const EVENT_DATE_LOCAL = "2026-04-25T20:00:00";
-    const EVENT_DURATION_MIN = 240;
+    const EVENT_DATE_LOCAL = "2026-04-25T20:00:00"; // hora local del dispositivo
+    const EVENT_DURATION_MIN = 240; // 4 horas
     const EVENT_LOCATION = "Salón El Tercer Piso, Av A. Serdán Pte & Avenida Ignacio Zaragoza, Centro, 81200 Los Mochis, Sin.";
     const EVENT_DESC =
       "Boda de Roberto & Ana.\n" +
@@ -1000,11 +1009,14 @@
 
     const WHATSAPP_NUMBER = "526682713838";
 
+    // ---------------------------
+    // Invitados por URL (estricto 1 o 2)
+    // ---------------------------
     function getNumFromQuery(){
       const p = new URLSearchParams(window.location.search);
       let n = parseInt(p.get("num") || "2", 10);
       if (Number.isNaN(n)) n = 2;
-      n = (n === 1) ? 1 : 2; // estricto 1 o 2 como pediste
+      n = (n === 1) ? 1 : 2;
       return n;
     }
 
@@ -1029,6 +1041,9 @@
       sel.title = "Este valor está controlado por el enlace (?num=1 o ?num=2).";
     }
 
+    // ---------------------------
+    // COUNTDOWN
+    // ---------------------------
     const target = new Date(EVENT_DATE_LOCAL).getTime();
     const pad2 = (n) => String(n).padStart(2, "0");
 
@@ -1055,54 +1070,45 @@
     tick();
     setInterval(tick, 1000);
 
-    function toICSDate(dt){
-      const y = dt.getUTCFullYear();
-      const mo = pad2(dt.getUTCMonth() + 1);
-      const d = pad2(dt.getUTCDate());
-      const h = pad2(dt.getUTCHours());
-      const mi = pad2(dt.getUTCMinutes());
-      const s = pad2(dt.getUTCSeconds());
-      return `${y}${mo}${d}T${h}${mi}${s}Z`;
+    // ---------------------------
+    // Google Calendar link (TEMPLATE)
+    // ---------------------------
+    function formatGoogleDateRange(startLocalStr, durationMin){
+      // Google Calendar espera UTC en formato YYYYMMDDTHHMMSSZ
+      const start = new Date(startLocalStr);
+      const end = new Date(start.getTime() + durationMin * 60 * 1000);
+
+      const toG = (d) => {
+        const y = d.getUTCFullYear();
+        const mo = pad2(d.getUTCMonth()+1);
+        const da = pad2(d.getUTCDate());
+        const hh = pad2(d.getUTCHours());
+        const mi = pad2(d.getUTCMinutes());
+        const ss = pad2(d.getUTCSeconds());
+        return `${y}${mo}${da}T${hh}${mi}${ss}Z`;
+      };
+      return `${toG(start)}/${toG(end)}`;
     }
 
-    document.getElementById("btnCalendar").addEventListener("click", () => {
-      const startLocal = new Date(EVENT_DATE_LOCAL);
-      const endLocal = new Date(startLocal.getTime() + EVENT_DURATION_MIN * 60 * 1000);
+    function buildGoogleCalendarUrl(){
+      const dates = formatGoogleDateRange(EVENT_DATE_LOCAL, EVENT_DURATION_MIN);
 
-      const uid = `roberto-ana-${startLocal.getTime()}@invitacion`;
-      const dtstamp = toICSDate(new Date());
+      const base = "https://calendar.google.com/calendar/render?action=TEMPLATE";
+      const params = new URLSearchParams({
+        text: EVENT_TITLE,
+        dates: dates,
+        details: EVENT_DESC,
+        location: EVENT_LOCATION
+      });
+      return `${base}&${params.toString()}`;
+    }
 
-      const ics =
-`BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//Invitacion Roberto y Ana//ES
-CALSCALE:GREGORIAN
-METHOD:PUBLISH
-BEGIN:VEVENT
-UID:${uid}
-DTSTAMP:${dtstamp}
-DTSTART:${toICSDate(startLocal)}
-DTEND:${toICSDate(endLocal)}
-SUMMARY:${EVENT_TITLE}
-LOCATION:${EVENT_LOCATION.replace(/\n/g, " ")}
-DESCRIPTION:${EVENT_DESC.replace(/\n/g, "\\n")}
-END:VEVENT
-END:VCALENDAR`;
-
-      const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
-      const url = URL.createObjectURL(blob);
-
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "Boda_Roberto_y_Ana.ics";
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      URL.revokeObjectURL(url);
-    });
-
+    // ---------------------------
+    // RSVP -> WhatsApp
+    // ---------------------------
     document.getElementById("rsvpForm").addEventListener("submit", (e) => {
       e.preventDefault();
+
       const form = e.currentTarget;
       const asistencia = form.elements["asistencia"].value;
       const mensaje = form.elements["mensaje"].value.trim();
@@ -1128,11 +1134,13 @@ END:VCALENDAR`;
         `Lugar: ${lugarTexto}\n` +
         (mensaje ? `\nMensaje: ${mensaje}\n` : "");
 
-      const waUrl = `https://wa.me/526682713838?text=${encodeURIComponent(text)}`;
+      const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
       window.open(waUrl, "_blank", "noopener,noreferrer");
     });
 
-    // AUDIO fallback
+    // ---------------------------
+    // AUDIO AUTOPLAY (fallback)
+    // ---------------------------
     const audio = document.getElementById("bgAudio");
     const overlay = document.getElementById("audioOverlay");
     const btnPlay = document.getElementById("btnPlayAudio");
@@ -1156,6 +1164,7 @@ END:VCALENDAR`;
 
     window.addEventListener("load", () => {
       renderNameFields(getNumFromQuery());
+      document.getElementById("btnGoogleCal").href = buildGoogleCalendarUrl();
       tryAutoplay();
     });
   </script>
